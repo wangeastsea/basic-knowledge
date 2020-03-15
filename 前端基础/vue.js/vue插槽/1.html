@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>父组件模板的内容在父组件作用域内编译；子组件模板的内容在子组件作用域内编译。</title>
+</head>
+
+<body>
+  <!-- <child-component v-show="someChildProperty"></child-component> -->
+  <!-- 假定 someChildProperty 是子组件的属性，上例不会如预期那样工作。父组件模板并不感知子组件的状态。 -->
+  <!-- 如果要绑定子组件作用域内的指令到一个组件的根节点，你应当在子组件自己的模板里做： -->
+  <!-- <script>
+    Vue.component('child-component', {
+      // 有效，因为是在正确的作用域内
+      template: '<div v-show="someChildProperty">Child</div>',
+      data: function () {
+        return {
+          someChildProperty: true
+        }
+      }
+    })
+  </script> -->
+
+   <!-- 类似地，被分发的内容会在父作用域内编译。 -->
+</body>
+
+</html>

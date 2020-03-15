@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        /*:first-of-type表示一组兄弟元素中其类型的第一个元素*/
+        p:first-of-type {
+            color: red;
+        }
+
+        /*div 表示父级，b:first-of-type表示b这种类型的标签第一次出现*/
+        div b:first-of-type {
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+<h2>Heading</h2>
+
+<p>Paragraph</p>
+
+<p>Paragraph</p>
+
+<div>
+    <span>This `span` is first!</span>
+    <span>But this `span` isn't.</span>
+    <span>This <em>nested `em` is</em>!</span>
+    <span>And so is this <span>nested `span`</span>!</span>
+    <b>This `b` qualifies!</b>
+    <b>This `b` qualifies!</b>
+    <span>This final `span` does not.</span>
+</div>
+</body>
+</html>

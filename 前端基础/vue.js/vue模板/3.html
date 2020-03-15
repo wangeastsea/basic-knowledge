@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>template</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+  <div id="template"></div>
+  <script>
+    Vue.component('my-component', {
+      props: ['param'],
+      template: `
+        <div>A custom component{{param}}</div>
+      `
+    })
+    new Vue({
+      el: '#template',
+      data: {
+        name: 'donghai'
+      },
+      components: {
+        'se-com': {
+          props: ['param'],
+          template: `<div>我是第二个组件{{param}}</div>`
+        }
+      },
+      // 字符串模板，替换全部的模板
+      template: `
+      <ol>
+        <tr is="my-component" :param="name"></tr>
+        <tr is="se-com" :param="name" ></tr>
+        <se-com :param="name"></se-com>
+      </ol>
+      `
+    })
+  </script>
+</body>
+</html>

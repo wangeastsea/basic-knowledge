@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="d">{{name}}</div>
+  <script>
+    // 用来在一个实例被创建之后执行代码
+    // 使用外部模版
+   const vm = new Vue({
+      data: {name: 'wangdonghai'},
+      created () {
+        console.log(this.name)
+      }
+    })
+    vm.$mount('#d')
+  </script>
+</body>
+
+</html>

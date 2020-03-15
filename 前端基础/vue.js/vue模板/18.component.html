@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="components-demo">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <!-- 注意当点击按钮时，每个组件都会各自独立维护它的 count。
+        因为你每用一次组件，就会有一个它的新实例被创建。 -->
+    </div>
+    <script>
+        // 定义一个名为 button-counter 的新组件,其为一个可以复用的vue实例
+        // 因为组件是可复用的 Vue 实例，所以它们与 new Vue 接收相同的选项，
+        // 例如 data、computed、watch、methods 以及生命周期钩子等。仅有的例外是像 el 这样根实例特有的选项
+        // 全局注册的组件可以用在其被注册之后的任何 (通过 new Vue) 新创建的 Vue 根实例，
+        // 也包括其组件树中的所有子组件的模板中。
+        Vue.component('button-counter', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+        })
+        new Vue({
+            el: '#components-demo'
+        })
+    </script>
+</body>
+
+</html>

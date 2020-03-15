@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>only-child</title>
+    <style>
+        /*CSS伪类:only-child代表了属于某个父元素的唯一一个子元素*/
+        /*main :only-child {*/
+            /*color: red;*/
+        /*}*/
+
+        li li {
+            list-style-type: disc;
+        }
+
+        li:only-child {
+            color: red;
+            list-style-type: square;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <!--<div>-->
+    <!--<i>I am a lonely only child.</i>-->
+    <!--</div>-->
+
+    <!--<div>-->
+    <!--<i>I have siblings.</i><br>-->
+
+    <!--<span>I also have siblings, <span>but th<b>So do I!</b><br>is is an only child.</span></span>-->
+    <!--</div>-->
+
+    <ol>
+        <li>First
+            <ul>
+                <li>This list has just one element.
+            </ul>
+        </li>
+        <li>Second
+            <ul>
+                <li>This list has three elements.
+                <li>This list has three elements.
+                <li>This list has three elements.
+            </ul>
+        </li>
+    </ol>
+</main>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <style>
+        ol {
+            padding: 0px;
+            margin: 0px;
+            list-style-type: none;
+        }
+
+        li {
+            padding: 5px;
+            background-color: olivedrab;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d"></div>
+    <script>
+        var data = {
+            checked: false,
+            name: 'donghai',
+            options: [{
+                value: '选项1',
+                label: '黄金糕'
+            }, {
+                value: '选项2',
+                label: '双皮奶'
+            }, {
+                value: '选项3',
+                label: '蚵仔煎'
+            }, {
+                value: '选项4',
+                label: '龙须面'
+            }, {
+                value: '选项5',
+                label: '北京烤鸭'
+            }],
+            value123: '选项5',
+            list: [{
+                    id: 0,
+                    text: '蔬菜'
+                },
+                {
+                    id: 1,
+                    text: '苹果'
+                },
+                {
+                    id: 2,
+                    text: '橘子'
+                },
+                {
+                    id: 3,
+                    text: '咸菜'
+                },
+                {
+                    id: 4,
+                    text: '鸡蛋'
+                }
+            ],
+            rawHtml: `<span style="color:#ff0000">This should be red</span>`,
+            nameList: [],
+            gender: '',
+            selected: [],
+            optionList: [{
+                    text: 1,
+                    value: 'A'
+                },
+                {
+                    text: 2,
+                    value: 'B'
+                },
+                {
+                    text: 3,
+                    value: 'C'
+                },
+                {
+                    text: 4,
+                    value: 'D'
+                }
+            ],
+            selectedList: [],
+            toggle: ''
+        }
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{todo.text}}</li>',
+            mounted() {
+                console.log(this)
+            }
+        })
+        var vm = new Vue({
+            el: '#d',
+            data: data,
+            template: `
+      <div>
+        <input type="checkbox" v-model="checked">
+        <span>{{checked}}</span>
+        <input type="button" value="按钮" @click='clickHandler'/>
+        <input type="text" v-model="name"/>
+        <span>{{nameReverse}}</span>
+        <ol>
+          <todo-item v-for='item in list' :todo='item' :key="item.id"></todo-item>
+        </ol>
+        <p>{{rawHtml}}</p>
+        <p><div v-html="rawHtml"></div></p>
+        <div>
+          <input type="checkbox" id="input1" value="donghai" v-model="nameList"/>
+          <label for="input1">donghai</label>
+          <input type="checkbox" id="input2" value="menzhu" v-model="nameList"/>
+          <label for="input2">donghai</label>
+          <input type="checkbox" id="input3" value="abc" v-model="nameList"/>
+          <label for="input3">donghai</label><br/>
+          <span>{{nameList}}</span>
+        </div>
+        <div>
+          <input type="radio" id="male" value="male" v-model="gender"/>
+          <label for="male">male</label>
+          <input type="radio" id="female" value="female" v-model="gender"/>
+          <label for="female">female</label><br/>
+          <span>{{gender}}</span>
+        </div>
+        <div>
+          <select v-model="selected" multiple>
+            <option disabled value=""> 请选择</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+            <option>E</option>
+          </select>
+          <p>选择项：{{selected}}</p>
+        </div>
+        <div>{{value123}}
+            <el-select v-model="value123" placeholder="请选择">
+                <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+                </el-option>
+            </el-select>
+        </div>
+        <div>
+          <select v-model="selectedList" multiple>
+            <option v-for="item in optionList" :value="item.value">{{item.text}}</option>
+          </select>
+        </div>
+         <p>选择项：{{selectedList}}</p>
+         <input type="checkbox" v-model="toggle" true-value="yes" false-value="nope"/><span>{{toggle}}</span>
+
+      </div>  
+        `,
+            methods: {
+                clickHandler() {
+                    this.name = '123'
+                }
+            },
+            computed: {
+                // 计算属性是基于它们的依赖进行缓存的,计算属性只有在它的相关依赖发生改变时才会重新求值
+                nameReverse: function () {
+                    return this.name.split('').reverse().join('')
+                }
+            }
+        })
+        vm.$watch('name', function (newV, oldV) {
+            console.log(newV)
+            console.log(oldV)
+        })
+    </script>
+</body>
+
+</html>

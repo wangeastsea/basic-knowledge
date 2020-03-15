@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>oninput事件</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <!-- oninput事件 -->
+  <!-- <input type="text" id="myInput" oninput="myFunctioin()">
+  <p id="demo"></p>
+  <script>
+    function myFunctioin () {
+      var value = document.getElementById('myInput').value
+      document.getElementById('demo').innerHTML = value
+    }
+  </script> -->
+
+
+  <!-- v-model使用方法 -->
+  <!-- <div id="app">
+    <input v-model="something">
+    <p>{{something}}</p>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          something: 'lalla'
+        }
+      }
+    })
+  </script> -->
+   
+
+  <!-- 上面的语法糖 -->
+  <div id="app">
+    <input :value="something" @input="something = $event.target.value"/>
+    <p>{{something}}</p>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          something: ''
+        }
+      }
+    })
+  </script>
+</body>
+</html>

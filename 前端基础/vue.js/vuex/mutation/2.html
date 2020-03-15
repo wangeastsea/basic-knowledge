@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- 一条重要的原则就是要记住 mutation 必须是同步函数，同步事务 -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>一个简单的计数程序</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex@3.0.1"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{ count }}</p>
+    <p>
+      <button @click="increment({amount:10})">+</button>
+      <button @click="decrement({amount:5})">-</button>
+    </p>
+  </div>
+  <script>
+    // make sure to call Vue.use(Vuex) if using a module system
+    Vue.use(Vuex)
+    let { mapMutations } = Vuex
+    const store = new Vuex.Store({
+      state: {
+        count: 0
+      },
+      // 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。Vuex 中的 mutation 非常类似于事件：
+      //每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。
+      //这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数：
+      mutations: {
+        increment: (state,obj) => state.count += obj.amount,
+        decrement: (state,obj) => state.count -= obj.amount
+      }
+    })
+
+    new Vue({
+      el: '#app',
+      store,
+      computed: {
+        count() {
+          return store.state.count
+        }
+      },
+      methods: {
+        // 你可以向 store.commit 传入额外的参数，即 mutation 的 载荷（payload)
+        // ...mapMutations({
+        //   add: 'increment' // 将 `this.add()` 映射为 `this.$store.commit('increment')`
+        // }),
+        ...mapMutations([
+          'increment', // 将 `this.increment()` 映射为 `this.$store.commit('increment')`
+          'decrement' // 将 `this.incrementBy(amount)` 映射为 `this.$store.commit('incrementBy', amount)`
+        ])
+        // decrement() {
+        //   store.commit('decrement', {amount: 10})
+        // },
+        // increment () {
+        //   store.commit('increment', {amount: 10})
+        // }
+      }
+    })
+  </script>
+</body>
+
+</html>

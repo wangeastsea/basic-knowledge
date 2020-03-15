@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+        #app {
+            padding: 20px;
+            width: 500px;
+            border: 3px solid #ccc;
+            background-color: #fff;
+            
+        }
+        #app img {
+                width: 100%;
+                height: auto;
+        }
+
+        .img-box {
+            position: relative;
+            min-height: 100px;
+        }
+        .img-box  img {
+                transition: all .3s ease;
+                height: 30px;
+                padding: 10px;
+                margin: 0;
+                background-color: #eee;
+                overflow: hidden;
+            }
+            .img-box  img.v-enter,
+            .img-box img.v-leave {
+                height: 0;
+                padding: 0 10px;
+                opacity: 0;
+            }
+
+        .loading {
+            text-indent: -9999px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="loadImg">load image</button>
+        <ul>
+            <li>{{url}}</li>
+            <li>{{index}}</li>
+            <li>{{images[index]}}</li>
+            <li>{{isLoad}}</li>
+        </ul>
+        <div class="img-box">
+            <transition>
+                <img v-show="isLoad" :src="url" @load="loaded">
+            </transition>
+            <div v-show="!isLoad" class="loading">Loading...</div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                url: "",
+                index: 0,
+                images: [
+                    'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=50fc711ddf1b0ef473e89e5eedc451a1/b151f8198618367a2e8a46ee23738bd4b31ce586.jpg',
+                    'https://jp.vuejs.org/images/logo.png',
+                    'https://jsfiddle.net/img/logo@2x.png'
+                ],
+                isLoad: false
+            },
+            created() {
+                this.loadImg()
+            },
+            methods: {
+                loadImg() {
+                    this.isLoad = false
+                    this.$nextTick(() => {
+                        this.url = this.images[this.index];
+                        this.index = (this.index < this.images.length - 1) ? this.index + 1 : 0
+                    })
+                },
+                loaded() {
+                    debugger
+                    this.isLoad = true
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

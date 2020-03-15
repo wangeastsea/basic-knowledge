@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    input {
+      width: 200px;
+      height: 40px;
+      border: 4px solid wheat;
+    }
+
+    ul {
+      margin: 0px;
+      padding: 0px;
+      list-style-type: none;
+    }
+
+    ul li {
+      padding: 10px;
+      font: italic 20px/20px hack;
+      color: #0f0f0f;
+      border: 1px solid red;
+      width: 190px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    function callback(data) {
+      var ul = document.getElementById('ul1')
+      var html = ''
+      ul.style.display = 'block'
+      if (data.s.length) {
+        for (var i = 0; i < data.s.length; i++) {
+          html += '<li><a target="blank" href="https://www.baidu.com/s?wd='+ data.s[i]+'">'+data.s[i]+'</a></li>'
+          ul.innerHTML = html
+        }
+      } else {
+        ul.style.display = none
+      }
+    }
+    window.onload = function () {
+      var input1 = document.getElementById('input1')
+      var ul = document.getElementById('ul1')
+      input1.onkeyup = function () {
+        if (this.value != "") {
+          var script = document.createElement('script')
+          script.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + this.value + '&cb=callback'
+          document.body.appendChild(script)
+        } else {
+          ul.style.display = 'none'
+        }
+        
+      }
+
+    }
+  </script>
+  <input type="text" id="input1">
+  <ul id="ul1">
+  </ul>
+</body>
+
+</html>

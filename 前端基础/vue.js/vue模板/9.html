@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>data选项最好是函数</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <style>
+    .childClass {
+      color: red;
+    }
+    .fatherClass {
+      font-family: hack;
+    }
+  </style>
+</head>
+<body>
+   <!-- HTML 特性是不区分大小写的。所以，当使用的不是字符串模板时，
+   camelCase (驼峰式命名) 的 prop 需要转换为相对应的 kebab-case (短横线分隔式命名),否则直接报错 -->
+   <!-- html模板 ，使用字符串模板则没有这些限制-->
+  <div id="demo">
+    <my-component :todo="todo" class="fatherClass"></my-component>
+  </div>
+  <script>
+    Vue.component('my-component', {
+        props: {
+          'todo': {
+            type: Object,
+            default () {
+              return {}
+            }
+          }
+        },
+        template: `
+          <ul class="childClass">
+            <li>{{todo.name}}</li>
+            <li>{{todo.gender}}</li>
+          </ul>
+        `
+        // data () {
+        //   return {
+        //     message: 'hello'
+        //   }
+        // }
+      })
+    new Vue({
+      el: '#demo',
+      data () {
+        return {
+          message: 'hello, world!',
+          todo: {
+            name: 'donghai',
+            gender: 'male'
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+     <!-- 组件上使用v-model实现原理 -->
+    <div id="blog-post-demo">
+        <!-- <custom-input 
+            v-bind:value="searchText" 
+            v-on:input="searchText = $event">
+        </custom-input> -->
+        <custom-input v-model="searchText"></custom-input>
+        <div @click="clickHandle">BBBBBBBBBBBBB</div>
+    </div>
+    <script>
+        Vue.component('custom-input', {
+            props: ['value'],
+            template: `
+                <input
+                :value="value"
+                @input="$emit('input', $event.target.value)"
+                >
+            `
+        })
+        new Vue({
+            el: '#blog-post-demo',
+            data () {
+                return {
+                    searchText: ''
+                }
+            },
+            methods: {
+                clickHandle () {
+                    alert('click me')
+                }
+            },
+            watch: {
+                'searchText' (newV, oldV) {
+                    console.log(newV)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script>
+  window.onload = function () {
+    var div1 = document.getElementById('div1')
+    var span1 = document.getElementById('span1')
+    span1.addEventListener('click', function () {
+      console.log('span1')
+    })
+    addEvents(div1, 'click', function () {
+      alert('div1 click')
+    })
+    addEvents(div1, 'show', function () {
+      alert('div1 show')
+    })
+    addEvents(span1, 'click', function () {
+      alert('span click')
+    })
+    addEvents(span1, 'show', function () {
+      alert('span show1')
+    })
+    addEvents(span1, 'show', function () {
+      alert('span show2')
+    })
+    addEvents(span1, 'hide', function () {
+      alert('span hide')
+    })
+    fireEvents(div1, 'click')
+  }
+  
+  function addEvents (obj, event, fn) {
+    //例如建立楼层
+    obj.listeners = obj.listeners || {} 
+    //建立书架
+    obj.listeners[event] = obj.listeners[event] || []
+    // 开始放书本
+    obj.listeners[event].push(fn)
+    // if (obj.addEventListener) {
+    //   obj.addEventListener(event, fn, false)
+    // } else {
+    //   obj.attachEvent('on' + event, fn)
+    // }
+  }
+  function fireEvents (obj, event) {
+    if (obj.listeners && obj.listeners[event]) {
+      for(var i = 0;i <obj.listeners[event].length; i++) {
+        obj.listeners[event][i]()
+      }
+    }
+  }
+</script>
+<body>
+  <div id="div1">div</div>
+  <span id="span1">span</span>
+</body>
+</html>

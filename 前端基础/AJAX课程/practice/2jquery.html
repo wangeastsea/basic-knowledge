@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+  <script>
+    // function waitHandle() {
+    //   var dtd = $.Deferred() // 创建一个 deferred 对象
+
+    //   var wait = function (dtd) { // 要求传入一个 deferred 对象
+    //     var task = function () {
+    //       console.log('执行完成')
+    //       dtd.resolve() // 表示异步任务已经完成
+    //     }
+    //     setTimeout(task, 2000)
+    //     return dtd // 要求返回 deferred 对象
+    //   }
+    //   // 注意，这里一定要有返回值
+    //   return wait(dtd)
+    // }
+    // var w = waitHandle()
+    // w.then(function () {
+    //   console.log('ok 1')
+    // }, function () {
+    //   console.log('err 1')
+    // }).then(function () {
+    //   console.log('ok 2')
+    // }, function () {
+    //   console.log('err 2')
+    // })
+
+
+    const thenable = {
+      // 所谓 thenable 对象，就是具有 then 属性，而且属性值是如下格式函数的对象
+      then: (resolve, reject) => {
+        resolve(200)
+      }
+    }
+
+    // thenable 对象可以转换为 Promise 对象
+    const promise = Promise.resolve(thenable)
+    promise.then(data => {
+      console.log(data)
+    })
+  </script>
+</body>
+
+</html>

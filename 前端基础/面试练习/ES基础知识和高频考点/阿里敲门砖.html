@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阿里敲门砖面试</title>
+    <style>
+        li {
+            border: 1px solid red;
+            width: 300px;
+        }
+        span {
+            padding-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>************ 第一行<span class="del">X</span></li>
+        <li>************ 第二行<span class="del">X</span></li>
+        <li>************ 第三行<span class="del">X</span></li>
+        <li>************ 第四行<span class="del">X</span></li>
+        <li>************ 第五行<span class="del">X</span></li>
+        <li>************ 第六行<span class="del">X</span></li>
+        <li>************ 第七行<span class="del">X</span></li>
+        <li>************ 第八行<span class="del">X</span></li>
+        <li>************ 第九行<span class="del">X</span></li>
+        <li>************ 第十行<span class="del">X</span></li>
+    </ul>
+    <script>
+        class List {
+            constructor (el) {
+                this.el = document.querySelector(el)
+                let self = this
+                this.el.addEventListener('click', function (ev) {
+                   if (ev.target.className.indexOf('del') > -1) {
+                       self.removeItem(ev.target)
+                   }
+                })
+            }
+            removeItem (target) {
+                let findParent = function (node) {
+                    let parent = node.parentNode
+                    let root = parent.parentNode
+                    root.removeChild(parent)
+                }
+                findParent(target)
+            }
+        }
+        window.addEventListener('DOMContentLoaded', function () {
+            new List('.list')
+        })
+    </script>
+</body>
+</html>

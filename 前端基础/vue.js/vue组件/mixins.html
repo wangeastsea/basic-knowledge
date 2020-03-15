@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">123345</div>
+    <script>
+        // 说明： 
+        // 通过extend方式new的vue实例mixin的钩子函数后执行，而直接new Vue实例mixin的钩子函数先执行。
+        // mixins混入
+        const myMixin = { created () { console.log(`来自Mixins中的消息`) } }
+        // 编写组件
+        // const myComponent = {
+        //     template: `
+        //     <p> {{ firstName }} {{ lastName }} aka {{ alias }} </p>
+        // `,
+        //     data() {
+        //         return {
+        //             firstName: '大漠',
+        //             lastName: 'w3cplus',
+        //             alias: '大漠_w3cplus'
+        //         }
+        //     },
+        //     created () {
+        //         console.log('来之vue组件……')
+        //     }
+        // }
+        // let myExtend = Vue.extend(myComponent)
+        // let app = new myExtend({
+        //     el: '#app',
+        //     mixins: [myMixin]
+        // })
+
+        new Vue({
+            mixins: [myMixin],
+            data () {
+                return {
+                }
+            },
+            created () {
+                console.log('来之vue组件……')
+            }
+        })
+    </script>
+</body>
+
+</html>

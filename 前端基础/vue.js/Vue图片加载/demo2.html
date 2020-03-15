@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let myImage = new Image();
+        myImage.onload = function () {
+            debugger
+            document.querySelector('#app').appendChild(myImage) 
+            console.log('执行完了')
+        }
+        myImage.src = 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=50fc711ddf1b0ef473e89e5eedc451a1/b151f8198618367a2e8a46ee23738bd4b31ce586.jpg?'+ Math.random()
+    </script>
+</body>
+
+</html>

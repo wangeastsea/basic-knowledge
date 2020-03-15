@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>编号1，点击我请弹出1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        //1:通过块作用域的方式解决
+        // let list = document.getElementsByTagName('li')
+        // console.log(list)
+        // for(let i = 0; i < list.length; i++) {
+        //     list[i].addEventListener('click', function () {
+        //         alert(i+1)
+        //     }, true)
+        // }
+
+        //2:通过闭包的方式解决
+        // var list = document.getElementsByTagName('li')
+        // for(var i = 0; i < list.length; i++) {
+        //     list[i].addEventListener('click', function (param) {
+        //         return function () { alert(param +1) }
+        //     }(i), true)
+        // }
+
+        // 闭包的讲解
+        function F1 () {
+            var a = 100
+            return function () {
+                console.log(a)
+            }
+        }
+        function F2 () {
+            var a = 200
+            console.log(f1())
+        }
+        var f1 = F1()
+        F2(f1)
+    </script>
+</body>
+</html>

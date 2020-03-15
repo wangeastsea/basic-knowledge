@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- 一条重要的原则就是要记住 mutation 必须是同步函数，同步事务 -->
+<!-- 切记： mutations的一次个参数默认是state
+      actions的第一个参数函数接受一个与 store 实例具有相同方法和属性的 context 对象 -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex@3.0.1"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{ count }}</p>
+    <p>
+      <button @click="increment()">+</button>
+    </p>
+  </div>
+  <script>
+    // make sure to call Vue.use(Vuex) if using a module system
+    Vue.use(Vuex)
+    let {
+      mapActions
+    } = Vuex
+    const store = new Vuex.Store({
+      state: {
+        count: 0
+      },
+      mutations: {
+        increment(state) {
+          state.count++
+        }
+      },
+      actions: {
+        incrementAsyncBy({
+          commit
+        }, obj) {
+          console.log(obj)
+          setTimeout(() => {
+            commit('increment')
+          }, 1000)
+        },
+        increment({
+          commit
+        }) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              commit('increment')
+              resolve()
+            }, 1000)
+          })
+        },
+        increment2({
+          dispatch,
+          commit
+        }) {
+          return dispatch('increment').then(() => {
+            commit('increment')
+          })
+        },
+        async actionA({
+          commit
+        }) {
+          commit('gotData', await getData())
+        }
+        // async actionB({
+        //   dispatch,
+        //   commit
+        // }) {
+        //   await dispatch('actionA') // 等待 actionA 完成
+        //   commit('gotOtherData', await getOtherData())
+        // }
+      }
+    })
+
+    new Vue({
+      el: '#app',
+      store,
+      computed: {
+        count() {
+          return store.state.count
+        }
+      },
+      methods: {
+        increment() {
+          this.$store.dispatch('increment').then(() => {
+            console.log('aaa')
+          })
+        },
+      }
+    })
+  </script>
+</body>
+
+</html>

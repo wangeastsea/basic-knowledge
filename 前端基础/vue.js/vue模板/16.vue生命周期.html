@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          name: '东海'
+        }
+      },
+      beforeCreate: function () {
+        console.log('===== 创建前 =====')
+        console.log(this.name)
+        console.log(this.$el)
+      },
+      created: function () {
+        // 在实例创建之后同步调用 
+        // 此时实例已结束解析选项 
+        // 这意味着已建立：数据绑定，计算属性,方法，watcher/事件回调
+        // 但是还没有开始DOM编译，$el还不存在，但是实例存在，即this.name存在，可以打印出来 
+        console.log('===== 已创建 =====')
+        console.log(this.name)
+        console.log(this.$el)
+      },
+      beforeCompile: function () {
+        console.log('===== 未开始编译 =====')
+        console.log(this.name)
+        console.log(this.$el)
+      },
+      compiled: function () {
+        // 在编译结束之后调用 
+        // 此时所有的指令已生效，因而数据的变化将触发DOM更新 
+        // 但是不担保$el已插入文档 
+        console.log('===== 编译完成 =====')
+        console.log(this.name)
+        console.log(this.$el)
+      },
+      beforeMount: function () {
+        console.log('===== Mount之前 =====')
+        console.log(this.name)
+        console.log(this.$el)
+        console.log(typeof this.$el)
+      },
+      mounted: function () {
+        console.log('===== Mount完成 =====')
+        console.log(this.name)
+        console.log(this.$el)
+        console.log(typeof this.$el)
+      },
+      beforeUpdate: function () {
+        console.log('===== 更新前 =====')
+        console.log(this.name)
+        console.log(this.$el)
+      },
+      updated: function () {
+        console.log('=====更新完成 === ==')
+        console.log(this.name)
+        console.log(this.$el)
+      },
+      ready: function () {
+        // 在编译结束和$el 第一次插入文档之后调用，如果在第一次attached钩子之后调用
+        // 注意，必须是由Vue插入，比如 vm.$appendTo()等方法或指令更新，才会触发ready 钩子 
+        console.log('===== 一切都准备好了 =====')
+        console.log(this.name)
+        console.log(this.$el)
+      },
+      attached: function () {
+        // app.$appendTo('#app2')暂时触发不了，不知道怎么解决 
+        // 在 vm.$el插入DOM时调用。必须是由指令或实例方法，比如$appendTo()插入，直接操作vm.$el不会触发这个钩子
+        console.log('===== 插入DOM成功 =====')
+        console.log(this.name)
+        console.log(this.$el)
+      },
+      detached: function () {
+        // 触发事件 app.$destroy(true)，其中参数true控制是否删除DOM节点或者app.$remove()
+        // 在vm.$el 从DOM中删除时调用。必须是由指令或实例方法删除，直接操作vm.$el不会触发这个钩子 
+        console.log('===== 删除DOM成功 =====')
+        console.log(this.name)
+        console.log(this.$el)
+      },
+      beforeDestroy: function () {
+        // 触发方式，在console里面打印app.$destroy() 
+        // 在开始销毁实例时调用。此时实例仍然有功能 
+        console.log('===== 销毁前 =====')
+        console.log(this.name)
+        console.log(this.$el)
+      },
+      destroyed: function () {
+        // 触发方式，在console里面打app.$destroy() 
+        // 其中app.$destroy(true)是删除DOM节点，会触发detached函数，但是实例仍然存在
+        // 在实例被销毁之后调用。此时所有的绑定和实例的指令已经解绑 
+        // 注意是解绑不是销毁，所有的子实例也已经被销毁 
+        console.log('===== 已销毁 =====')
+        console.log(this.name)
+        console.log(this.$el)
+      }
+    })
+  </script>
+</body>
+
+</html>

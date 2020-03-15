@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>内联模板字符串</title>
+</head>
+
+<body>
+  <!-- html模板 -->
+  <div id="app">
+    <selectcomp></selectcomp>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script>
+    Vue.component('optioncomp', {
+      data () {
+        return {
+          name:"donghai"
+        }
+      },
+      template: '<option >{{name}}</option>'
+    });
+    new Vue({
+      el: '#app',
+      components: {
+        'selectcomp': {
+          template: ' <select> <optioncomp></optioncomp></select>'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

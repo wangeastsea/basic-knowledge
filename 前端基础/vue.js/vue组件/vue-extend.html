@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">123345</div>
+    <script>
+        // 编写组件
+        const myComponent = {
+            template: `
+            <p> {{ firstName }} {{ lastName }} aka {{ alias }}
+        `,
+            data() {
+                return {
+                    firstName: '大漠',
+                    lastName: 'w3cplus',
+                    alias: '大漠_w3cplus'
+                }
+            }
+        }
+        let myExtend = Vue.extend(myComponent)
+        let app = new myExtend({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <title>Document</title>
+  <style>
+    ul {
+      list-style-type: none;
+    }
+    .bold {
+      font-weight: bolder;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id='app'>
+    <vue-tree :datas="treeData" :checked="ischecked"></vue-tree>
+  </ul>
+  <script>
+    Vue.component('vueTree', {
+      props: {
+        datas: {
+          type: Object
+        },
+        checked: {
+          type: Boolean
+        }
+      },
+      data () {
+        return {
+          open: false,// 默认不展示
+          inChecked: false
+        }
+      },
+      template: `
+            <li>
+              <div @click="toggle" :class="{bold: isFolder}">
+                <input type="checkbox" v-model="inChecked" @click.stop="clickItem"></input>
+                {{datas.name}}
+                <span v-if="isFolder">{{open ? '[-]': '[+]'}}</span>
+              </div>
+              <ul v-show="open" v-if="datas.childrens">
+                <vue-tree v-for="item,index in datas.childrens" :datas="item" :key="index" :checked="item.ischecked"></vue-tree>
+              </ul>
+            </li>
+        `,
+      watch: {
+        checked (val) {
+          this.inChecked = val
+        },
+        inChecked (val) {
+          if (val) {
+            if(this.datas.childrens) {
+               this.datas.childrens.forEach((item) => {
+                item.ischecked = val
+              })
+            }
+          } else {
+            if (this.datas.childrens) {
+              this.datas.childrens.forEach((item) => {
+                item.ischecked = false
+              })
+            }
+          }
+        }
+      },
+      computed: {
+         // 判断是不是文件夹
+        isFolder () {
+          return this.datas.childrens ? true : false
+        }
+      },
+      methods: {
+        // 是否展示子项
+        toggle () {
+          this.open = !this.open
+        },
+        selectAll () {
+          console.log(this.inChecked)
+        },
+        clickItem () {}
+      }
+    })
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          ischecked: false,
+          // 树形结构图
+          treeData: {　
+            name: '中国',
+            childrens: [{
+              name: '广东省',
+              childrens: [{
+                name: '深圳市'
+              },
+              {
+                name: '广州市'
+              },
+              {
+                name: '珠海市'
+              },
+              {
+                name: '中山市'
+              }
+              ]
+            },
+            {
+              name: '河南省'
+            },
+            {
+              name: '北京市'
+            },
+            {
+              name: '浙江省'
+            }
+            ]
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

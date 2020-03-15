@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>载荷 (payload) 数据的示例(自定义子组件，并传参数)</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="message-event-example" class="demo">
+    <p v-for="msg in messages">{{ msg }}</p>
+    <button-message v-on:message="handleMessage"></button-message>
+    <button-click @click.native="justdoit"></button-click>
+  </div>
+  <script>
+    Vue.component('button-click', {
+      template: `
+        <div>点我</div>
+      `
+    })
+    Vue.component('button-message', {
+      template: `
+      <div>
+        <input type="text" v-model="message" />
+        <button v-on:click="handleSendMessage">Send</button>
+      </div>`,
+      data: function () {
+        return {
+          message: 'test message'
+        }
+      },
+      methods: {
+        handleSendMessage: function () {
+          this.$emit('message', {
+            message: this.message
+          })
+        }
+      }
+    })
+
+    new Vue({
+      el: '#message-event-example',
+      data: {
+        messages: []
+      },
+      methods: {
+        handleMessage: function (payload) {
+          this.messages.push(payload.message)
+        },
+        justdoit () {
+          alert('just do it')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

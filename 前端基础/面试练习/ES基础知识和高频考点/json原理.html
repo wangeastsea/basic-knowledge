@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.callback = function (data) {
+            console.log(data)
+        }
+    </script>
+    <!-- 然后掘金网给我提供了一个http://coding.m.juejin.com/api.js，
+    内容如下（之前说过，服务器可动态生成内容） -->
+    <!-- callback({x:100, y:200}) -->
+    <script src="http://coding.m.juejin.com/api.js"></script>
+    <!-- 最后我们在页面中加入<script src="http://coding.m.juejin.com/api.js"></script>，
+    那么这个js加载之后，就会执行内容，我们就得到内容了 -->
+</body>
+</html>

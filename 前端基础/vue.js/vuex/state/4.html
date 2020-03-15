@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- mapState的使用 -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>一个简单的计数程序</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex@3.0.1"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{ count }}</p>
+    <p>
+      <button @click="increment">+</button>
+      <button @click="decrement">-</button>
+    </p>
+  </div>
+  <script>
+    // make sure to call Vue.use(Vuex) if using a module system
+    Vue.use(Vuex)
+    const store = new Vuex.Store({
+      state: {
+        count: 5
+      },
+      mutations: {
+        increment: state => state.count++,
+        decrement: state => state.count--
+      }
+    })
+    // 在单独构建的版本中辅助函数为 Vuex.mapState
+    let {
+      mapState
+    } = Vuex
+    // 创建一个 Counter 组件
+    const Counter = {
+      template: `<div>{{ count }}</div>`,
+      data() {
+        return {
+          localCount: 1
+        }
+      },
+      computed: {
+        countPlusLocalState () {
+          return localCount + 2
+        },
+        // 使用对象展开运算符将此对象混入到外部对象中
+        ...mapState({
+          count: state => state.count
+        })
+      }
+    }
+    // 通过在根实例中注册 store 选项， 
+    // 该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 this.$store 访问到。
+    new Vue({
+      el: '#app',
+      store,
+      data() {
+        return {
+          localCount: 0
+        }
+      },
+      components: {
+        Counter
+      },
+      template: `
+          <div class="app">
+            <counter></counter>
+          </div>
+        `
+    })
+  </script>
+</body>
+
+</html>

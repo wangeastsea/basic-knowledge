@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*:nth-child(an+b) 这个 CSS 伪类首先找到所有当前元素的兄弟元素，*/
+        /*然后按照位置先后顺序从1开始排序，选择的结果为第（an+b）个元素的集合（n=0，1，2，3...）*/
+        /*tr:nth-child(2n+1)*/
+        /*表示HTML表格中的奇数行。*/
+        /*tr:nth-child(odd)*/
+        /*表示HTML表格中的奇数行。*/
+        /*tr:nth-child(2n)*/
+        /*表示HTML表格中的偶数行。*/
+        /*tr:nth-child(even)*/
+        /*表示HTML表格中的偶数行。*/
+        /*span:nth-child(0n+1)*/
+        /*表示子元素中第一个且为span的元素，与 :first-child 选择器作用相同。*/
+        /*span:nth-child(1)*/
+        /*表示父元素中子元素为第一的并且名字为span的标签被选中*/
+        html {
+            font-family: sans-serif;
+        }
+
+        span, div em {
+            padding: 10px;
+            border: 1px solid green;
+            display: inline-block;
+            margin-bottom: 3px;
+        }
+        /*所有当前元素的兄弟元素，依次标记顺序1，2，3*/
+        .first span:nth-child(2n+1),
+        .second span:nth-child(2n+1),
+        /*所有当前元素的同类型元素，依次标记1，2，3，跳过与当前元素不同类型的元素*/
+        .third span:nth-of-type(2n+1) {
+            background-color: lime;
+        }
+    </style>
+</head>
+<body>
+<p><code>span:nth-child(2n+1)</code>, <em>without</em> an <code>&lt;em&gt;</code>
+    inside the child elements. Children 1, 3, 5, and 7 are selected, as expected.</p>
+
+<div class="first">
+    <span>This span is selected!</span>
+    <span>This span is not. :(</span>
+    <span>What about this?</span>
+    <span>And this one?</span>
+    <span>Another example</span>
+    <span>Yet another example</span>
+    <span>Aaaaand another</span>
+</div>
+
+<p><code>span:nth-child(2n+1)</code>, <em>with</em> an <code>&lt;em&gt;</code>
+    inside the child elements. Children 1, 5, and 7 are selected. 3 is used in the
+    counting because it is a child, but it isn't selected because it isn't a
+    <code>&lt;span&gt;</code>.</p>
+
+<div class="second">
+    <span>This span is selected!</span>
+    <span>This span is not. :(</span>
+    <em>This one is an em.</em>
+    <span>What about this?</span>
+    <span>And this one?</span>
+    <span>Another example</span>
+    <span>Yet another example</span>
+    <span>Aaaaand another</span>
+</div>
+
+<p><code>nth-of-type(2n+1)</code>, <em>with</em> an <code>&lt;em&gt;</code>
+    inside the child elements. Children 1, 4, 6, and 8 are selected. 3 isn't
+    used in the counting or selected because it is an <code>&lt;em&gt;</code>,
+    not a <code>&lt;span&gt;</code>, and <code>nth-of-type</code> only selects
+    children of that type. The <code>&lt;em&gt;</code> is completely skipped
+    over and ignored.</p>
+
+<div class="third">
+    <span>This span is selected!</span>
+    <span>This span is not. :(</span>
+    <em>This one is an em.</em>
+    <span>What about this?</span>
+    <span>And this one?</span>
+    <span>Another example</span>
+    <span>Yet another example</span>
+    <span>Aaaaand another</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- 优化的方向有两个：
+            减少页面体积，提升网络加载
+            优化页面渲染 -->
+        <!-- 减少页面体积，提升网络加载
+            1:静态资源的压缩合并（JS 代码压缩合并、CSS 代码压缩合并、雪碧图）
+            2:静态资源缓存（资源名称加 MD5 戳）
+            3:使用 CDN 让资源加载更快 -->
+        <!-- 优化页面渲染
+            1:CSS 放前面，JS 放后面
+            2:懒加载（图片懒加载、下拉加载更多）
+            3:减少DOM 查询，对 DOM 查询做缓存
+            4:减少DOM 操作，多个操作尽量合并在一起执行（DocumentFragment）
+            5:事件节流
+            6:尽早执行操作（DOMContentLoaded）
+            7:使用 SSR 后端渲染，数据直接输出到 HTML 中，减少浏览器使用 JS 模板渲染页面 HTML 的时间 -->
+    <p>1</p>
+    <p>2</p>
+    <ul id="list">
+    </ul>
+    <textarea id='text'></textarea>
+    <script>
+        // 懒加载
+        // 只查询一个 DOM ，缓存在 pList 中了
+        // var pList = document.getElementsByTagName('p')
+        // var i
+        // for (i = 0; i < pList.length; i++) {
+
+        // }
+        // DOM 操作，无论查询还是修改，都是非常耗费性能的，应尽量减少
+        var i
+        for (i = 0; i < document.getElementsByTagName('p').length; i++) { 
+             // 每次循环，都会查询 DOM ，耗费性能
+        }
+
+        // 合并DOM插入,避免频繁插入dom
+        var listNode = document.getElementById('list')
+        var frag = document.createDocumentFragment()
+        var x, li
+        for(x = 0; x < 10; x++) {
+            li = document.createElement("li")
+            li.innerHTML = "List item " + x
+            frag.appendChild(li)
+            // 先放在 frag 中，最后一次性插入到 DOM 结构中。
+        }
+        listNode.appendChild(frag)
+
+
+
+        // 事件节流：要在文字改变时触发一个 change 事件，通过 keyup 来监听。使用节流。
+        var textarea = document.getElementById('text')
+        var timeoutId 
+        textarea.addEventListener('keyup', function () {
+            if (timeoutId) {
+                clearTimeout(timeoutId)
+            }
+            timeoutId = setTimeout(function () {
+                // 
+            }, 100)
+        })
+
+
+
+        window.addEventListener('load', function () {
+            // 页面的全部资源加载完才会执行，包括图片、视频等
+        })
+        document.addEventListener('DOMContentLoaded', function () {
+            // DOM 渲染完即可执行，此时图片、视频还可能没有加载完
+        })
+    </script>
+</body>
+</html>

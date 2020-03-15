@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <title>动画</title>
+  <style>
+    .bounce-enter-active {
+      animation: bounce-in 2s;
+    }
+
+    .bounce-leave-active {
+      animation: bounce-in 2s reverse;
+    }
+
+    @keyframes bounce-in {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.5);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="example-2">
+    <button @click="show = !show">Toggle show</button>
+    <transition name="bounce">
+      <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia diam fermentum id.
+        Pellentesque habitant morbi tristique senectus et netus.</p>
+    </transition>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#example-2',
+    data: {
+      show: true
+    }
+  })
+</script>
+
+</html>

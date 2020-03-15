@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>选项卡组件</title>
+  <style>
+    #div1 div,
+    #div2 div,
+    #div3 div {
+      width: 100px;
+      height: 100px;
+      border: #000 1px solid;
+      display: none;
+    }
+    .active {
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="div1">
+    <input type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    <div style="display:block">1111111111</div>
+    <div>2222222222</div>
+    <div>3333333333</div>
+  </div>
+  <div id="div2">
+    <input type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    <div style="display:block">1111111111</div>
+    <div>2222222222</div>
+    <div>3333333333</div>
+  </div>
+  <div id="div3">
+    <input type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    <div style="display:block">1111111111</div>
+    <div>2222222222</div>
+    <div>3333333333</div>
+  </div>
+  <script src="jquery-1.10.2.min.js"></script>
+  <script>
+    $(function () {
+      var tab1 = new Tab()
+      tab1.init({id: 'div1'})
+      var tab2 = new Tab()
+      tab2.init({id: 'div2', event: 'mouseover'})
+      var tab3 = new Tab()
+      tab3.init({id: 'div3', event: 'mouseover', delay: 200})
+    })
+    function Tab () {
+      this.oParent = null
+      this.oInput = null
+      this.odiv = null
+      this.settings = {
+        id: '',
+        event: 'click',
+        delay: 0
+      }
+    }
+    Tab.prototype.init = function (params) {
+      $.extend(this.settings, params)
+      this.oParent = $('#'+ this.settings.id)
+      this.oInput = this.oParent.find('input')
+      this.odiv = this.oParent.find('div')
+      this.change()
+    }
+    Tab.prototype.change = function () {
+      var This = this
+      this.oInput.on(this.settings.event, function () {
+        // 重置
+        This.oInput.attr('class', '')
+        This.odiv.css('display', 'none')
+        // 个性化赋值
+        $(this).attr('class', 'active')
+        This.odiv.eq($(this).index()).css('display', 'block')
+      })
+    }
+    function show () {
+      // 重置
+      This.oInput.attr('class', '')
+      This.odiv.css('display', 'none')
+      // 个性化赋值
+      $(this).attr('class', 'active')
+      This.odiv.eq($(this).index()).css('display', 'block')
+    }
+  </script>
+</body>
+</html>

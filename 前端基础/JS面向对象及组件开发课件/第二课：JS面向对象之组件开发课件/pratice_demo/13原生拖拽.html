@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #div1 {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background: rebeccapurple
+    }
+    #div2 {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background: rgb(80, 153, 51);
+      left: 100px
+    }
+  </style>
+</head>
+<body>
+  <div id='div1'></div>
+  <div id="div2"></div>
+  <script>
+    // var div1 = document.getElementById('div1')
+    // var disX = null
+    // var disY = null
+    // div1.onmousedown = function (ev) {
+    //   disX = ev.clientX - div1.offsetLeft
+    //   disY = ev.clientY - div1.offsetHeight
+    //   document.onmousemove = function (ev) {
+    //     div1.style.left = ev.clientX - disX + 'px'
+    //     div1.style.top = ev.clientY - disY + 'px'
+    //   }
+    //   document.onmouseup = function () {
+    //     document.onmousemove = null
+    //     document.onmouseup = null
+    //   }
+    // }
+    window.onload = function () {
+      var d1 = new Drag()
+      d1.init({
+        id: 'div1'
+      })
+      var d2 = new Drag()
+      bindEvents(d2, 'show', function () {
+        document.title = 'yanfang'
+      })
+      d2.init({
+        id: 'div2',
+        toDown: function () {
+          document.title = 'wangdonghai'
+        }
+      })
+    }
+    function Drag () {
+      this.drag = null
+      this.disX = null
+      this.disY = null
+      this.settings = {
+        toDown : function () {}
+      }
+    }
+    // 自定义事件绑定
+    function bindEvents(obj, event, fn) {
+      obj.listeners = obj.listeners || {}
+      obj.listeners[event] = obj.listeners[event] || []
+      obj.listeners[event].push(fn)
+    }
+    // 自定义事件的出发
+    function fireEvents(obj, event) {
+      if(obj.listeners && obj.listeners[event]) {
+        for(var i = 0; i< obj.listeners[event].length; i++) {
+          obj.listeners[event][i]()
+        }
+      }
+    }
+    Drag.prototype.init = function (params) {
+      var This = this
+      extend(this.settings, params)
+      this.drag = document.getElementById(params.id)
+      this.drag.onmousedown = function (ev) {
+        This.settings.toDown()
+        var event = ev || window.event
+        This.mouseDown(event)
+        document.onmousemove = function (ev) {
+          This.mouseMove(ev)
+        }
+        document.onmouseup = function () {
+          fireEvents(This, 'show')
+          This.mouseUp()
+        }
+        return false
+      }
+    }
+    Drag.prototype.mouseDown = function (ev) {
+      this.disX = ev.clientX - this.drag.offsetLeft
+      this.disY = ev.clientY - this.drag.offsetTop
+    }
+    Drag.prototype.mouseMove = function (ev) {
+      this.drag.style.left = ev.clientX - this.disX + 'px'
+      this.drag.style.top = ev.clientY - this.disY + 'px'
+    }
+    Drag.prototype.mouseUp = function () {
+      document.onmousemove = null
+      document.onmouseup = null
+    }
+    function extend (obj1, obj2) {
+      for (var key in obj2) {
+        if (obj2.hasOwnProperty(key)) {
+          obj1[key] = obj2[key]
+        }
+      }
+    }
+  </script>
+</body>
+</html>

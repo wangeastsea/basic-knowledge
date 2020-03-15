@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>路由组件传参</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    // 在组件中使用 $route 会使之与其对应路由形成高度耦合，
+    // 从而使组件只能在某些特定的 URL 上使用，限制了其灵活性。
+    // 如果 props 被设置为 true，route.params 将会被设置为组件属性。
+    // 如果 props 是一个对象，它会被按原样设置为组件属性。当 props 是静态的时候有用。
+    function dynamicPropsFn(route) {
+      const now = new Date()
+      return {
+        name: (now.getFullYear() + parseInt(route.params.years)) + '!'
+      }
+    }
+      // 通过路由的组件写法，不能使用vue.component 或 选项components
+      const Hello = {
+        template: `
+          <div>
+            <h2 class="hello">Hello {{name}} {{ $attrs }}</h2>
+          </div>
+        `,
+        props: {
+          name: {
+            type: String,
+            default: 'Vue!'
+          }
+        },
+        mounted () {
+          console.log(this.$route)
+          console.log(this.$attrs)
+        }
+      }
+    const router = new VueRouter({
+      // mode: 'history',
+      // base: '/Users/wdh/Downloads/前端基础/vue.js/vue-router/10路由组件传参.html#',
+      routes: [{
+          path: '/',
+          component: Hello
+        }, // No props, no nothing
+        {
+          path: '/hello/:name',
+          component: Hello,
+          props: true
+        }, // Pass route.params to props
+        {
+          path: '/static',
+          component: Hello,
+          //如果 props 是一个对象，它会被按原样设置为组件属性。当 props 是静态的时候有用。
+          props: {
+            name: 'world'
+          }
+        }, // static values
+        {
+          path: '/dynamic/:years',
+          component: Hello,
+          //你可以创建一个函数返回 props。这样你便可以将参数转换成另一种类型，将静态值与基于路由的值结合等等
+          // 传参为route
+          props: dynamicPropsFn
+        }, // custom logic for mapping between route and props
+        {
+          path: '/attrs',
+          component: Hello,
+          props: {
+            name: 'attrs'
+          }
+        }
+      ]
+    })
+    new Vue({
+      router,
+      template: `
+        <div id="app">
+          <h1>Route props</h1>
+          <ul>
+            <li><router-link to="/">/</router-link></li>
+            <li><router-link to="/hello/you">/hello/you</router-link></li>
+            <li><router-link to="/static">/static</router-link></li>
+            <li><router-link to="/dynamic/1">/dynamic/1</router-link></li>
+            <li><router-link to="/attrs">/attrs</router-link></li>
+          </ul>
+          <router-view class="view" hobby="football"></router-view>
+        </div>
+      `
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>
