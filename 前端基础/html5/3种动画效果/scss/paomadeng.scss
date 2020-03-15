@@ -1,0 +1,16 @@
+.marquee {
+    overflow: hidden;
+    .content{
+        display: flex;
+        .list {
+            overflow: hidden;
+            // 不让缩小
+            flex-shrink: 0;
+            img {
+                // width: 100%;
+                // height: 100%;
+            }
+
+        }
+    }
+}

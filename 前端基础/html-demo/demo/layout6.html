@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>左中右三栏之双飞翼</title>
+    <style>
+        .wrap {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #main {
+            float: left;
+            width: 100%;
+        }
+
+        #content { 
+            background: #e7890e;
+            height: 500px;
+            /* margin: 0 200px; */
+        }
+
+        #left {
+            float: left;
+            width: 200px;
+            height: 500px;
+            background: #52d814;
+            /* margin-left: -100%; */
+        }
+
+        #right {
+            float: left;
+            width: 200px;
+            height: 500px;
+            background: #3110a8;
+            margin-left: -200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <section id="main">
+            <div id="content">content</div>
+        </section>
+        <aside id="left">left</aside>
+        <!-- <aside id="right">right</aside> -->
+    </div>
+</body>
+
+</html>

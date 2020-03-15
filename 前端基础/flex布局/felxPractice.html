@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex</title>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+    .box{ 
+      display: flex; 
+      height: 600px;
+    }
+    .box-r{
+
+      /* 决定轴开始的方向  row | row-reverse | column | column-reverse;*/
+      /* flex-direction: row; */
+      /* 决定主轴对齐的方式 flex-start | flex-end | center | space-between | space-around;*/
+      /* justify-content: space-between; */
+      /* 决定主轴上放不下，是否换行   nowrap | wrap | wrap-reverse;*/
+      /* flex-wrap: wrap; */
+      /* 交叉轴的对齐方式 flex-start | flex-end | center | baseline | stretch; */
+      /* align-items: flex-start; */
+      flex-direction: column;
+      justify-content: space-between;
+      align-items:flex-start;
+      flex-wrap: wrap;
+    }
+    .box-item {
+      width: 200px;
+      height: 200px; 
+      background-color: #ffd200;
+      font-size: 100px;
+      text-align: center;
+    }
+    .hi1{
+      height: 300px;
+    }
+    .hi2 {
+      height: 340px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box box-r">
+    <div class="box-item">1</div>
+    <div class="box-item">2</div>
+    <div class="box-item">3</div>
+    <div class="box-item">4</div>
+    <div class="box-item">5</div>
+    <div class="box-item">6</div>
+    <div class="box-item">7</div>
+    <div class="box-item">8</div>
+  </div>
+</body>
+</html>

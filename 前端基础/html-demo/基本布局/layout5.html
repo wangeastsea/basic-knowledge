@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>左中右3栏布局</title>
+    <style>
+        .wrap {
+            /* 根据屏幕的宽度自适应 */
+            width: 80%; 
+            margin: 0 auto;
+            height: 700px;
+        }
+
+        #left {
+            float: left;
+            width: 200px;
+            height: 100%;
+            background: #d4a6a6;
+        } 
+
+        #center {
+            height: 100%;
+            margin: 0 210px;
+            background: #68d646;
+        }
+
+        #right {
+            float:right;
+            width:200px; 
+            height: 100%;
+            background: #3014cc
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <section id="left"></section>
+        <section id="right"></section>
+        <section id="center"></section>
+    </div>
+</body>
+
+</html>

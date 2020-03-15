@@ -1,0 +1,34 @@
+body,html {
+    height: 100%;
+}
+.content {
+    position: relative;
+    height: 100%;
+    background-color: #f2f2f2;
+    overflow: hidden;
+    .yudi {
+        position: absolute;
+        width: 20px;
+        height: 37px;
+        background-color: #cccccc;
+        opacity: 0;
+        clip-path: ellipse(10% 30% at 50% 50%);
+        // transform: scale(10);
+        animation: drops 1.4s cubic-bezier(0, 0, 1, 0.02) infinite;
+    }
+}
+@keyframes drops {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(10px, 100vh, -10px);
+    }
+}

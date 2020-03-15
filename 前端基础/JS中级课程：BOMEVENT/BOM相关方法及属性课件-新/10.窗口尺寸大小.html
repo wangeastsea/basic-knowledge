@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+window.onload = function() {
+	
+	/*
+		可视区的尺寸
+		document.documentElement.clientWidth
+		document.documentElement.clientHeight
+	
+	*/
+
+	alert(document.documentElement.clientHeight)
+	document.onclick = function () {
+		/*
+		滚动条滚动距离(可以理解为可视区的顶部到整个页面顶部的距离 ，即滚动条滚动过 的距离)
+			document.documentElement.scrollTop[scrollLeft] (其他浏览器 IE ff)
+			document.body.scrollTop[scrollLeft]		（chrome）
+		
+		*/
+		//alert(document.documentElement.scrollTop);
+		//alert(document.body.scrollTop)
+		
+		//兼容写法 
+		// var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+
+		//alert( scrollTop );
+
+
+		//用于求内容的宽高
+		// 内容高 oDiv.scrollHeight oDiv.scrollWidth 内容宽
+		// alert(document.getElementById('div1').scrollHeight);
+
+
+		// 文档的高度 （包含可视区）
+		// alert( document.documentElement.offsetHeight ); // IE ff  2018
+		// alert( document.body.offsetHeight );  // chrome 2000
+
+	}
+	
+}
+</script>
+</head>
+
+<body style="height:2000px;">
+	<div id="div1" style="width:100px;height:100px;border: 1px solid red; padding: 10px;margin: 10px;">
+    <div style="width: 100px;height: 200px; background: blue;"></div>
+  </div>
+</body>
+</html>

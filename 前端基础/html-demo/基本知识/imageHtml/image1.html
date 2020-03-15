@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>image</title>
+  <style>
+    /* 图片不受父元素的宽度限制  */
+    /* 如果父元素为块元素：把高度撑开
+             行内元素：把宽度撑开  */
+    /* 注意：默认撑开的情况下，图片和父级下边框存在一个小空隙，真是图片的特征也是行内元素的特征
+    解决办法：
+    1：设置父元素的高度等于图片的高度
+    2: 给<img>标签添加vertical-align垂直对齐属性 */
+    div {
+      width: 300px;
+      border: 5px solid red;
+      height: 300px;
+    }
+    /* span {
+      border: 1px solid red ;
+    } */
+    img {
+      width: 400px;
+      height: 300px;
+      /* vertical-align: top; */
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="../images/shenzhen.jpg" alt="lalal" title="123">
+  </div>
+</body>
+</html>

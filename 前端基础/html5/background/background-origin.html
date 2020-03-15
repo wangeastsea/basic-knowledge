@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            border:10px dashed #666;
+            width:400px;
+            height:400px;
+            padding:20px;
+            background:url(../img/dog.jpg)  no-repeat;
+            background-size: contain;
+            background-color: #aaa;
+        }
+        .border-box p {
+            background-origin:border-box;
+        }
+        .padding-box p {
+            background-origin:padding-box;
+        }
+        .content-box p {
+            background-origin:content-box;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="border-box">
+            <h2>border-box</h2>
+            <p>从border区域（含border）开始显示背景图像</p>
+        </li>
+        <li class="padding-box">
+            <h2>padding-box</h2>
+            <p>从padding区域（含padding）开始显示背景图像</p>
+        </li>
+        <li class="content-box">
+            <h2>content-box</h2>
+            <p>从content区域开始显示背景图像</p>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div1">点我绑定事件</div>
+  <script>
+    // // 由于浏览器的差异，我们封装一个事件函数
+    // // 第一种方案
+    // var addEvent = function (elem, type, handler) {
+    //   if(window.addEventListener) {
+    //     return elem.addEventListener(type, handler, false)
+    //   } 
+    //   if (window.attachEvent) {
+    //     return elem.attachEvent('on' + type, handler)
+    //   }
+    // }
+    // // 第二种方案 代码加载的时候就进行一次判断
+    // // 缺点： 可以用不到这个函数，会延长页面的加载时间
+    // var addEvent = (function () {
+    //   if(window.addEventListener) {
+    //     return function (elem, type, handler) {
+    //       elem.addEventListener(type, handler, false)
+    //     }
+    //   }
+    //   if(window.attachEvent) {
+    //     return function (elem, type, handler) {
+    //       elem.attachEvent('on' + type, handler)
+    //     }
+    //   }
+    // })()
+    // 第三种方案 惰性加载
+    var addEvent = function (elem, type, handler) { 
+      if(window.addEventListener) {
+        addEvent = function (elem, type, handler) {
+          elem.addEventListener(type, handler, false)
+        }
+      } else if (window.attachEvent) {
+        addEvent = function (elem, type, handler) {
+          elem.attachEvent('on'+ 'type', handler)
+        }
+      }
+      // 若注释这句话，会导致事件覆盖，例如下面的例子只弹出2
+      addEvent(elem, type, handler) // 递归，替换函数
+    }
+    var div = document.getElementById('div1')
+    // 第一次执行的时候，只是替换了函数， 执行
+    addEvent(div, 'click', function () {
+      alert(1)
+    })
+    // 从第二次开始，才执行函数，绑定生效，所以先执行一次
+    addEvent(div, 'click', function () {
+      alert(2)
+    })
+
+  </script>
+</body>
+</html>

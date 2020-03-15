@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+    .code {
+      font-family: Arial;
+      font-style: italic;
+      font-weight: bold;
+      border: 0;
+      letter-spacing: 3px;
+      color: blue;
+    }
+  </style>
+  <script type="text/javascript">
+    function getSecond() {
+      let pELement =  document.createElement('span')
+      pELement.setAttribute('id', 'timer')
+      document.getElementById('container').insertBefore(pELement, document.getElementById('buttonID'))
+      document.getElementById('timer').innerHTML = '6s'
+      document.getElementById('buttonID').setAttribute('disabled', 'false')
+      var timeID = document.getElementById('timer')
+      let timer = Number(timeID.innerHTML.toString().match(/\d+/g).join(''))
+      let counter = setInterval(function () {
+        if (timer > 0) {
+          --timer
+          timeID.innerHTML = timer + 's'
+        } else if (timer === 0) {
+          document.getElementById('buttonID').removeAttribute('disabled')
+          document.getElementById('container').removeChild(document.getElementById('timer'))
+          clearInterval(counter)
+        }
+      }, 1000)
+    }
+    function createCode() {
+
+      let code = "";
+      var codeLength = 5; //验证码的长度   
+      var checkCode = document.getElementById("checkCode");
+      var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+        'M', 'N', 'O', 'P', 'Q', 'R',
+        'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //随机数   
+      for (var i = 0; i < codeLength; i++) { //循环操作   
+        var charIndex = Math.floor(Math.random() * 36); //取得随机数的索引   
+        code += random[charIndex]; //根据索引取得随机数加到code上   
+      }
+      checkCode.value = code; //把code值赋给验证码   
+    }
+    //校验验证码   
+    function validate() {
+      var inputCode = document.getElementById("input").value.toUpperCase(); //取得输入的验证码并转化为大写         
+      if (inputCode.length <= 0) { //若输入的验证码长度为0   
+        alert("请输入验证码！"); //则弹出请输入验证码   
+      } else if (inputCode != code) { //若输入的验证码与产生的验证码不一致时   
+        alert("验证码输入错误！"); //则弹出验证码输入错误   
+        createCode(); //刷新验证码   
+      } else { //输入正确时   
+        alert("^-^"); //弹出^-^   
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <span>请输入验证码：</span>
+    <input type="text" id="input" />
+    <button href="#" onclick="getSecond()" id="buttonID">重新发送</button>
+    <input type="button" id="checkCode" class="code" onclick="createCode()" />
+    <br>
+    <input type="button" value="验证" onclick="validate()" />
+  </div>
+</body>
+<script>
+  window.onload = function () {
+    getSecond()
+  }
+</script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .repeat-x {
+        width: 2500px;
+        height: 350px;
+        background-image: url(../img/dog.jpg);
+        background-repeat: repeat-x;
+    }
+    .repeat-y {
+        width: 400px;
+        height: 750px;
+        background-image: url(../img/dog.jpg);
+        background-repeat: repeat-y;
+    }
+    .repeat {
+        width: 2000px;
+        height: 400px;
+        background-image: url(../img/dog.jpg);
+        background-repeat: repeat;
+    }
+    .round {
+        width: 2000px;
+        height: 800px;
+        background-image: url(../img/dog.jpg);
+        background-repeat: round;
+    }
+    .space {
+        width: 2000px;
+        height: 700px;
+        background-image: url(../img/dog.jpg);
+        background-repeat: space;
+        background-color: red;
+    }
+    </style>
+</head>
+<body>
+    <div class="repeat-x">横向平铺背景图片</div>
+    <hr>
+    <div class="repeat-y">纵向平铺背景图片</div>
+    <hr>
+    <div class="repeat">平铺背景图片</div>
+    <hr>
+    <div class="round">背景图像不能以整数次平铺时，会根据情况缩放图像</div>
+    <hr>
+    <div class="space">当背景图像不能以整数次平铺时，会用空白间隙填充在图像周围</div>
+</body>
+</html>

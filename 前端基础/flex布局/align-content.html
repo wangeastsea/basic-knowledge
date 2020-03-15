@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        display: flex;
+        width: 900px;
+    }
+    .boxTall {
+        height: 1000px;
+    }
+    .box-s {
+        flex-wrap: wrap;
+	    align-content: flex-end;
+    }
+    .box-item {
+        height: 200px;
+        width: 200px;
+        line-height: 200px;
+        text-align: center;
+        font-size: 20px;
+        background: orange;
+    }
+</style>
+<body>
+    <p>flex-start：交叉轴的起点对齐。</p>
+	<div class="box box-tall box-s">
+		<div class="box-item">1</div>
+		<div class="box-item">2</div>
+		<div class="box-item">3</div>
+		<div class="box-item">4</div>
+		<div class="box-item">5</div>
+		<div class="box-item">6</div>
+		<div class="box-item">7</div>
+		<div class="box-item">8</div>
+		<div class="box-item">9</div>
+	</div>
+</body>
+</html>

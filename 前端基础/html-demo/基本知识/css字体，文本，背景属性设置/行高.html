@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* line-height（均以行间距为衡量）: normal（行间距为当前字体大小的110%～120%） 
+      number（em）行间距为此数字与当前的字体尺寸相乘的结果 | 
+      length： 以px和em为单位的数字 
+      inherit （继承父元素）
+      百分数 (行间距相当于当前字体的尺寸的百分比，100%，则行间距等于当前字体的尺寸)*/
+      /* 行高 = 上文本的底线到下文本底线的距离 */
+      /* 行间距 + 字体尺寸 === 行高  行间距 = 行高 - 字体尺寸*/ 
+      /* 行间距等于上文本的底线和下文本的顶线之间的距离，行距由行高和字体的尺寸决定，其值等于行高减去字体尺寸 */
+      div {
+        text-indent: 2em;
+        margin-bottom: 10px;
+        border: 1px solid red;
+      }
+      #box1 {
+        color: #00F;
+        line-height: 24px;
+      }
+      #box2 {
+        line-height: 80%;
+      }
+      #box3 {
+        color: #90F;
+        line-height: 1.5
+      }
+  </style>
+</head>
+<body>
+  <div id="box1">
+    阿斯顿发卡上的饭卡的阿设计大赛的咖啡机爱哦权威肌阿斯顿发宽松短裤阿斯顿发卡收到反馈喀什
+    啊阿斯顿发卡上的饭卡的阿设计大赛的咖啡机爱哦权威肌阿斯顿发宽松短裤阿斯顿发卡收到反馈喀什啊
+  </div>
+  <div id="box2">
+     阿斯顿发卡上的饭卡的阿设计大赛的咖啡机爱哦权威肌阿斯顿发宽松短裤阿斯顿发卡收到反馈喀什 
+     啊阿斯顿发卡上的饭卡的阿设计大赛的咖啡机爱哦权威肌阿斯顿发宽松短裤阿斯顿发卡收到反馈喀什啊
+  </div>
+  <div id="box3">
+     阿斯顿发卡上的饭卡的阿设计大赛的咖啡机爱哦权威肌阿斯顿发宽松短裤阿斯顿发卡收到反馈喀什 
+     啊阿斯顿发卡上的饭卡的阿设计大赛的咖啡机爱哦权威肌阿斯顿发宽松短裤阿斯顿发卡收到反馈喀什啊
+  </div>
+</body>
+</html>

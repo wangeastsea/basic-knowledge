@@ -1,0 +1,43 @@
+<!-- 纯浮动实现方案 -->
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>左右两栏布局</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .wrap {
+            width: 900px;
+            margin: 0 auto;
+            /* 清除浮动 */
+            overflow: hidden; 
+        }
+
+        #left {
+            width: 200px;
+            float: left;
+            height: 500px;
+            background: #ccffff;
+        }
+
+        #right {
+            width: 700px;
+            background: #ffcccc;
+            height: 500px;
+            float: right;
+        }
+    </style>
+</head>
+</head>
+
+<body>
+    <div class="wrap">
+        <aside id="left">left</aside>
+        <section id="right">right</section>
+    </div>
+</body>
+
+</html>

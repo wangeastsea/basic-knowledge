@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.10.2.min.js"></script>
+  <style>
+    #repeat-watermark {
+      position: fixed;
+      z-index: -1;
+      top: 0;
+      background: #fff;
+    }
+    .wrap {
+      margin: 0 auto;
+      width: 80%
+    }
+    #header {
+      height: 80px;
+      background-color: rgba(83, 108, 184,0.6);
+    }
+    #content {
+      height: 300px;
+      background-color: rgba(113, 172, 74, 0.6);
+    }
+    #footer {
+      height: 80px;
+      background-color: rgba(163, 150, 90, 0.6)
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id='header' class="wrap"></div>
+  <div id='content' class="wrap"></div>
+  <div id='footer' class="wrap"></div>
+  <script>
+    $(function () {
+      var wat = new Watermark($(document.body), {
+        watermark: 'Hello,World'
+      })
+    })
+  </script>
+  <script>
+    var Watermark = function (container, options) {
+      var self = this;
+      self.opt = {
+        docWidth: $(document).width(),
+        docHeight: $(document).height(),
+        fontStyle: "20px 黑体", //水印字体设置
+        rotateAngle: -20 * Math.PI / 180, //水印字体倾斜角度设置
+        fontColor: "rgba(100, 100, 100, 0.1)", //水印字体颜色设置
+        firstLinePositionX: -20, //canvas第一行文字起始X坐标
+        firstLinePositionY: 80, //Y
+      }
+      // 配置参数
+      $.extend(self.opt, options);
+      self.render(container);
+      self.draw(self.opt.docWidth, self.opt.docHeight);
+      self.events();
+    };
+
+    Watermark.prototype = {
+      render: function (d) {
+        var self = this;
+        d.append(tpl);
+      },
+
+      draw: function (docWidth, docHeight) {
+        var self = this;
+        var cw = $('#watermark')[0];
+        var crw = $('#repeat-watermark')[0];
+
+        crw.width = docWidth;
+        crw.height = docHeight;
+
+        var ctx = cw.getContext("2d");
+        //清除小画布
+        ctx.clearRect(0, 0, 160, 100);
+        ctx.font = self.opt.fontStyle;
+        //文字倾斜角度
+        ctx.rotate(self.opt.rotateAngle);
+
+        ctx.fillStyle = self.opt.fontColor;
+        //第一行文字
+        ctx.fillText(self.opt.watermark, self.opt.firstLinePositionX, self.opt.firstLinePositionY);
+        //坐标系还原
+        ctx.rotate(-self.opt.rotateAngle);
+
+        var ctxr = crw.getContext("2d");
+        //清除整个画布
+        ctxr.clearRect(0, 0, crw.width, crw.height);
+        //设置重铺平铺--重复小块的canvas
+        var pat = ctxr.createPattern(cw, "repeat");
+        ctxr.fillStyle = pat;
+
+        ctxr.fillRect(0, 0, crw.width, crw.height);
+      },
+      events: function () {
+        var self = this;
+        $(window).resize(function () {
+          var w = $(document).width();
+          var h = $(document).height();
+          self.draw(w, h);
+        });
+      }
+    };
+    var tpl = '<canvas id = "watermark" width = "160px"  height = "100px" style="display:none;"></canvas>' +
+      '<canvas id = "repeat-watermark"></canvas>';
+  </script>
+</body>
+
+</html>

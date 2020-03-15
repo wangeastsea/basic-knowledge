@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        p {
+            width:400px;
+            height:200px;
+            margin:0;
+            padding:20px;
+            border:20px dashed #666;
+            background:url(../img/dog.jpg) no-repeat;
+            background-origin:border-box;
+            /* 背景颜色也会被剪裁 */
+            background-color: #aaa ;
+        }
+        .border-box p {
+            background-clip:border-box;
+        }
+        .padding-box p {
+            background-clip:padding-box;
+        }
+        .content-box p {
+            background-clip:content-box;
+        }
+        .text p { 
+            width:100%;
+            height:100%;
+            background-repeat:repeat;
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            font-weight:bold;
+            font-size:120px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="border-box">
+            <h2>border-box</h2>
+            <p>从border区域（不含border）开始向外裁剪背景</p>
+        </li>
+        <li class="padding-box">
+            <h2>padding-box</h2>
+            <p>从padding区域（不含padding）开始向外裁剪背景</p>
+        </li>
+        <li class="content-box">
+            <h2>content-box</h2>
+            <p>从content区域开始向外裁剪背景</p>
+        </li>
+        <li class="text">
+            <h2>text</h2>
+            <p>从前景内容的形状作为裁剪区域向外裁剪背景</p>
+        </li>
+    </ul>
+</body>
+</html>

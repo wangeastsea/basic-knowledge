@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右页眉页脚布局</title>
+    <style>
+        .wrap {
+            width: 900px;
+            margin: 0 auto;
+        }
+        header{
+            height: 200px;
+            background: #72418f;
+        }
+        #main {
+            overflow: hidden;
+        }
+        #left {
+            float: left;
+            width:200px;
+            background: #4f9655;
+            height: 400px;
+        }
+        #right { 
+            float: right;
+            width: 700px;
+            background: #1337ad;
+            height: 400px;
+        }
+        footer {
+            height: 180px;
+            background: #e6bc02;
+            /* clear:both */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>header</header>
+        <div id='main'>
+            <aside id='left'>left</aside>
+            <section id='right'>rigth</section>
+        </div>
+        <footer>footer</footer>
+    </div>
+</body>
+</html>

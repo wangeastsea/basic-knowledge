@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./scss/paomadeng.css">
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+    <div class="marquee">
+        <div class="content">
+            <div class="list"><img src="../img/dog.jpg" alt=""></div>
+            <div class="list"><img src="../img/dog2.jpg" alt=""></div>
+            <div class="list"><img src="../img/dog3.jpg" alt=""></div>
+        </div>
+    </div>
+</body>
+<script>
+    $(()=> {
+        console.log('页面元素加载完')
+        let outerWidth = 400
+        let outerHeight = 300
+        let speed = 5
+        let $marquee = $('.marquee')
+        let $content = $marquee.find('.content')
+        let $list = $content.find('.list')
+        let listLength = $list.length
+        let contentWidth = outerWidth*listLength
+        let style = document.styleSheets
+        $marquee.css(
+            {
+                "width": `${outerWidth}`,
+                "height": `${outerHeight}`
+            }
+        )
+        $list.css(
+            {
+                "width": `${outerWidth}`,
+                "height": `${outerHeight}`
+            }
+        )
+        $content.css(
+            {
+                "width": `${contentWidth}`,
+                "height": `${outerHeight}`,
+                "animation": `run ${speed*listLength}s linear infinite`
+            }
+        )
+        style[0].insertRule(`
+            @keyframes run {
+                100% {
+                    transform: translateX(-${contentWidth}px)
+                }
+            }
+        `)
+        let clone = $list.eq(0).clone()
+        $content.append(clone)
+    })
+</script>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <marquee direction="up">
+        <div class="list"><img src="./img/dog.jpg" alt=""></div>
+        <div class="list"><img src="./img/dog2.jpg" alt=""></div>
+        <div class="list"><img src="./img/dog3.jpg" alt=""></div>
+    </marquee>
+</body>
+</html> -->

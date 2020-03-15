@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 选择器1+选择器2 选择紧挨着选择器1后面的选择器2的元素，他们拥有共同的父级 */
+    h1+p {
+      color: red;
+      font-weight: bold;
+      margin-top: 50px;
+    }
+    p+p {
+      color: blue;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>一级标题</h1>
+  <p>这是段落1</p>
+  <p>这是段落2</p>
+  <p>这是段落3</p>
+</body>
+</html>

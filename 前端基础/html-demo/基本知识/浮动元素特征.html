@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浮动元素特征</title>
+    <!-- float 特征：
+    1： 块显示在一行
+    2： 内联支持宽高
+    3： 默认内容撑开宽度
+    4： 脱离文档流
+    5： 提升层级半层 -->
+    <!-- 清除浮动：浮动元素的父级包住元素
+    clear : left , right, none, both, inherit -->
+    <!-- clear: both : 在左右两侧均不允许有浮动元素 -->
+    <!-- 清除浮动的方法： 都是给父级添加属性
+    1： 加高 缺点： 扩展性不好
+    2： 父级浮动 缺点：页面中所有元素都加浮动，margin左右自动失效
+    3： 给父级添加display: inline-block   缺点： margin左右auto失效
+    4： 空标签清浮动
+    5:  伪类清除浮动 -->
+    <style>
+        #id1 {
+            border: 1px solid red;
+        }
+        #id2 {
+            height: 200px;
+            width: 200px;
+            border: 1px solid green;
+            float: left;
+        }
+
+        /*.clearfix {*/
+            /*clear: both;*/
+        /*}*/
+        /*单冒号(:)用于 CSS3 伪类，双冒号(::)用于 CSS3 伪元素。*/
+        /*对于 CSS2 中已经有的伪元素， 例如 :before，单冒号和双冒号的写法 ::before 作用是一样的。*/
+        /* 模仿空标签清除浮动，但是又没有物理标签 ，清除浮动最常用的方式，给浮动元素父级添加*/
+            /*单冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。（伪元素由双冒号和伪元素名称组成）*/
+          /*双冒号是在当前规范中引入的，用于区分伪类和伪元素。不过浏览器需要同时支持旧的已经存在的伪元素写法，*/
+          /*比如:first-line、:first-letter、:before、:after等，*/
+          /*而新的在CSS3中引入的伪元素则不允许再支持旧的单冒号的写法。*/
+
+          /*想让插入的内容出现在其它内容前，使用::before，否者，使用::after；*/
+          /*在代码顺序上，::after生成的内容也比::before生成的内容靠后。*/
+          /*如果按堆栈视角，::after生成的内容会在::before生成的内容之上*/
+
+        /*.clearfix::after {*/
+            /*content: '.';*/
+            /*display: block;*/
+            /*clear: both;*/
+            /*visibility: hidden;*/
+            /*height: 0px;*/
+        /*}*/
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        /*除了clear：both用来闭合浮动的，其他代码无非都是为了隐藏掉content生成的内容*/
+        /*1) display:block 使生成的元素以块级元素显示,占满剩余空间;*/
+        /*2) height:0 避免生成内容破坏原有布局的高度。*/
+        /*3) visibility:hidden 使生成的内容不可见，并允许可能被生成内容盖住的内容可以进行点击和交互;*/
+        /*4）通过 content:"."生成内容作为最后一个元素，至于content里面是点还是其他都是可以的，*/
+        /*例如oocss里面就有经典的 content:".",有些版本可能content 里面内容为空,一丝冰凉是不推荐这样做的,firefox直到7.0 content:”" 仍然会产生额外的空隙；*/
+    </style>
+</head>
+<body>
+<div id="id1" class="clearfix">
+    <div id="id2"></div>
+    <!--<div class="clearfix"></div>-->
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3动画——@keyframes animation|www.125jz.com</title>
+    <style>
+      .wrap{
+            height: 40px;
+            width: 50px;
+            border: 1px solid  #999;
+            margin: 200px auto;
+            background-color: #CCC;
+            overflow: hidden;
+        }
+    .wrapFont{
+        transform: translateY(0%);
+        animation: scrols 2s linear infinite ;
+        display: flex;
+        flex-direction: column;
+       
+    }
+    @keyframes scrols{
+        from{
+            transform: translateY(100%);
+        }
+        to{
+            transform: translateY(-100%);
+        }
+    }
+    .divS {
+        background-color: red;
+        border: 1px solid beige;
+        width: 40px;
+        height: 20px;
+    }
+
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="wrapFont">
+
+        <div class="divS">1</div>
+        <div class="divS">2</div>
+        <div class="divS">3</div>
+        <div class="divS">4</div>
+        <div class="divS">5</div>
+        <div class="divS">6</div>
+
+    </div>
+</div>
+</html>

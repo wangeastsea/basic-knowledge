@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>margin</title>
+  <style>
+    /* margin: auto | length（em,px） | %(以父级元素的宽度来计算内边距) | inherit */
+    /* 实现居中：margin: 0 auto; */
+    /* margin: 7px 6px 8px 上7 左右6 下8  （顺时针方向）*/ 
+    /* 父子元素之间的边距定义既可以使用padding也可以使用margin：
+    当定义内边距离时，应该在父使用padding，当定义为外边距时，则在子中使用margin */
+    /* 外边距合并现象：垂直外边距，如果发生合并的外边距全部是正值，
+    则合并后的外边距高度等于这些发生合并的最大值，
+    如果不全为正值，则会拉近两个块级元素的垂直距离，可能会发生重叠现象。 */
+
+    /* 包含父子元素的外边距合并现象：
+    条件： 当父元素没有内容或内容在子元素的后面且没有内边距或没有边框时，
+    子元素的上外边距将和父元素的上外边距合并为一个上外边距，且是值最大的那个外边距，
+    同时该外边距作为父元素的上外边距 */
+    /* 注意： 行内元素左右外边距不会发生合并 */
+    div {
+      height: 100px;
+      font-size:36px;
+      color: #000;
+      text-align:center;
+    }
+    .a {
+      width: 100px;
+      background: pink;
+    }
+    .b {
+      width: 200px;
+      height: 160px;
+      background: yellow;
+      /* padding-top: 0.1px; */ 
+      /* border: 1px solid red; */
+    }
+    .c {
+      width: 100px;
+      margin-top: 20px;
+      background: #aee8ae
+    }
+  </style>
+</head>
+<body>
+  <div class="a">A</div>
+  <div class="b">
+    <div class="c">C</div>
+    B
+  </div>
+</body>
+</html>

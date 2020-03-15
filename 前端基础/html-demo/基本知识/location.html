@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>location对象的</title>
+</head>
+
+<body>
+  <button onclick="click1()">1</button>
+  <button onclick="click2()">2</button>
+  <button onclick="click3()">3</button>
+  <button onclick="click4()">4</button>
+  <div id="app"></div>
+</body>
+<script>
+  function click1() {
+    window.location.hash = '#button1'
+  }
+
+  function click2() {
+    window.location.hash = '#button2'
+  }
+
+  function click3() {
+    window.location.hash = '#button3'
+  }
+
+  function click4() {
+    window.location.hash = '#button4'
+  }
+  window.addEventListener('hashchange', function (ev) {
+    if (ev.target.location.hash === "#button1") {
+      let app = document.getElementById('app')
+      while (app.hasChildNodes()) //当div下还存在子节点时 循环继续 
+      {
+        app.removeChild(app.firstChild);
+      }
+      let pEle = document.createElement('p')
+      pEle.setAttribute('id', 'p1')
+      app.appendChild(pEle)
+      pEle.innerHTML = '我是p1'
+    }
+    if (ev.target.location.hash === "#button2") {
+      let app = document.getElementById('app')
+      while (app.hasChildNodes()) //当div下还存在子节点时 循环继续 
+      {
+        app.removeChild(app.firstChild);
+      }
+      let pEle = document.createElement('p')
+      pEle.setAttribute('id', 'p2')
+      app.appendChild(pEle)
+      pEle.innerHTML = '我是p2'
+    }
+    if (ev.target.location.hash === "#button3") {
+      let app = document.getElementById('app')
+      while (app.hasChildNodes()) //当div下还存在子节点时 循环继续 
+      {
+        app.removeChild(app.firstChild);
+      }
+      let pEle = document.createElement('p')
+      pEle.setAttribute('id', 'p3')
+      app.appendChild(pEle)
+      pEle.innerHTML = '我是p3'
+    }
+    if (ev.target.location.hash === "#button4") {
+      let app = document.getElementById('app')
+      while (app.hasChildNodes()) //当div下还存在子节点时 循环继续 
+      {
+        app.removeChild(app.firstChild);
+      }
+      let pEle = document.createElement('p')
+      pEle.setAttribute('id', 'p4')
+      app.appendChild(pEle)
+      pEle.innerHTML = '我是p4'
+    }
+  });
+</script>
+
+</html>

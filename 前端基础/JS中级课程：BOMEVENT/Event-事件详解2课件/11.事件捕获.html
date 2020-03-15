@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>无标题文档</title>
+	<style>
+		div {
+			padding: 50px;
+		}
+
+		#div1 {
+			background: red;
+		}
+
+		#div2 {
+			background: blue;
+		}
+
+		#div3 {
+			background: green;
+			position: absolute;
+			top: 300px;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+
+			var oDiv1 = document.getElementById('div1');
+			var oDiv2 = document.getElementById('div2');
+			var oDiv3 = document.getElementById('div3');
+
+			function fn1() {
+				alert(this.id);
+			}
+			
+			//事件捕获与事件冒泡的个人理解：
+			//可以理解为作用力和反作用力，当对div1绑定了某个事件，
+			// 当触发这个事件的时候，首先会从div1往里进直到div3（捕获阶段），然后从div3直到div1（冒泡），触发相应的事件。
+
+
+			/*oDiv1.onclick = fn1;
+			oDiv2.onclick = fn1;
+			oDiv3.onclick = fn1;*/
+
+			//false 表示冒泡 ， true 表示捕获
+
+			//告诉div1，如果有一个  出去  的事件触发了你，你就去执行fn1这个函数，效果等同于上面
+			// oDiv1.addEventListener('click', fn1, false);
+			// oDiv2.addEventListener('click', fn1, false);
+			// oDiv3.addEventListener('click', fn1, false);
+
+			//告诉div1，如果有一个  进去  的事件触发了你，你就去执行fn1这个函数
+			// oDiv1.addEventListener('click', fn1, true);
+			// oDiv2.addEventListener('click', fn1, true);
+			// oDiv3.addEventListener('click', fn1, true);
+
+			// oDiv1.addEventListener('click', function () {
+			// 	alert(1); 
+			// }, false);
+			// oDiv1.addEventListener('click', function () {
+			// 	alert(3);
+			// }, true);
+			// oDiv3.addEventListener('click', function () {
+			// 	alert(2);
+			// }, false);
+			// 3 2 1
+
+		}
+	</script>
+</head>
+
+<body>
+	<div id="div1">
+		<div id="div2">
+			<div id="div3"></div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    span {
+      background-color: red;
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+      margin: 20px 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 1:不会独占一行，相邻的行内元素会从左到右依次排列在同一行里，直到一行排列不下，才会换行-->
+  <!-- 2:不可以设置宽度和高度 -->
+  <!-- 3:可以设置4个方向的内边距 ，左右方向的外边距，不能设置上下方向外边距-->
+  <!-- 4:行内元素的高度由元素高度决定，宽度由内容的长度控制，宽高由内容撑开 -->
+  <!-- 5:行内元素不能包含块级元素 -->
+  <!-- 6:代码换行被解析 -->
+  <span>nihao</span>
+  </br>
+  <span>hello</span>
+</body>
+</html>

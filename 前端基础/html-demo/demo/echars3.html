@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>echars3</title>
+ <!-- 最新版本 4.1.0 -->
+  <script src="echars.js"></script> 
+  <!-- <script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.js"></script> -->
+  <style>
+    body {
+      background-color: #011c51;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main" style="width: 600px;height:400px;"></div>
+  <script>
+    var myChartLine = echarts.init(document.getElementById('main'));
+    option = {
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'cross'
+        }
+      },
+      legend: {
+        data: ['调用次数', '环比'],
+        right: '50', // 图例
+        textStyle: {
+          color: ['#00f6ff', 'orange']
+        }
+      },
+      xAxis: [{
+        type: 'category',
+        splitLine: {
+          show: true, // 网格线是否显示 // 改变样式 
+          lineStyle: {
+            color: 'rgba(113,252,255,0.25)' // 修改网格线颜色 
+          }
+        },
+        axisLine: {
+          lineStyle: {
+            color: '#00f6ff',
+            width: 1
+          }
+        },
+        data: ['4月27日', '4月27日', '4月27日', '4月27日', '4月27日', '4月27日', '4月27日']
+      }],
+      yAxis: [{
+          type: 'value',
+          name: '数据量（万）',
+          nameLocation: 'start',
+          // min: 0,
+          // max: 450,
+          // interval: 50,
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: 'rgba(113,252,255,0.25)'
+            }
+          },
+          axisLabel: {
+            formatter: '{value}'
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#00f6ff',
+              width: 1
+            }
+          }
+        },
+        {
+          // type: 'value',
+          // min: 0,
+          // interval: 10,
+          position: 'right',
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: 'rgba(113,252,255,0.25)'
+            }
+          },
+          axisLabel: {
+            formatter: '{value}%',
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#00f6ff',
+              width: 1
+            }
+          }
+        }
+      ],
+      series: [{
+          name: '调用次数',
+          type: 'bar',
+          itemStyle: {
+            normal: {
+              // 3.8.5版本label放在这里，注意查看官方更新日志，4.0之后的与itemStyle平级
+              label: {
+                position: 'top',
+                show: true,
+                color: '#00f6ff'
+              },
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: .0,
+                color: 'rgba(0,246,255,0.85)'
+              }, {
+                offset: .54,
+                color: 'rgba(113,252,255,0.65)'
+              }, {
+                offset: 1,
+                color: 'rgba(181,253,255,0.20)'
+              }])
+            }
+          },
+          data: [0.20, 210, 220, 210, 230, 0.29, 310],
+        },
+        {
+          name: '环比',
+          // 悬浮提示
+          tooltip: {
+            trigger: 'item',
+            formatter: '环比：{c0}%<br />'
+          },
+          type: 'line',
+          symbolSize: 10,
+          yAxisIndex: 1,
+          label: {
+            position: 'top',
+            formatter: '{c} %',
+            show: true,
+            color: 'orange'
+          },
+          itemStyle: {
+            normal: {
+              color: 'orange'
+            }
+          },
+          data: [0.47, 10, 50, 70, -21, 32, 0.20]
+        }
+      ]
+    };
+    //为echarts对象加载数据
+    myChartLine.setOption(option);
+  </script>
+
+</body>
+
+</html>

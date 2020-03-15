@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>绝对定位</title>
+  <!-- 特点： 
+  1 使元素完全脱离文档流
+  2 是内嵌支持宽高
+  3 块属性标签内容撑开宽度
+  4 如果有定位父级，相对于定位父级发生偏移，没有定位父级，相对于document（可视区域）偏移
+  5 相对定位一般都是配合绝对定位来使用
+  6 提升层级
+  z-index: [number]
+  1 定位元素默认后者层级高于前者
+  2 建议在有定位的兄弟标签之间比较层级 -->
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      padding: 50px;
+      box-sizing: content-box;
+        /*content-box:padding不会计算到width里面  */
+        /*border-box:添加padding不会增加width的值，会相应压缩内容的宽度*/
+    }
+
+    .box {
+      position: relative;
+    }
+
+    #main {
+      position: absolute;
+      left: -6px;
+      top: -6px;
+      background-color: green;
+      z-index: 1;
+    }
+
+    #back {
+      position: absolute;
+      left: 6px;
+      top: 6px;
+      background-color: black;
+      opacity: 0.2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div id="main">12343455</div>
+    <div id="back"></div>
+  </div>
+  <p>第一段文字</p>
+  <p>第二段文字</p>
+  <p style="background: yellow;position: absolute;">第三段文字</p>
+  <p>第四段文字</p>
+</body>
+
+</html>

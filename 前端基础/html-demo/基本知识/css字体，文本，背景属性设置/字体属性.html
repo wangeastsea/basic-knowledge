@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* font font-family font-size font-weight font-size */
+    /* font-style: normal | italic | oblique| inherit */
+    /* 浏览器的默认字体大小是16px,1em相当于当前文本的的字体大小 */
+    /* font-size: medium (16px) | length (px, em)| %(基于父元素或默认值的百分比)  */
+    /* font-family: 字体1，字体2，字体3...通用字体 | inherit */
+    
+    #box1 {
+      font-weight: bold;
+    }
+    #box2 {
+      font-weight: 900;
+    }
+    #box3 {
+      font-weight: normal;
+    }
+    #box4 {
+      font-weight: lighter;
+    }
+    #box5 {
+      font-style: italic;
+    }
+    #box6 {
+      font-style: oblique;
+    }
+    #box {
+      font-size: 30px;
+    }
+    #box #box1 {
+      font-size: 16px;
+    }
+    #box #box2 {
+      font-size: medium;
+    }
+    #box #box4 {
+      font-size: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">哈罗，世界</div>
+  <div id="box2">哈罗，世界</div>
+  <div id="box3">哈罗，世界</div>
+  <div id="box4">哈罗，世界</div>
+  <div id="box5">哈罗，世界</div>
+  <div id="box6">哈罗，世界</div>
+  <hr>
+  <div id="box">
+    <div id="box1">哈罗，世界</div>
+    <div id="box2">哈罗，世界</div>
+    <div id="box3">哈罗，世界(没有设置字体大小)</div>
+    <div id="box4">哈罗，世界</div>
+  </div>
+</body>
+</html>

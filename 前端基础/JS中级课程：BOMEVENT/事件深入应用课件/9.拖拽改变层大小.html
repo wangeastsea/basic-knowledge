@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#div1 {width: 100px; height: 100px; background: red; position: absolute; left: 500px; top: 200px;}
+</style>
+<script>
+window.onload = function() {
+	
+	var oDiv = document.getElementById('div1');
+	
+	oDiv.onmousedown = function(ev) {
+		
+		var ev = ev || event;
+		
+		var disW = this.offsetWidth; // 原始的宽度
+		var disX = ev.clientX;       //down下去的鼠标的位置
+		var disL = this.offsetLeft;  //down下去的位置离有定位父级左边的距离 
+		
+		var b = '';
+		// 10是我们自己定义的一段参考距离 
+		if ( disX > disL + disW - 10 ) {
+			//alert( 'right' );
+			b = 'right';
+		}
+		if ( disX < disL + 10 ) {
+			//alert( 'left' );
+			b = 'left';
+		}
+		
+		document.onmousemove = function(ev) {
+			
+			var ev = ev || event;
+			
+			switch( b ) {
+				// 往左拖动的时候，left值和width的值都会改变，注意宽度变化相反
+				case 'left':
+					oDiv.style.width = disW - ( ev.clientX - disX ) + 'px';
+					oDiv.style.left = disL + ( ev.clientX - disX ) + 'px';
+					break;
+					
+				case 'right':
+					oDiv.style.width = disW + ( ev.clientX - disX ) + 'px';
+					break;
+				
+			}
+			
+		}
+		
+		document.onmouseup = function() {
+			document.onmousemove = document.onmouseup = null;
+		}
+		
+		return false;
+		
+	}
+	
+}
+</script>
+</head>
+
+<body>
+	<div id="div1"></div>
+</body>
+</html>

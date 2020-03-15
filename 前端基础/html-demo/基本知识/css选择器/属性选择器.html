@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* [属性] 用于选取带有指定属性的元素
+    [属性=值] 用于选取带有指定属性和值的元素
+    [属性~=值] 用于选取属性值中包含指定值的元素，注意该值必须是一个完整的单词
+    [属性^=值] 用于选取属性值不以指定值开头的元素
+    [属性$=值] 用于选取属性值以指定值结尾的元素
+    [属性*=值] 用于选取属性值包含指定值的元素
+     */
+    [title] {
+      color: red;
+    }
+    /* 同时具有这两个属性 */
+    a[href][title] { 
+      font-size: 23px;
+    }
+    img[alt] {
+      border: 3px #0ff solid;
+    }
+    p[align='center'] {
+      color: red;
+      font-weight: bolder;
+    }
+
+  </style>
+</head>
+<body>
+  <h2></h2>
+</body>
+</html>

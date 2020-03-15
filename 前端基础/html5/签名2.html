@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mycanvas">
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+<script>
+    const isMobile = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i.test(navigator.userAgent);
+    const canvas = document.getElementById('canvas');
+    const touchstart = (e) => {
+    /* TODO 定义起点 */
+    };
+    const touchmove = (e) => {
+    /* TODO 连点成线，并且填充颜色 */
+    };
+    canvas.addEventListener('touchstart', touchstart);
+    canvas.addEventListener('touchmove', touchmove);
+    const paint = (signal) => {
+        switch (signal) {
+            case 1: // 开始路径
+                context.beginPath();
+                context.moveTo(point.x, point.y);
+            case 2: // 前面之所以没有break语句，是为了点击时就能描画出一个点
+                context.lineTo(point.x, point.y);
+                context.stroke();
+            break;
+        }
+    }
+    let pressed = false; // 标示是否发生鼠标按下或者手指按下事件
+    const create = signal => (e) => {
+        e.preventDefault();
+        if (signal === 1) {
+            pressed = true;
+        }
+        if (signal === 1 || pressed) {
+            e = isMobile ? e.touches[0] : e;
+            point.x = e.clientX - left + 0.5; // 不加0.5，整数坐标处绘制直线，直线宽度将会多1px(不理解的不妨谷歌下)
+            point.y = e.clientY - top + 0.5;
+            paint(signal);
+        }
+    };
+    const { left, top } = canvas.getBoundingClientRect();
+    const start = create(1);
+    const move = create(2);
+    const requestAnimationFrame = window.requestAnimationFrame;
+    const optimizedMove = requestAnimationFrame ? (e) => {
+        requestAnimationFrame(() => {
+            move(e);
+        })
+        } : move;
+</script>
+</html>

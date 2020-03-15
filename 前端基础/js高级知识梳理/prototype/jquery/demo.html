@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>jquery test 1</p>
+    <p>jquery test 2</p>
+    <p>jquery test 3</p>
+
+    <div id="div1">
+        <p>jquery test in div</p>
+    </div>
+
+    <script type="text/javascript" src="./jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        // 插件扩展，最终的目的是将插件放到init.prototype（即构造函数的原型中）中
+        /***
+         * 原因：1:只有$会暴露在window全局变量
+         *      2:将插件统一扩展到$.fn.xxxxx 这个接口中，方便使用
+         **/
+        $.fn.getNodeName = function () {
+            // this
+            alert(this[0].nodeName)
+        }
+    </script>
+    <script type="text/javascript">
+        // 验证
+        var $p = $('p')
+        $p.getNodeName()
+        var $div1 = $('#div1')
+        $div1.getNodeName()
+    </script>
+</body>
+</html>

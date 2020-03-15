@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>new_file</title>
+  <script src="scripts/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+  <div id="GoogleAD"></div>
+
+  <div id="tempGoogleAD" style="display:none;">
+    <script type="text/javascript" src="http://www.nssd.org/scrollpic.aspx"></script>
+  </div>
+  <script type="text/javascript">
+    document.getElementById("GoogleAD").innerHTML = document.getElementById("tempGoogleAD").innerHTML;
+    document.getElementById("tempGoogleAD").innerHTML = "";
+  </script>
+
+
+  <div id="Div1"></div>
+
+  <div id="Div2" style="display:none;">
+    <script type="text/javascript" src="http://www.nssd.org/topSearch.aspx"></script>
+  </div>
+  <script type="text/javascript">
+    document.getElementById("Div1").innerHTML = document.getElementById("Div2").innerHTML;
+    document.getElementById("Div2").innerHTML = "";
+  </script>
+</body>
+
+</html>

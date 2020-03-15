@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>行内块</title>
+  <style>
+    img {
+      width: 200px;
+      height: 200px;
+      margin: 10px 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1:和相邻的行内元素以及行内块元素从左到右依次排列在同一行，直到一行排不下才会换行。 -->
+  <!-- 注意：和行内元素一样，源代码中，行内块元素换行会被解析成空格 -->
+  <!-- 2:可以设置宽度和高度 -->
+  <!-- 3:可以甚至4个方向的内外边距 -->
+  <!-- 常见的行内块元素，由input , img(规范是行内元素，但是行为上，却是行内块) -->
+  <div id="1"></div>
+  <img src="images/1.png" alt="">
+  <img src="images/2.png" alt="">
+  <img src="images/3.png" alt="">
+  <img src="images/4.png" alt="">
+  <img src="images/5.png" alt="">
+  <div class="jack">jack0</div>
+  <div class="jack">jack1</div>
+</body>
+<script>
+  console.log(document.getElementsByClassName('jack')[0])
+</script>
+</html>

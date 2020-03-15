@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>背景</title>
+  <style>
+    /* background-color: 单词 | 16进制 | rgb | transparent | inherit */
+    /* background-image : url(path) | inherit(继承父背景) */
+    /* background-repeat: repeat repeat-x repeat-y no-repeat  inherit */
+    /* background-position: 
+    位置关键字: 水平位置 垂直位置 left top，如果只写一个关键字，另一个值默认是center
+    |x% y%|左上角0% 0%，右下角： 100% 100% ，如果只写一个值，另一个值默认是center
+    |xpos ypos| 0 0 左上角
+     */
+    div {
+      width: 500px;
+      height: 500px;
+      background-image: url(../images/3.png);
+      border: 1px solid red;
+    }
+    #box2 {
+      background-repeat: repeat-x;
+    }
+    #box3 {
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">东海</div>
+  <div id="box2">东海</div>
+  <div id="box3">东海</div>
+</body>
+</html>

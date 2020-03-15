@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>echars</title>
+  <script src="echars.js"></script>
+  <style>
+    body {
+      background-color: #011c51
+    }
+  </style>
+</head>
+<body>
+  <div id="main" style="width: 600px;height:400px;"></div>
+  <script>
+    var myChartLine = echarts.init(document.getElementById('main'));
+    optionLine = {
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'cross'
+        }
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '9%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'category',
+        // 可以将坐标轴横坐标开头而不是中间位置。
+        boundaryGap: false,
+        data: ['4月20号', '4月21号', '4月22号', '4月23号', '4月24号', '4月25号', '4月26号'],
+        axisLine: {
+          lineStyle: {
+            color: '#00f6ff',
+            width: 1
+          }
+        },
+        splitLine: {
+          show: true, // 网格线是否显示 // 改变样式 
+          lineStyle: {
+            color: 'rgba(113,252,255,0.25)' // 修改网格线颜色 
+          }
+        }
+      },
+      yAxis: [
+        {
+        type: 'value',
+        /*min:0, max:60, splitNumber:6*/
+        splitLine: {
+          show: true,
+          lineStyle: {
+            color: 'rgba(113,252,255,0.25)'
+          }
+        },
+        axisLine: {
+          lineStyle: {
+            color: '#00f6ff',
+            width: 1
+          }
+        }
+      },
+      {
+        // position: 'right', 没有作用
+        // type: 'value',
+        /*min:0, max:60, splitNumber:6*/
+        splitLine: {
+          show: true,
+          lineStyle: {
+            color: 'rgba(113,252,255,0.25)'
+          }
+        },
+        axisLine: {
+          lineStyle: {
+            color: '#00f6ff',
+            width: 1
+          }
+        }
+      }
+    ],
+      series: [{
+        name: '数据量',
+        type: 'line',
+        // stack: '总量1',
+        //区域填充样式
+        // areaStyle: {
+        //   normal: {
+        //     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+        //       offset: .0,
+        //       color: 'rgba(00,246,255,0.85)'
+        //     }, {
+        //       offset: .54,
+        //       color: 'rgba(113,252,255,0.65)'
+        //     }, {
+        //       offset: 1,
+        //       color: 'rgba(181,253,255,0.20)'
+        //     }])
+        //   }
+        // },
+        // 设置最大值标注
+        // markPoint: {
+        //   // 设置标注的大小
+        //   symbolSize: 90, 
+        //   // 标注里面字体的样式设置
+        //   label: {
+        //     fontSize: 17,
+        //     color: 'black',
+        //     fontWeight: 'bold'
+        //   },
+        //   data: [{
+        //     type: 'max',
+        //     name: '最大值',
+        //   }],
+        //   animationDelay: 1000,
+        //   animationDuration: 1000
+        // },
+        // 设置曲线平滑
+        smooth: true,
+        data: ['150', '2346', '112', '570', '733', '512', '753'],
+        // 折线拐点样式
+        itemStyle: {
+          normal: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: .0,
+              color: 'rgba(0,246,255,0.85)'
+            }, {
+              offset: .54,
+              color: 'rgba(113,252,255,0.65)'
+            }, {
+              offset: 1,
+              color: 'rgba(181,253,255,0.20)'
+            }])
+          }
+        }
+      },
+      {
+        name: '环比',
+        type: 'line',
+        stack: '总量1',
+        //区域填充样式
+        // areaStyle: {
+        //   normal: {
+        //     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+        //       offset: .0,
+        //       color: 'rgba(255, 204, 0,0.85)'
+        //     }, {
+        //       offset: .54,
+        //       color: 'rgba(255, 153, 0,0.65)'
+        //     }, {
+        //       offset: 1,
+        //       color: 'rgba(255, 102, 0,0.45)'
+        //     }])
+        //   }
+        // },
+        // 设置最大值标注
+        // markPoint: {
+        //   // 设置标注的大小
+        //   symbolSize: 90, 
+        //   // 标注里面字体的样式设置
+        //   label: {
+        //     fontSize: 17,
+        //     color: 'black',
+        //     fontWeight: 'bold'
+        //   },
+        //   data: [{
+        //     type: 'max',
+        //     name: '最大值',
+        //   }],
+        //   animationDelay: 1000,
+        //   animationDuration: 1000
+        // },
+        // 设置曲线平滑
+        smooth: true,
+        data: ['1000', '234', '1124', '500', '133', '312', '153'],
+        // 折线拐点样式
+        itemStyle: {
+          normal: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: .0,
+              color: 'rgba(255, 204, 0,0.85)'
+            }, {
+              offset: .54,
+              color: 'rgba(255, 153, 0,0.65)'
+            }, {
+              offset: 1,
+              color: 'rgba(255, 102, 0,0.45)'
+            }])
+          }
+        }
+      }
+    ]
+    }; //为echarts对象加载数据
+    myChartLine.setOption(optionLine);
+  </script>
+
+</body>
+
+</html>

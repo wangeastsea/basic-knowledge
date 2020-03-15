@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   html, body {
+        height: 100%;
+    }
+    /* 在同一组背景定义中，如果背景颜色和背景图像都设置了，那么背景图像会覆盖在背景颜色之上 */
+    .image {
+        width:500px;
+        height: 500px;
+        background-image: url(../img/dog.jpg);
+        background-repeat: no-repeat;
+        background-color: red;
+    }
+    /* 使用绝对或相对地址指或者创建渐变色来确定图像 */
+    .gradient {
+        height: 100px;
+	    background-image: linear-gradient(to top, #45B5DA, #0382AD);
+    }
+    /* 组合使用例子 */
+    .multi {
+        height: 500px;
+        background-image: url(../img/dog.jpg),
+					  url(../img/dog2.jpg),
+					  url(../img/dog3.jpg),
+					  linear-gradient(to top, #45B5DA, #0382AD);
+        background-repeat: no-repeat;
+        background-position: 0 0,
+                            500px 0,
+                            1000px 0;    }
+</style>
+<body>
+    <div class="image"></div>
+    <hr>
+    <div class="gradient"></div>
+    <hr>
+    <div class="multi"></div>
+</body>
+</html>

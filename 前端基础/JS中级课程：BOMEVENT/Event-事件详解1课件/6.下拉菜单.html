@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#div1 {width:100px; height:200px; border: 1px solid red; display: none;}
+</style>
+<script>
+window.onload = function() {
+	
+	/*
+	阻止冒泡 : 当前要阻止冒泡的事件函数中调用 event.cancelBubble = true;
+	*/
+	
+	var oBtn = document.getElementById('btn');
+	var oDiv = document.getElementById('div1');
+  // 点击按钮，显示div
+	oBtn.onclick = function(ev) {
+		var ev = ev || event;
+		
+		ev.cancelBubble = true;//阻止当前对象的当前事件的冒泡
+		
+		oDiv.style.display = 'block';
+	}   
+	
+	
+	// oBtn.onmousedown = function(ev) {
+	// 	var ev = ev || event; 
+		
+	// 	ev.cancelBubble = true;
+	// }
+	// 点击文档其他位置，隐藏div
+	document.onclick = function() {
+
+		// 效果延迟，可以看到冒泡的发生
+		/*setTimeout(function() {
+			oDiv.style.display = 'none';
+		}, 1000);*/
+		
+		oDiv.style.display = 'none';
+	}
+	
+}
+</script>
+</head>
+
+<body>
+	<input type="button" value="按钮" id="btn" />
+    <div id="div1"></div>
+		
+		
+		<!-- 可以利用冒泡机制将所有子级的共同父级去做某件事，，这样就免得给每个子级都绑定事件了 -->
+    <p>ppppp</p>
+    <p>ppppp</p>
+    <p>ppppp</p>
+    <p>ppppp</p>
+</body>
+</html>

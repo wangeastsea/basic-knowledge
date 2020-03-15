@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>相对定位</title>
+  <!-- 特点： 
+  1 不影响元素本身的特性 left top right bottom
+  2 元素不脱离文档流 （元素移动之后，原位置保留）
+  3 如果没有定位偏移量，对元素本身没有任何影响
+  4 提升层级 -->
+  <style>
+    body {
+      margin: 0;
+    }
+    p {
+      margin: 0px;
+      height: 100px;
+      text-align: center;
+      border: 1px solid red;
+      width: 400px;
+      padding: 40px;
+    }
+    .positionClass {
+      position: relative;
+      top: 20px;
+      left: 10px;
+      border: 1px solid green;
+    }
+  </style>
+</head>
+
+<body>
+  <p>第一段文字</p>
+  <p>第二段文字</p>
+  <p class="positionClass">第三段文字</p>
+  <p>第四段文字</p>
+</body>
+</html>

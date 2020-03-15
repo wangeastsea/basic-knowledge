@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function jack (name) {
+    //   console.log(name)
+    //   console.log('我被改变大小了')
+
+    // }
+    // window.onresize = jack('wangdonghai')
+    // 不是太能理解这种编写方式，timer一直在生成·
+    var throttle = function (fn, interval) {
+      // 保存需要被延迟执行的函数引用
+      var _self = fn,
+        timer, // 定时器
+        firstTime = true //是否是第一次调用
+      return function () {
+        var args = arguments
+        _me = this
+        if (firstTime) { //如果是第一次调用，不需要延迟执行
+          _self.apply(_me, args)
+          return firstTime = false
+        }
+        // 如果定时器还在，说明前一次延迟执行还没有完成
+        if (timer) {
+          return false
+        }
+        // 延迟一段时间执行
+        timer = setTimeout(function () {
+          clearTimeout(timer)
+          timer = null
+          _self.apply(_me, args)
+        }, interval || 500)
+      }
+    }
+    window.onresize = throttle(function () {
+      console.log(1)
+    })
+  </script>
+</body>
+
+</html>

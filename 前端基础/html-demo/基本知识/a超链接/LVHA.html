@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:-->
+    <!--L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a:link { color: #0f0f0f}
+        a:visited {color: red}
+        a:hover {color: #00A0D9}
+        a:active {color: #0000FF}
+    </style>
+</head>
+<body>
+<a href="http://www.baidu.com">惦记我</a>
+</body>
+</html>

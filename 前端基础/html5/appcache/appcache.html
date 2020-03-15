@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<!--manifest 文件需要配置正确的 MIME-type，即 "text/cache-manifest"。必须在 web 服务器上进行配置-->
+<html manifest="demo_html.appcache">
+<head> 
+<meta charset="UTF-8">
+<title>菜鸟教程(runoob.com)</title> 
+</head>
+<body>
+<script>
+    function getDateTime () {
+        alert(new Date().getMonth())
+    }
+</script>
+<p id="timePara"><button onclick="getDateTime()">获取日期和时间</button></p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537240166&di=83bb65506ed45d69d5557b861068ea33&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb17eca8065380cd7ce6868c0aa44ad34598281ad.jpg" width="336" height="69"></p>
+<p>尝试打开 <a href="http://www.runoob.com/html/html5-app-cache.html" target="_blank">这个页面</a>, 在离线的状态下重新载入这个页面，页面也可以访问。</p>
+</body>
+</html>

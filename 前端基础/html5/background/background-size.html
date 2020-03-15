@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            border:1px dashed #666;
+            width:400px;
+            height:350px;
+            background:url(../img/dog3.jpg) no-repeat;}
+        .cover p {
+            background-size:cover;
+        }
+        .contain p { 
+            background-size:contain;
+        }
+        .length p {
+            background-size:100px 140px;
+        }
+        .percentage p {
+            background-size: 50% 30%;
+        }
+    </style>
+</head>
+<body>
+    <ul class="test">
+        <li class="cover">
+            <h2>cover</h2>
+            <p>将背景图像等比缩放到完全覆盖容器，背景图像有可能超出容器。</p>
+        </li>
+        <li class="contain">
+            <h2>contain</h2>
+            <p>将背景图像等比缩放到宽度或高度与容器的宽度或高度相等，背景图像始终被包含在容器内。</p>
+        </li>
+        <li class="length">
+            <h2>length</h2>
+            <p>自定义背景图像大小</p>
+        </li>
+        <li class="percentage">
+            <h2>percentage</h2>
+            <p>自定义背景图像大小</p>
+        </li>
+    </ul>
+</body>
+</html>

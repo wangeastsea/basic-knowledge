@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <style type="text/css">
+        #div1 {
+            width: 350px;
+            height: 70px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+    <script>
+        //ondragover 事件规定在何处放置被拖动的数据。
+        // 默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+        window.onerror = function (message) {
+            alert(message)
+        }
+    </script>
+</head>
+
+<body>
+
+    <p>拖动 RUNOOB.COM 图片到矩形框中:</p>
+
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <br>
+    <img 
+        id="drag1" 
+        src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1537240166&di=83bb65506ed45d69d5557b861068ea33&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb17eca8065380cd7ce6868c0aa44ad34598281ad.jpg"
+        draggable="true" 
+        ondragstart="drag(event)" 
+        width="336" 
+        height="69">
+</body>
+
+</html>
