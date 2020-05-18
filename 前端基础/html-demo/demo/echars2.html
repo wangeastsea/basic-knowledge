@@ -14,7 +14,9 @@
   </style>
 </head>
 <body>
-  <div id="main" style="width: 600px;height:400px;"></div>
+
+  <div id="main" style="width: 600px;height:400px;">
+  </div>
   <script>
     var myChartLine = echarts.init(document.getElementById('main'));
     optionLine = {
@@ -42,9 +44,9 @@
           }
         },
         splitLine: {
-          show: true, // 网格线是否显示 // 改变样式 
+          show: true, // 网格线是否显示 // 改变样式
           lineStyle: {
-            color: 'rgba(113,252,255,0.25)' // 修改网格线颜色 
+            color: 'rgba(113,252,255,0.25)' // 修改网格线颜色
           }
         }
       },
@@ -105,7 +107,7 @@
         // 设置最大值标注
         // markPoint: {
         //   // 设置标注的大小
-        //   symbolSize: 90, 
+        //   symbolSize: 90,
         //   // 标注里面字体的样式设置
         //   label: {
         //     fontSize: 17,
@@ -160,7 +162,7 @@
         // 设置最大值标注
         // markPoint: {
         //   // 设置标注的大小
-        //   symbolSize: 90, 
+        //   symbolSize: 90,
         //   // 标注里面字体的样式设置
         //   label: {
         //     fontSize: 17,

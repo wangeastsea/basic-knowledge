@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test {
+            width: 1000px;
+            height: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="test">
+        <canvas id="canvas" width="200" height="200"></canvas>
+    </div>
+   
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const image = new Image(60, 45);
+        image.src = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589375152694&di=419ea8d9aa512781468b54f2ca736190&imgtype=0&src=http%3A%2F%2Fimage.xcar.com.cn%2Fattachments%2Fday_070514%2F0818_RTFU_55_vpNKk8vtGts5_83lAWGOOXOA7.gif';
+        // ctx.rotate(-1 * 45 * Math.PI / 180);
+        // ctx.fillRect(0,0,100,20);
+        image.onload = drawImageActualSize
+        function drawImageActualSize() {
+  // Use the intrinsic size of image in CSS pixels for the canvas element
+            canvas.width = this.naturalWidth;
+            canvas.height = this.naturalHeight;
+  // Will draw the image as 300x227, ignoring the custom size of 60x45
+  // given in the constructor
+            // ctx.drawImage(this, 0, 0);
+  // To use the custom size we'll have to specify the scale parameters 
+  // using the element's width and height properties - lets draw one 
+  // on top in the corner:
+            // 这里仅仅是旋转坐标系
+            // 这2句代码的意思就是原地逆时针90旋转，大爷的，终于理解了，花了将近2个小时，明早8点30到，继续梳理
+            ctx.rotate(-1 *90 * Math.PI / 180);
+            ctx.drawImage(this, -this.width, 0, this.width, this.height);  // 176， 220
+            // ctx.drawImage(this, 0, 0, this.width, this.height);  // 176， 220
+        }
+    </script>
+</body>
+</html>

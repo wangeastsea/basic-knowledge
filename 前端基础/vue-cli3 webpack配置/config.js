@@ -1,12 +1,9 @@
-$ vue-cli-service inspect --mode production
-production process.env.NODE_ENV
-
 {
-  mode: 'production',
-  context: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp',
-  devtool: 'source-map',
+  mode: 'development',
+  context: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test',
   node: {
     setImmediate: false,
+    process: 'mock',
     dgram: 'empty',
     fs: 'empty',
     net: 'empty',
@@ -14,24 +11,15 @@ production process.env.NODE_ENV
     child_process: 'empty'
   },
   output: {
-    path: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/dist/undefined',
-    filename: 'js/[name].[contenthash:8].js',
-    publicPath: '/webapp/undefined/',
-    chunkFilename: 'js/[name].[contenthash:8].js'
+    path: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/dist',
+    filename: 'js/[name].js',
+    publicPath: '/',
+    chunkFilename: 'js/[name].js'
   },
   resolve: {
     alias: {
-      '@': '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/src',
-      vue$: 'vue/dist/vue.runtime.esm.js',
-      '@market-components': '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/src/pages/market/0-components',
-      '@market-config': '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/src/pages/market/0-config',
-      '@market-filters': '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/src/pages/market/0-filters',
-      '@market-images': '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/src/pages/market/0-images',
-      '@market-plugins': '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/src/pages/market/0-plugins',
-      '@market-service': '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/src/pages/market/0-service',
-      '@market-style': '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/src/pages/market/0-style',
-      '@market-third': '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/src/pages/market/0-third',
-      '@market-utils': '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/src/pages/market/0-utils'
+      '@': '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/src',
+      vue$: 'vue/dist/vue.runtime.esm.js'
     },
     extensions: [
       '.mjs',
@@ -43,17 +31,24 @@ production process.env.NODE_ENV
     ],
     modules: [
       'node_modules',
-      '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules',
-      '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/@vue/cli-service/node_modules'
+      '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules',
+      '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/@vue/cli-service/node_modules'
+    ],
+    plugins: [
+      /* config.resolve.plugin('pnp') */
+      {}
     ]
   },
   resolveLoader: {
     modules: [
-      '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/@vue/cli-plugin-eslint/node_modules',
-      '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/@vue/cli-plugin-babel/node_modules',
+      '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/@vue/cli-plugin-babel/node_modules',
       'node_modules',
-      '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules',
-      '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/@vue/cli-service/node_modules'
+      '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules',
+      '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/@vue/cli-service/node_modules'
+    ],
+    plugins: [
+      /* config.resolve.plugin('pnp-loaders') */
+      {}
     ]
   },
   module: {
@@ -65,21 +60,21 @@ production process.env.NODE_ENV
         use: [
           /* config.module.rule('vue').use('cache-loader') */
           {
-            loader: 'cache-loader',
+            loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/cache-loader/dist/cjs.js',
             options: {
-              cacheDirectory: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/.cache/vue-loader',
-              cacheIdentifier: '001fb2c6'
+              cacheDirectory: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/.cache/vue-loader',
+              cacheIdentifier: '561cf0a2'
             }
           },
           /* config.module.rule('vue').use('vue-loader') */
           {
-            loader: 'vue-loader',
+            loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-loader/lib/index.js',
             options: {
               compilerOptions: {
-                preserveWhitespace: false
+                whitespace: 'condense'
               },
-              cacheDirectory: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/.cache/vue-loader',
-              cacheIdentifier: '001fb2c6'
+              cacheDirectory: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/.cache/vue-loader',
+              cacheIdentifier: '561cf0a2'
             }
           }
         ]
@@ -90,11 +85,11 @@ production process.env.NODE_ENV
         use: [
           /* config.module.rule('images').use('url-loader') */
           {
-            loader: 'url-loader',
+            loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/url-loader/dist/cjs.js',
             options: {
               limit: 4096,
               fallback: {
-                loader: 'file-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/file-loader/dist/cjs.js',
                 options: {
                   name: 'img/[name].[hash:8].[ext]'
                 }
@@ -109,7 +104,7 @@ production process.env.NODE_ENV
         use: [
           /* config.module.rule('svg').use('file-loader') */
           {
-            loader: 'file-loader',
+            loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/file-loader/dist/cjs.js',
             options: {
               name: 'img/[name].[hash:8].[ext]'
             }
@@ -122,11 +117,11 @@ production process.env.NODE_ENV
         use: [
           /* config.module.rule('media').use('url-loader') */
           {
-            loader: 'url-loader',
+            loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/url-loader/dist/cjs.js',
             options: {
               limit: 4096,
               fallback: {
-                loader: 'file-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/file-loader/dist/cjs.js',
                 options: {
                   name: 'media/[name].[hash:8].[ext]'
                 }
@@ -141,11 +136,11 @@ production process.env.NODE_ENV
         use: [
           /* config.module.rule('fonts').use('url-loader') */
           {
-            loader: 'url-loader',
+            loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/url-loader/dist/cjs.js',
             options: {
               limit: 4096,
               fallback: {
-                loader: 'file-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/file-loader/dist/cjs.js',
                 options: {
                   name: 'fonts/[name].[hash:8].[ext]'
                 }
@@ -175,7 +170,7 @@ production process.env.NODE_ENV
               {
                 loader: 'raw-loader'
               },
-              /* config.module.rule('pug').oneOf('pug-template').use('pug-plain') */
+              /* config.module.rule('pug').oneOf('pug-template').use('pug-plain-loader') */
               {
                 loader: 'pug-plain-loader'
               }
@@ -191,28 +186,33 @@ production process.env.NODE_ENV
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('css').oneOf('vue-modules').use('extract-css-loader') */
+              /* config.module.rule('css').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('css').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('css').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               }
             ]
@@ -221,16 +221,17 @@ production process.env.NODE_ENV
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('css').oneOf('vue').use('extract-css-loader') */
+              /* config.module.rule('css').oneOf('vue').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('css').oneOf('vue').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -238,9 +239,12 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('css').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               }
             ]
@@ -249,28 +253,33 @@ production process.env.NODE_ENV
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('css').oneOf('normal-modules').use('extract-css-loader') */
+              /* config.module.rule('css').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('css').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('css').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               }
             ]
@@ -278,16 +287,17 @@ production process.env.NODE_ENV
           /* config.module.rule('css').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('css').oneOf('normal').use('extract-css-loader') */
+              /* config.module.rule('css').oneOf('normal').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('css').oneOf('normal').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -295,9 +305,12 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('css').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               }
             ]
@@ -312,28 +325,33 @@ production process.env.NODE_ENV
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('postcss').oneOf('vue-modules').use('extract-css-loader') */
+              /* config.module.rule('postcss').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('postcss').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('postcss').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               }
             ]
@@ -342,16 +360,17 @@ production process.env.NODE_ENV
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('postcss').oneOf('vue').use('extract-css-loader') */
+              /* config.module.rule('postcss').oneOf('vue').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('postcss').oneOf('vue').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -359,9 +378,12 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('postcss').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               }
             ]
@@ -370,28 +392,33 @@ production process.env.NODE_ENV
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('postcss').oneOf('normal-modules').use('extract-css-loader') */
+              /* config.module.rule('postcss').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('postcss').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('postcss').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               }
             ]
@@ -399,16 +426,17 @@ production process.env.NODE_ENV
           /* config.module.rule('postcss').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('postcss').oneOf('normal').use('extract-css-loader') */
+              /* config.module.rule('postcss').oneOf('normal').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('postcss').oneOf('normal').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -416,9 +444,12 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('postcss').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               }
             ]
@@ -433,36 +464,40 @@ production process.env.NODE_ENV
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('scss').oneOf('vue-modules').use('extract-css-loader') */
+              /* config.module.rule('scss').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('scss').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('scss').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('scss').oneOf('vue-modules').use('sass-loader') */
               {
-                loader: 'sass-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/sass-loader/dist/cjs.js',
                 options: {
-                  sourceMap: false,
-                  data: '@import "@/assets/styles/theme.scss";'
+                  sourceMap: false
                 }
               }
             ]
@@ -471,16 +506,17 @@ production process.env.NODE_ENV
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('scss').oneOf('vue').use('extract-css-loader') */
+              /* config.module.rule('scss').oneOf('vue').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('scss').oneOf('vue').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -488,17 +524,19 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('scss').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('scss').oneOf('vue').use('sass-loader') */
               {
-                loader: 'sass-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/sass-loader/dist/cjs.js',
                 options: {
-                  sourceMap: false,
-                  data: '@import "@/assets/styles/theme.scss";'
+                  sourceMap: false
                 }
               }
             ]
@@ -507,36 +545,40 @@ production process.env.NODE_ENV
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('scss').oneOf('normal-modules').use('extract-css-loader') */
+              /* config.module.rule('scss').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('scss').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('scss').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('scss').oneOf('normal-modules').use('sass-loader') */
               {
-                loader: 'sass-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/sass-loader/dist/cjs.js',
                 options: {
-                  sourceMap: false,
-                  data: '@import "@/assets/styles/theme.scss";'
+                  sourceMap: false
                 }
               }
             ]
@@ -544,16 +586,17 @@ production process.env.NODE_ENV
           /* config.module.rule('scss').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('scss').oneOf('normal').use('extract-css-loader') */
+              /* config.module.rule('scss').oneOf('normal').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('scss').oneOf('normal').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -561,17 +604,19 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('scss').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('scss').oneOf('normal').use('sass-loader') */
               {
-                loader: 'sass-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/sass-loader/dist/cjs.js',
                 options: {
-                  sourceMap: false,
-                  data: '@import "@/assets/styles/theme.scss";'
+                  sourceMap: false
                 }
               }
             ]
@@ -586,37 +631,43 @@ production process.env.NODE_ENV
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('sass').oneOf('vue-modules').use('extract-css-loader') */
+              /* config.module.rule('sass').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('sass').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('sass').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('sass').oneOf('vue-modules').use('sass-loader') */
               {
-                loader: 'sass-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
-                  data: '@import "@/assets/styles/theme.scss";',
-                  indentedSyntax: true
+                  sassOptions: {
+                    indentedSyntax: true
+                  }
                 }
               }
             ]
@@ -625,16 +676,17 @@ production process.env.NODE_ENV
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('sass').oneOf('vue').use('extract-css-loader') */
+              /* config.module.rule('sass').oneOf('vue').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('sass').oneOf('vue').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -642,18 +694,22 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('sass').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('sass').oneOf('vue').use('sass-loader') */
               {
-                loader: 'sass-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
-                  data: '@import "@/assets/styles/theme.scss";',
-                  indentedSyntax: true
+                  sassOptions: {
+                    indentedSyntax: true
+                  }
                 }
               }
             ]
@@ -662,37 +718,43 @@ production process.env.NODE_ENV
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('sass').oneOf('normal-modules').use('extract-css-loader') */
+              /* config.module.rule('sass').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('sass').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('sass').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('sass').oneOf('normal-modules').use('sass-loader') */
               {
-                loader: 'sass-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
-                  data: '@import "@/assets/styles/theme.scss";',
-                  indentedSyntax: true
+                  sassOptions: {
+                    indentedSyntax: true
+                  }
                 }
               }
             ]
@@ -700,16 +762,17 @@ production process.env.NODE_ENV
           /* config.module.rule('sass').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('sass').oneOf('normal').use('extract-css-loader') */
+              /* config.module.rule('sass').oneOf('normal').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('sass').oneOf('normal').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -717,18 +780,22 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('sass').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('sass').oneOf('normal').use('sass-loader') */
               {
-                loader: 'sass-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/sass-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
-                  data: '@import "@/assets/styles/theme.scss";',
-                  indentedSyntax: true
+                  sassOptions: {
+                    indentedSyntax: true
+                  }
                 }
               }
             ]
@@ -743,43 +810,40 @@ production process.env.NODE_ENV
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('less').oneOf('vue-modules').use('extract-css-loader') */
+              /* config.module.rule('less').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('less').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('less').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('less').oneOf('vue-modules').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
-                  sourceMap: false,
-                  modifyVars: {
-                    green: '#10ba70',
-                    blue: '#3c78fa',
-                    red: '#e72653',
-                    'button-primary-background-color': '#285AC8',
-                    'button-primary-color': '#EBEBEB',
-                    'button-primary-border-color': '#285AC8'
-                  }
+                  sourceMap: false
                 }
               }
             ]
@@ -788,16 +852,17 @@ production process.env.NODE_ENV
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('less').oneOf('vue').use('extract-css-loader') */
+              /* config.module.rule('less').oneOf('vue').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('less').oneOf('vue').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -805,24 +870,19 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('less').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('less').oneOf('vue').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
-                  sourceMap: false,
-                  modifyVars: {
-                    green: '#10ba70',
-                    blue: '#3c78fa',
-                    red: '#e72653',
-                    'button-primary-background-color': '#285AC8',
-                    'button-primary-color': '#EBEBEB',
-                    'button-primary-border-color': '#285AC8'
-                  }
+                  sourceMap: false
                 }
               }
             ]
@@ -831,43 +891,40 @@ production process.env.NODE_ENV
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('less').oneOf('normal-modules').use('extract-css-loader') */
+              /* config.module.rule('less').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('less').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('less').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('less').oneOf('normal-modules').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
-                  sourceMap: false,
-                  modifyVars: {
-                    green: '#10ba70',
-                    blue: '#3c78fa',
-                    red: '#e72653',
-                    'button-primary-background-color': '#285AC8',
-                    'button-primary-color': '#EBEBEB',
-                    'button-primary-border-color': '#285AC8'
-                  }
+                  sourceMap: false
                 }
               }
             ]
@@ -875,16 +932,17 @@ production process.env.NODE_ENV
           /* config.module.rule('less').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('less').oneOf('normal').use('extract-css-loader') */
+              /* config.module.rule('less').oneOf('normal').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('less').oneOf('normal').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -892,24 +950,19 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('less').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('less').oneOf('normal').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
-                  sourceMap: false,
-                  modifyVars: {
-                    green: '#10ba70',
-                    blue: '#3c78fa',
-                    red: '#e72653',
-                    'button-primary-background-color': '#285AC8',
-                    'button-primary-color': '#EBEBEB',
-                    'button-primary-border-color': '#285AC8'
-                  }
+                  sourceMap: false
                 }
               }
             ]
@@ -924,28 +977,33 @@ production process.env.NODE_ENV
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('stylus').oneOf('vue-modules').use('extract-css-loader') */
+              /* config.module.rule('stylus').oneOf('vue-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('stylus').oneOf('vue-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('stylus').oneOf('vue-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('stylus').oneOf('vue-modules').use('stylus-loader') */
@@ -962,16 +1020,17 @@ production process.env.NODE_ENV
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('stylus').oneOf('vue').use('extract-css-loader') */
+              /* config.module.rule('stylus').oneOf('vue').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('stylus').oneOf('vue').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -979,9 +1038,12 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('stylus').oneOf('vue').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('stylus').oneOf('vue').use('stylus-loader') */
@@ -998,28 +1060,33 @@ production process.env.NODE_ENV
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('stylus').oneOf('normal-modules').use('extract-css-loader') */
+              /* config.module.rule('stylus').oneOf('normal-modules').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('stylus').oneOf('normal-modules').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2,
-                  modules: true,
-                  localIdentName: '[name]_[local]_[hash:base64:5]'
+                  modules: {
+                    localIdentName: '[name]_[local]_[hash:base64:5]'
+                  }
                 }
               },
               /* config.module.rule('stylus').oneOf('normal-modules').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('stylus').oneOf('normal-modules').use('stylus-loader') */
@@ -1035,16 +1102,17 @@ production process.env.NODE_ENV
           /* config.module.rule('stylus').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('stylus').oneOf('normal').use('extract-css-loader') */
+              /* config.module.rule('stylus').oneOf('normal').use('vue-style-loader') */
               {
-                loader: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/mini-css-extract-plugin/dist/loader.js',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/vue-style-loader/index.js',
                 options: {
-                  publicPath: '../'
+                  sourceMap: false,
+                  shadowMode: false
                 }
               },
               /* config.module.rule('stylus').oneOf('normal').use('css-loader') */
               {
-                loader: 'css-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/css-loader/dist/cjs.js',
                 options: {
                   sourceMap: false,
                   importLoaders: 2
@@ -1052,9 +1120,12 @@ production process.env.NODE_ENV
               },
               /* config.module.rule('stylus').oneOf('normal').use('postcss-loader') */
               {
-                loader: 'postcss-loader',
+                loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/postcss-loader/src/index.js',
                 options: {
-                  sourceMap: false
+                  sourceMap: false,
+                  plugins: [
+                    function () { /* omitted long function */ }
+                  ]
                 }
               },
               /* config.module.rule('stylus').oneOf('normal').use('stylus-loader') */
@@ -1078,19 +1149,15 @@ production process.env.NODE_ENV
         use: [
           /* config.module.rule('js').use('cache-loader') */
           {
-            loader: 'cache-loader',
+            loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/cache-loader/dist/cjs.js',
             options: {
-              cacheDirectory: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/.cache/babel-loader',
-              cacheIdentifier: '1409be33'
+              cacheDirectory: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/.cache/babel-loader',
+              cacheIdentifier: '1dcce4dc'
             }
-          },
-          /* config.module.rule('js').use('thread-loader') */
-          {
-            loader: 'thread-loader'
           },
           /* config.module.rule('js').use('babel-loader') */
           {
-            loader: 'babel-loader'
+            loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/babel-loader/lib/index.js'
           }
         ]
       },
@@ -1100,12 +1167,12 @@ production process.env.NODE_ENV
         test: /\.(vue|(j|t)sx?)$/,
         exclude: [
           /node_modules/,
-          '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/@vue/cli-service/lib'
+          '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/@vue/cli-service/lib'
         ],
         use: [
           /* config.module.rule('eslint').use('eslint-loader') */
           {
-            loader: 'eslint-loader',
+            loader: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/eslint-loader/index.js',
             options: {
               extensions: [
                 '.js',
@@ -1113,11 +1180,11 @@ production process.env.NODE_ENV
                 '.vue'
               ],
               cache: true,
-              cacheIdentifier: '7e5bb1f7',
-              emitWarning: true,
+              cacheIdentifier: '17b5da6b',
+              emitWarning: false,
               emitError: false,
-              eslintPath: '/Users/wangdonghai/Documents/WDH_library/youxin_workspace/youxin-webapp/node_modules/eslint/lib/api.js',
-              formatter: function () { /* omitted long function */ }
+              eslintPath: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/node_modules/eslint',
+              formatter: undefined
             }
           }
         ]
@@ -1125,24 +1192,28 @@ production process.env.NODE_ENV
     ]
   },
   optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          name: 'chunk-vendors',
+          test: /[\\\/]node_modules[\\\/]/,
+          priority: -10,
+          chunks: 'initial'
+        },
+        common: {
+          name: 'chunk-common',
+          minChunks: 2,
+          priority: -20,
+          chunks: 'initial',
+          reuseExistingChunk: true
+        }
+      }
+    },
     minimizer: [
-      {
-        options: {
-          test: /\.m?js(\?.*)?$/i,
-          chunkFilter: () => true,
-          warningsFilter: () => true,
-          extractComments: false,
-          sourceMap: true,
-          cache: true,
-          cacheKeys: defaultCacheKeys => defaultCacheKeys,
-          parallel: true,
-          include: undefined,
-          exclude: undefined,
-          minify: undefined,
+      /* config.optimization.minimizer('terser') */
+      new TerserPlugin(
+        {
           terserOptions: {
-            output: {
-              comments: /^\**!|@preserve|@license|@cc_on/i
-            },
             compress: {
               arrows: false,
               collapse_vars: false,
@@ -1171,27 +1242,14 @@ production process.env.NODE_ENV
             mangle: {
               safari10: true
             }
-          }
+          },
+          sourceMap: true,
+          cache: true,
+          parallel: true,
+          extractComments: false
         }
-      }
-    ],
-    splitChunks: {
-      cacheGroups: {
-        vendors: {
-          name: 'chunk-vendors',
-          test: /[\\\/]node_modules[\\\/](vue|axios|badjs-report|fastclick|core-js|@babel|path-browserify|vue-loader|is-buffer|node-libs-browser|regenerator-runtime)[\\\/]/,
-          priority: -10,
-          chunks: 'initial'
-        },
-        common: {
-          name: 'chunk-common',
-          minChunks: 2,
-          priority: -20,
-          chunks: 'initial',
-          reuseExistingChunk: true
-        }
-      }
-    }
+      )
+    ]
   },
   plugins: [
     /* config.plugin('vue-loader') */
@@ -1200,9 +1258,8 @@ production process.env.NODE_ENV
     new DefinePlugin(
       {
         'process.env': {
-          VUE_APP_CLI_UI_URL: '""',
-          NODE_ENV: '"production"',
-          BASE_URL: '"/webapp/undefined/"'
+          NODE_ENV: '"development"',
+          BASE_URL: '"/"'
         }
       }
     ),
@@ -1219,58 +1276,59 @@ production process.env.NODE_ENV
         ]
       }
     ),
-    /* config.plugin('extract-css') */
-    new MiniCssExtractPlugin(
+    /* config.plugin('html') */
+    new HtmlWebpackPlugin(
       {
-        filename: 'css/[name].[contenthash:8].css',
-        chunkFilename: 'css/[name].[contenthash:8].css'
+        title: 'vue-cli3-test',
+        templateParameters: function () { /* omitted long function */ },
+        template: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/public/index.html'
       }
     ),
-    /* config.plugin('optimize-css') */
-    new OptimizeCssnanoPlugin(
+    /* config.plugin('pwa') */
+    new HtmlPwaPlugin(
       {
-        sourceMap: false,
-        cssnanoOptions: {
-          preset: [
-            'default',
+        name: 'vue-cli3-test'
+      }
+    ),
+    /* config.plugin('preload') */
+    new PreloadPlugin(
+      {
+        rel: 'preload',
+        include: 'initial',
+        fileBlacklist: [
+          /\.map$/,
+          /hot-update\.js$/
+        ]
+      }
+    ),
+    /* config.plugin('prefetch') */
+    new PreloadPlugin(
+      {
+        rel: 'prefetch',
+        include: 'asyncChunks'
+      }
+    ),
+    /* config.plugin('copy') */
+    new CopyPlugin(
+      [
+        {
+          from: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/public',
+          to: '/Users/wangdonghai/Documents/WDH_library/myProject/vue-cli3-test/dist',
+          toType: 'dir',
+          ignore: [
+            '.DS_Store',
             {
-              mergeLonghand: false,
-              cssDeclarationSorter: false
+              glob: 'index.html',
+              matchBase: false
             }
           ]
         }
-      }
-    ),
-    /* config.plugin('hash-module-ids') */
-    new HashedModuleIdsPlugin(
-      {
-        hashDigest: 'hex'
-      }
-    ),
-    /* config.plugin('named-chunks') */
-    new NamedChunksPlugin(
-      function () { /* omitted long function */ }
-    ),
-    /* config.plugin('copy') */
-    new CopyWebpackPlugin(
-      []
-    ),
-    {
-      options: {
-        test: /\.(js|css|html)$/,
-        include: undefined,
-        exclude: undefined,
-        cache: false,
-        algorithm: function () { /* omitted long function */ },
-        compressionOptions: {
-          level: 9
-        },
-        filename: '[path].gz[query]',
-        threshold: 0,
-        minRatio: 0.8,
-        deleteOriginalAssets: false
-      }
-    }
-  ]
+      ]
+    )
+  ],
+  entry: {
+    app: [
+      './src/main.js'
+    ]
+  }
 }
-
