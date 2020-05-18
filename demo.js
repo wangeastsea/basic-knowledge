@@ -1,22 +1,13 @@
-
-
-Function.prototype.bind  = function (context, ...res) {
-    let self = this
-    context = context
-    args = res
+var getSingle = function (fn) {
+    var ret
     return function () {
-        return self.apply(context, [...args, ...arguments])
+        return ret || (ret = fn.apply(this, arguments))
     }
 }
 
+var getScript = getSingle(function () {     
+    return document.createElement('script')
+})
 
-
-var obj = {
-    name: 'jack',
-}
-var func = function (a,b,c,d) {
-    console.log(this.name) // jack
-    console.log(a,b,c,d)  // 输出 [1,2,3,4]
-}.bind(obj, 1,2)
-
-func(3,4)
+var script1 = getScript()
+var script2 = getScript()
