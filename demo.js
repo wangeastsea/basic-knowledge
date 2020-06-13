@@ -1,3 +1,11 @@
+// // 单例模式
+// // 执行一次之后，就返回一个匿名函数
+// var getSingle = function (fn) {
+//     var ret
+//     return function () {
+//         return ret || (ret = fn.apply(this, arguments))
+//     }
+// }
 
 /**
  * 柯里化： 首先函数会接受一些参数，接受这些参数之后，函数并不会立即求值。而是继续返回另一个函数。
@@ -5,6 +13,9 @@
  *  */ 
 
 
+Object.keys(data).forEach((key) => {
+    reactive(data, key, data[key])
+})
 
 // var cost = (function () {
 //     var args = []
