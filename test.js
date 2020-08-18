@@ -1,8 +1,15 @@
-console.log(foo);
-foo()
-function foo(){
-    console.log("foo");
+let f;
+let o = 10;
+function a(o) {
+    if (!f) {
+        f = () => {
+            console.log('console f', o);
+        }
+    } else {
+        console.log('f true', o);
+    }
+    o+= 1;
+    f();
 }
-
-var foo = 1;
-console.log(foo)
+a(1); 
+a(5);
