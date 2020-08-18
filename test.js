@@ -1,12 +1,8 @@
-function aa () {
-    try {
-        let a = 5
-        console.log('e',a)
-        return 
-    } catch (error) {
-        
-    } finally {
-        console.log('e')
-    }
+console.log(foo);
+foo()
+function foo(){
+    console.log("foo");
 }
-aa()
+
+var foo = 1;
+console.log(foo)
