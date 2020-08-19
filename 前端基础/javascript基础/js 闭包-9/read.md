@@ -34,7 +34,7 @@ ECMAScript中，闭包指的是：
 🌰来自《JavaScript权威指南》，稍微做点改动：
 ```js
 var scope = "global scope";
-function checkscope(){
+function checkscope() {
     var scope = "local scope";
     function f(){
         return scope;

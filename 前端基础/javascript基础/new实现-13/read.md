@@ -138,9 +138,9 @@ console.log(person.age) // 18
 // 第二版的代码
 function objectFactory() {
 
-    var obj = new Object(),
+    var obj = new Object()
     // 获取第一个参数，也就是构造函数
-    Constructor = [].shift.call(arguments);
+    var Constructor = [].shift.call(arguments);
 
     obj.__proto__ = Constructor.prototype;
 
