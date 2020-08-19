@@ -1,15 +1,8 @@
-let f;
-let o = 10;
-function a(o) {
-    if (!f) {
-        f = () => {
-            console.log('console f', o);
-        }
-    } else {
-        console.log('f true', o);
-    }
-    o+= 1;
-    f();
+function foo() {
+    bar.apply(this, arguments);
 }
-a(1); 
-a(5);
+function bar(a, b, c) {
+   console.log(a, b, c);
+}
+
+foo(1, 2, 3)
