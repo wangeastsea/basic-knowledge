@@ -1,3 +1,4 @@
+// 手写代码版本
 function Wpromise (executor) {
     let self = this
     self.value = undefined

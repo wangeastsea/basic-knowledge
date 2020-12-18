@@ -70,7 +70,5 @@ Wpromise.prototype.then = function (onFilfilled, onRejected) {
             }
         })
     }
-    
-    
 }
 module.exports = Wpromise
