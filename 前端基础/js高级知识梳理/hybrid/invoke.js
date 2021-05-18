@@ -43,7 +43,7 @@
         },
         scan: function (data, callback) {
             _invoke('scan', data, callback)
-        }
+        },
         login: function (data, callback) {
             _invoke('login', data, callback)
         }
