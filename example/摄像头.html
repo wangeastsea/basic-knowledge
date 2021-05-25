@@ -22,7 +22,7 @@
 </div>
 <div style="margin-top:50px;text-align: center;font-size:14px;">view source: <a href="https://github.com/wendychengc/media-recorder-video-canvas/tree/master" target="_blank">https://github.com/wendychengc/media-recorder-video-canvas/tree/master</a></div>
 
-
+<!-- https://cloud.tencent.com/developer/article/1366886 -->
 <script>
     var allChunks = [];
     init();
@@ -87,14 +87,6 @@
         }
     }
 
-    // function blobToDataURL() {
-    //     let a = new FileReader()
-    //     const fullBlob = new Blob(allChunks)
-    //     a.onload = function (e) { 
-    //         console.log('base64', e.target.result)
-    //     }
-    //     a.readAsDataURL(fullBlob)
-    // }
     function blobToBase64() {
         const fullBlob = new Blob(allChunks)
         return new Promise((resolve, reject) => {
