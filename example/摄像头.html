@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>MediaRecorder使用示例</title>
+</head>
+<style>
+    canvas {
+        box-shadow: 0 0 10px gray;
+        display: block;
+        border-radius: 100px;
+    }
+</style>
+<h3 style="text-align: center;margin-top:10px;">MediaRecorder使用示例 - 摄像头版本</h3>
+<div style="text-align: center;margin-top:10px;">
+    <canvas id="canvas" height=460 width=640 style="width:640px;margin:auto;"></canvas>
+    <video src="" id="srcvideo" style="display:none;"></video>
+</div>
+<div style="text-align: center;margin-top:10px;">
+    <button id="startBtn">开始录制</button>
+</div>
+<div style="margin-top:50px;text-align: center;font-size:14px;">view source: <a href="https://github.com/wendychengc/media-recorder-video-canvas/tree/master" target="_blank">https://github.com/wendychengc/media-recorder-video-canvas/tree/master</a></div>
+
+
+<script>
+    var allChunks = [];
+    init();
+
+    function init() {
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        navigator.mediaDevices.getUserMedia({
+            video: true
+        })
+        .then(function(mediaStream) {
+            var srcvideo = document.getElementById("srcvideo")
+            srcvideo.srcObject = mediaStream;
+            srcvideo.play()
+            // 将录像时时画到canvas上
+            playCanvas(srcvideo, ctx)
+        })
+        setRecorder()
+    }
+    // 进行canvas的绘画
+    function playCanvas(srcvideo, ctx) {
+        ctx.drawImage(srcvideo, 0, 0, 640, 460)
+        requestAnimationFrame(() => {
+            playCanvas(srcvideo, ctx)
+        })
+    }
+
+    function setRecorder() {
+        const stream = canvas.captureStream(60); // 60 FPS recording
+        const recorder = new MediaRecorder(stream, {
+            mimeType: 'video/webm;codecs=vp8,vp9,opus'
+        })
+        // 当MediaRecorder将媒体数据传递到您的应用程序以供使用时，将触发该事件
+        recorder.ondataavailable = e => {
+            allChunks.push(
+                e.data
+            );
+        }
+
+        startBtn.disabled = false;
+        // 开始录制
+        startBtn.onclick = e => {
+            // 指定一次记录的毫秒数
+            console.log('开始录制了===》')
+            recorder.start(10)
+            setTimeout(() => {
+                stopVideo(recorder)
+            }, 3000)
+        }
+    }
+    // 停止录制
+    async function stopVideo(recorder) {
+        recorder.stop()
+        try {
+            let base64 = await blobToBase64()
+            // blobDownload()
+            console.log('base64===>', base64)
+        } catch (error) {
+            console.log('err', error)
+        }
+    }
+
+    // function blobToDataURL() {
+    //     let a = new FileReader()
+    //     const fullBlob = new Blob(allChunks)
+    //     a.onload = function (e) { 
+    //         console.log('base64', e.target.result)
+    //     }
+    //     a.readAsDataURL(fullBlob)
+    // }
+    function blobToBase64() {
+        const fullBlob = new Blob(allChunks)
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader()
+            fileReader.onload = (e) => {
+                resolve(e.target.result)
+            }
+            fileReader.readAsDataURL(fullBlob)
+            fileReader.onerror = () => {
+                reject(new Error('blobToBase64 error'))
+            }
+        })
+    }
+
+
+    // 下载链接
+    function blobDownload() {
+        const link = document.createElement('a');
+        link.style.display = 'none';
+        const fullBlob = new Blob(allChunks);
+        const downloadUrl = window.URL.createObjectURL(fullBlob);
+        link.href = downloadUrl;
+        link.download = 'media.mp4';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    }
+    // 转换为base64，传递给腾讯云
+
+</script>
