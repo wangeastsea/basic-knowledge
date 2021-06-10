@@ -41,7 +41,7 @@
         var linear = d3.scale.linear()
         .domain([0, d3.max(dataset)])
         .range([0, 250]);
-        var axis = d3.svg.axis().scale(linear).orient("bottom").ticks(7)
+        var axis = d3.svg.axis().scale(linear).orient("bottom").ticks(6)
         svg.selectAll("rect")
             .data(dataset)
             .enter()
