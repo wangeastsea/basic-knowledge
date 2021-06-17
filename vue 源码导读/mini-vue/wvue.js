@@ -15,22 +15,22 @@ function defineReactive(obj, key, val) {
     
     // 对传入obj进行访问拦截
     Object.defineProperty(obj, key, {
-    get() {
-        console.log('get ' + key);
-        // 依赖收集在这里
-        Dep.target && dep.addDep(Dep.target)
-        return val
-    },
-    set(newVal) {
-        if (newVal !== val) {
-            console.log('set ' + key + ':' + newVal);
-          // 如果传入的newVal依然是obj，需要做响应化处理
-            observe(newVal)
-            val = newVal
-          // 通知更新
-            dep.notify()
+        get() {
+            console.log('get ' + key);
+            // 依赖收集在这里
+            Dep.target && dep.addDep(Dep.target)
+            return val
+        },
+        set(newVal) {
+            if (newVal !== val) {
+                console.log('set ' + key + ':' + newVal);
+            // 如果传入的newVal依然是obj，需要做响应化处理
+                observe(newVal)
+                val = newVal
+            // 通知更新
+                dep.notify()
+            }
         }
-    }
     })
 }
 //  创建WVue构造函数
@@ -199,7 +199,7 @@ class watcher {
         this.updateFn = undateFn
         // Dep.target静态属性上设置为当前watcher实例
         Dep.target = this
-        //此时触发setter，同步执行收集工作
+        //此时触发getter，同步执行收集工作
         this.vm[this.key]
         // setter 执行完,收集完毕，清空Dep.target
         Dep.target = null

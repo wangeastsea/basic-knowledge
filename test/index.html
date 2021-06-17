@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="ddate"></div>
+<div id="ddate2"></div>
+<script language="javascript">
+//var ddate=document.getElementByIdx_x_x("ddate");
+//var ddate2=document.getElementByIdx_x_x("ddate2");
+
+//网上给出的是上面的代码，怎么会多出个x_x_x呢，下面才是正确的
+var ddate=document.getElementById("ddate");
+var ddate2=document.getElementById("ddate2");
+
+function updatedate(){
+var dd1=new Date();
+dd1.setMinutes(dd1.getMinutes()+dd1.getTimezoneOffset()-300); //取当地时间加上和格林威治的时差减要求地区和格林的时差分钟，这里是-300，代表美国东部纽约和格林的时差
+//先设置setMinutes再取getHours才有效
+var tmin=dd1.getHours();
+if(tmin>=0 && tmin<6){
+   tmin='凌晨'+tmin;
+}
+if(tmin>=6 && tmin<=12){
+   tmin='早上'+tmin;
+}
+if(tmin>12 && tmin<=18){
+   tmin='下午'+tmin;
+}
+if(tmin>18 && tmin<=24){
+   tmin='晚上'+tmin;
+}
+ 
+ddate.innerHTML='美国东部时间:'+dd1.getFullYear()+"年"+(dd1.getMonth()+1)+"月"+dd1.getDate()+"日"+tmin+"点"+dd1.getMinutes()+"分"+dd1.getSeconds()+"秒";
+var dd2=new Date();
+    dd2.setMinutes(dd2.getMinutes()+dd2.getTimezoneOffset()+13*60-300);//纽约和中国相差13个小时，夏天是12个小时所以这里加上13*60 夏天改为12*60
+ddate2.innerHTML='北京时间'+ dd2.getFullYear()+"年"+(dd2.getMonth()+1)+"月"+dd2.getDate()+"日"+dd2.getHours()+"点"+dd2.getMinutes()+"分"+dd2.getSeconds()+"秒";
+ var t=setTimeout("updatedate()",1000);
+}
+updatedate();
+</script>
+</body>
+</html>
