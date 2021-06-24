@@ -90,7 +90,7 @@ c6.name = 'c6'
  * 这种方式也是利用了原型式继承，所有会有原型式继承的优缺点，但是会在父类的基础上添加更多的方法。
  */
 
- let Parent5 =  {
+let Parent5 =  {
     name: 'parent5',
     play:  [1,2,3],
     getName: function () {
