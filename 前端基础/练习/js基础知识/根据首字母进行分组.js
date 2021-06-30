@@ -1,0 +1,982 @@
+let data = [{
+    "countryName": "United Kingdom",
+    "countryCode": "GBR",
+    "areaCode": "44"
+}, {
+    "countryName": "United States",
+    "countryCode": "USA",
+    "areaCode": "1"
+}, {
+    "countryName": "Bermuda",
+    "countryCode": "BMU",
+    "areaCode": "1441"
+}, {
+    "countryName": "Australia",
+    "countryCode": "AUS",
+    "areaCode": "61"
+}, {
+    "countryName": "Canada",
+    "countryCode": "CAN",
+    "areaCode": "1"
+}, {
+    "countryName": "Afghanistan",
+    "countryCode": "AFG",
+    "areaCode": "93"
+}, {
+    "countryName": "Aland Islands",
+    "countryCode": "ALA",
+    "areaCode": "35818"
+}, {
+    "countryName": "Albania",
+    "countryCode": "ALB",
+    "areaCode": "355"
+}, {
+    "countryName": "Algeria",
+    "countryCode": "DZA",
+    "areaCode": "213"
+}, {
+    "countryName": "American Samoa",
+    "countryCode": "ASM",
+    "areaCode": "684"
+}, {
+    "countryName": "Andorra",
+    "countryCode": "AND",
+    "areaCode": "376"
+}, {
+    "countryName": "Angola",
+    "countryCode": "AGO",
+    "areaCode": "244"
+}, {
+    "countryName": "Anguilla",
+    "countryCode": "AIA",
+    "areaCode": "1264"
+}, {
+    "countryName": "Antarctica",
+    "countryCode": "ATA",
+    "areaCode": "672"
+}, {
+    "countryName": "Antigua and Barbuda",
+    "countryCode": "ATG",
+    "areaCode": "1268"
+}, {
+    "countryName": "Argentina",
+    "countryCode": "ARG",
+    "areaCode": "54"
+}, {
+    "countryName": "Armenia",
+    "countryCode": "ARM",
+    "areaCode": "374"
+}, {
+    "countryName": "Aruba",
+    "countryCode": "ABW",
+    "areaCode": "297"
+}, {
+    "countryName": "Austria",
+    "countryCode": "AUT",
+    "areaCode": "43"
+}, {
+    "countryName": "Azerbaijan",
+    "countryCode": "AZE",
+    "areaCode": "994"
+}, {
+    "countryName": "Bahamas",
+    "countryCode": "BHS",
+    "areaCode": "1242"
+}, {
+    "countryName": "Bahrain",
+    "countryCode": "BHR",
+    "areaCode": "973"
+}, {
+    "countryName": "Bangladesh",
+    "countryCode": "BGD",
+    "areaCode": "880"
+}, {
+    "countryName": "Barbados",
+    "countryCode": "BRB",
+    "areaCode": "1246"
+}, {
+    "countryName": "Belarus",
+    "countryCode": "BLR",
+    "areaCode": "375"
+}, {
+    "countryName": "Belgium",
+    "countryCode": "BEL",
+    "areaCode": "32"
+}, {
+    "countryName": "Belize",
+    "countryCode": "BLZ",
+    "areaCode": "501"
+}, {
+    "countryName": "Benin",
+    "countryCode": "BEN",
+    "areaCode": "229"
+}, {
+    "countryName": "Bhutan",
+    "countryCode": "BTN",
+    "areaCode": "975"
+}, {
+    "countryName": "Bolivia",
+    "countryCode": "BOL",
+    "areaCode": "591"
+}, {
+    "countryName": "Bosnia and Herzegovina",
+    "countryCode": "BIH",
+    "areaCode": "387"
+}, {
+    "countryName": "Botswana",
+    "countryCode": "BWA",
+    "areaCode": "267"
+}, {
+    "countryName": "Brazil",
+    "countryCode": "BRA",
+    "areaCode": "55"
+}, {
+    "countryName": "British Indian Ocean Territory",
+    "countryCode": "IOT",
+    "areaCode": "91"
+}, {
+    "countryName": "British Virgin Islands",
+    "countryCode": "VGB",
+    "areaCode": "1284"
+}, {
+    "countryName": "Brunei Darussalam",
+    "countryCode": "BRN",
+    "areaCode": "673"
+}, {
+    "countryName": "Bulgaria",
+    "countryCode": "BGR",
+    "areaCode": "359"
+}, {
+    "countryName": "Burkina Faso",
+    "countryCode": "BFA",
+    "areaCode": "226"
+}, {
+    "countryName": "Burundi",
+    "countryCode": "BDI",
+    "areaCode": "257"
+}, {
+    "countryName": "Cambodia",
+    "countryCode": "KHM",
+    "areaCode": "855"
+}, {
+    "countryName": "Cameroon",
+    "countryCode": "CMR",
+    "areaCode": "237"
+}, {
+    "countryName": "Cape Verde",
+    "countryCode": "CPV",
+    "areaCode": "238"
+}, {
+    "countryName": "Cayman Islands",
+    "countryCode": "CYM",
+    "areaCode": "1345"
+}, {
+    "countryName": "Central African Republic",
+    "countryCode": "CAF",
+    "areaCode": "236"
+}, {
+    "countryName": "Chad",
+    "countryCode": "TCD",
+    "areaCode": "235"
+}, {
+    "countryName": "Channel Islands and Jersey",
+    "countryCode": "JER",
+    "areaCode": "44"
+}, {
+    "countryName": "Chile",
+    "countryCode": "CHL",
+    "areaCode": "56"
+}, {
+    "countryName": "China",
+    "countryCode": "CHN",
+    "areaCode": "86"
+}, {
+    "countryName": "Colombia",
+    "countryCode": "COL",
+    "areaCode": "57"
+}, {
+    "countryName": "Comoros",
+    "countryCode": "COM",
+    "areaCode": "269"
+}, {
+    "countryName": "Congo",
+    "countryCode": "COG",
+    "areaCode": "242"
+}, {
+    "countryName": "Cook Islands",
+    "countryCode": "COK",
+    "areaCode": "682"
+}, {
+    "countryName": "Costa Rica",
+    "countryCode": "CRI",
+    "areaCode": "506"
+}, {
+    "countryName": "Cote d'Ivoire",
+    "countryCode": "CIV",
+    "areaCode": "225"
+}, {
+    "countryName": "Croatia",
+    "countryCode": "HRV",
+    "areaCode": "385"
+}, {
+    "countryName": "Cuba",
+    "countryCode": "CUB",
+    "areaCode": "53"
+}, {
+    "countryName": "Curacao",
+    "countryCode": "CUW",
+    "areaCode": "599"
+}, {
+    "countryName": "Cyprus",
+    "countryCode": "CYP",
+    "areaCode": "357"
+}, {
+    "countryName": "Czech Republic",
+    "countryCode": "CZE",
+    "areaCode": "420"
+}, {
+    "countryName": "Democratic Peoples Republic of Korea (North Korea]",
+    "countryCode": "PRK",
+    "areaCode": "670"
+}, {
+    "countryName": "Democratic Republic of the Congo",
+    "countryCode": "COD",
+    "areaCode": "670"
+}, {
+    "countryName": "Denmark",
+    "countryCode": "DNK",
+    "areaCode": "45"
+}, {
+    "countryName": "Djibouti",
+    "countryCode": "DJI",
+    "areaCode": "253"
+}, {
+    "countryName": "Dominica",
+    "countryCode": "DMA",
+    "areaCode": "1767"
+}, {
+    "countryName": "Dominican Republic",
+    "countryCode": "DOM",
+    "areaCode": "1767"
+}, {
+    "countryName": "East Timor",
+    "countryCode": "TLS",
+    "areaCode": "670"
+}, {
+    "countryName": "Ecuador",
+    "countryCode": "ECU",
+    "areaCode": "593"
+}, {
+    "countryName": "Egypt",
+    "countryCode": "EGY",
+    "areaCode": "20"
+}, {
+    "countryName": "El Salvador",
+    "countryCode": "SLV",
+    "areaCode": "503"
+}, {
+    "countryName": "Equatorial Guinea",
+    "countryCode": "GNQ",
+    "areaCode": "224"
+}, {
+    "countryName": "Eritrea",
+    "countryCode": "ERI",
+    "areaCode": "291"
+}, {
+    "countryName": "Estonia",
+    "countryCode": "EST",
+    "areaCode": "372"
+}, {
+    "countryName": "Ethiopia",
+    "countryCode": "ETH",
+    "areaCode": "251"
+}, {
+    "countryName": "Faeroe Islands",
+    "countryCode": "FRO",
+    "areaCode": "45"
+}, {
+    "countryName": "Falkland Islands (Malvinas)",
+    "countryCode": "FLK",
+    "areaCode": "500"
+}, {
+    "countryName": "Fiji",
+    "countryCode": "FJI",
+    "areaCode": "679"
+}, {
+    "countryName": "Finland",
+    "countryCode": "FIN",
+    "areaCode": "358"
+}, {
+    "countryName": "France",
+    "countryCode": "FRA",
+    "areaCode": "33"
+}, {
+    "countryName": "French Guiana",
+    "countryCode": "GUF",
+    "areaCode": "594"
+}, {
+    "countryName": "French Polynesia",
+    "countryCode": "PYF",
+    "areaCode": "689"
+}, {
+    "countryName": "Gabon",
+    "countryCode": "GAB",
+    "areaCode": "241"
+}, {
+    "countryName": "Gambia",
+    "countryCode": "GMB",
+    "areaCode": "220"
+}, {
+    "countryName": "Georgia",
+    "countryCode": "GEO",
+    "areaCode": "995"
+}, {
+    "countryName": "Germany",
+    "countryCode": "DEU",
+    "areaCode": "49"
+}, {
+    "countryName": "Ghana",
+    "countryCode": "GHA",
+    "areaCode": "233"
+}, {
+    "countryName": "Gibraltar",
+    "countryCode": "GIB",
+    "areaCode": "350"
+}, {
+    "countryName": "Greece",
+    "countryCode": "GRC",
+    "areaCode": "30"
+}, {
+    "countryName": "Greenland",
+    "countryCode": "GRL",
+    "areaCode": "299"
+}, {
+    "countryName": "Grenada",
+    "countryCode": "GRD",
+    "areaCode": "1473"
+}, {
+    "countryName": "Guadeloupe",
+    "countryCode": "GLP",
+    "areaCode": "590"
+}, {
+    "countryName": "Guam",
+    "countryCode": "GUM",
+    "areaCode": "1671"
+}, {
+    "countryName": "Guatemala",
+    "countryCode": "GTM",
+    "areaCode": "502"
+}, {
+    "countryName": "Guernsey",
+    "countryCode": "GGY",
+    "areaCode": "1481"
+}, {
+    "countryName": "Guinea",
+    "countryCode": "GIN",
+    "areaCode": "224"
+}, {
+    "countryName": "Guinea-Bissau",
+    "countryCode": "GNB",
+    "areaCode": "224"
+}, {
+    "countryName": "Guyana",
+    "countryCode": "GUY",
+    "areaCode": "592"
+}, {
+    "countryName": "Haiti",
+    "countryCode": "HTI",
+    "areaCode": "509"
+}, {
+    "countryName": "Holy See",
+    "countryCode": "VAT",
+    "areaCode": "379"
+}, {
+    "countryName": "Honduras",
+    "countryCode": "HND",
+    "areaCode": "504"
+}, {
+    "countryName": "Hong Kong Special Administrative Region of China",
+    "countryCode": "HKG",
+    "areaCode": "86"
+}, {
+    "countryName": "Hungary",
+    "countryCode": "HUN",
+    "areaCode": "36"
+}, {
+    "countryName": "Iceland",
+    "countryCode": "ISL",
+    "areaCode": "354"
+}, {
+    "countryName": "India",
+    "countryCode": "IND",
+    "areaCode": "91"
+}, {
+    "countryName": "Indonesia",
+    "countryCode": "IDN",
+    "areaCode": "62"
+}, {
+    "countryName": "Iran (Islamic Republic of)",
+    "countryCode": "IRN",
+    "areaCode": "98"
+}, {
+    "countryName": "Iraq",
+    "countryCode": "IRQ",
+    "areaCode": "964"
+}, {
+    "countryName": "Ireland",
+    "countryCode": "IRL",
+    "areaCode": "353"
+}, {
+    "countryName": "Isle of Man",
+    "countryCode": "IMN",
+    "areaCode": "44"
+}, {
+    "countryName": "Israel",
+    "countryCode": "ISR",
+    "areaCode": "972"
+}, {
+    "countryName": "Italy",
+    "countryCode": "ITA",
+    "areaCode": "39"
+}, {
+    "countryName": "Jamaica",
+    "countryCode": "JAM",
+    "areaCode": "1876"
+}, {
+    "countryName": "Japan",
+    "countryCode": "JPN",
+    "areaCode": "81"
+}, {
+    "countryName": "Jordan",
+    "countryCode": "JOR",
+    "areaCode": "962"
+}, {
+    "countryName": "Kazakhstan",
+    "countryCode": "KAZ",
+    "areaCode": "73"
+}, {
+    "countryName": "Kenya",
+    "countryCode": "KEN",
+    "areaCode": "254"
+}, {
+    "countryName": "Kiribati",
+    "countryCode": "KIR",
+    "areaCode": "686"
+}, {
+    "countryName": "Kosovo",
+    "countryCode": "XKX",
+    "areaCode": "383"
+}, {
+    "countryName": "Kuwait",
+    "countryCode": "KWT",
+    "areaCode": "965"
+}, {
+    "countryName": "Kyrgyzstan",
+    "countryCode": "KGZ",
+    "areaCode": "996"
+}, {
+    "countryName": "Lao People`s Democratic Republic",
+    "countryCode": "LAO",
+    "areaCode": "670"
+}, {
+    "countryName": "Latvia",
+    "countryCode": "LVA",
+    "areaCode": "371"
+}, {
+    "countryName": "Lebanon",
+    "countryCode": "LBN",
+    "areaCode": "961"
+}, {
+    "countryName": "Lesotho",
+    "countryCode": "LSO",
+    "areaCode": "266"
+}, {
+    "countryName": "Liberia",
+    "countryCode": "LBR",
+    "areaCode": "231"
+}, {
+    "countryName": "Libyan Arab Jamahiriya",
+    "countryCode": "LBY",
+    "areaCode": "218"
+}, {
+    "countryName": "Liechtenstein",
+    "countryCode": "LIE",
+    "areaCode": "423"
+}, {
+    "countryName": "Lithuania",
+    "countryCode": "LTU",
+    "areaCode": "370"
+}, {
+    "countryName": "Luxembourg",
+    "countryCode": "LUX",
+    "areaCode": "352"
+}, {
+    "countryName": "Macao Special Administrative Region of China",
+    "countryCode": "MAC",
+    "areaCode": "86"
+}, {
+    "countryName": "Madagascar",
+    "countryCode": "MDG",
+    "areaCode": "261"
+}, {
+    "countryName": "Malawi",
+    "countryCode": "MWI",
+    "areaCode": "265"
+}, {
+    "countryName": "Malaysia",
+    "countryCode": "MYS",
+    "areaCode": "60"
+}, {
+    "countryName": "Maldives",
+    "countryCode": "MDV",
+    "areaCode": "960"
+}, {
+    "countryName": "Mali",
+    "countryCode": "MLI",
+    "areaCode": "223"
+}, {
+    "countryName": "Malta",
+    "countryCode": "MLT",
+    "areaCode": "356"
+}, {
+    "countryName": "Marshall Islands",
+    "countryCode": "MHL",
+    "areaCode": "692"
+}, {
+    "countryName": "Martinique",
+    "countryCode": "MTQ",
+    "areaCode": "596"
+}, {
+    "countryName": "Mauritania",
+    "countryCode": "MRT",
+    "areaCode": "222"
+}, {
+    "countryName": "Mauritius",
+    "countryCode": "MUS",
+    "areaCode": "230"
+}, {
+    "countryName": "Mayotte",
+    "countryCode": "MYT",
+    "areaCode": "269"
+}, {
+    "countryName": "Mexico",
+    "countryCode": "MEX",
+    "areaCode": "52"
+}, {
+    "countryName": "Micronesia, Federated States of",
+    "countryCode": "FSM",
+    "areaCode": "691"
+}, {
+    "countryName": "Monaco",
+    "countryCode": "MCO",
+    "areaCode": "377"
+}, {
+    "countryName": "Mongolia",
+    "countryCode": "MNG",
+    "areaCode": "976"
+}, {
+    "countryName": "Montenegro",
+    "countryCode": "MNE",
+    "areaCode": "381"
+}, {
+    "countryName": "Montserrat",
+    "countryCode": "MSR",
+    "areaCode": "1664"
+}, {
+    "countryName": "Morocco",
+    "countryCode": "MAR",
+    "areaCode": "212"
+}, {
+    "countryName": "Mozambique",
+    "countryCode": "MOZ",
+    "areaCode": "258"
+}, {
+    "countryName": "Myanmar",
+    "countryCode": "MMR",
+    "areaCode": "95"
+}, {
+    "countryName": "Namibia",
+    "countryCode": "NAM",
+    "areaCode": "264"
+}, {
+    "countryName": "Nauru",
+    "countryCode": "NRU",
+    "areaCode": "674"
+}, {
+    "countryName": "Nepal",
+    "countryCode": "NPL",
+    "areaCode": "977"
+}, {
+    "countryName": "Netherlands",
+    "countryCode": "NLD",
+    "areaCode": "31"
+}, {
+    "countryName": "Netherlands Antilles",
+    "countryCode": "ANT",
+    "areaCode": "31"
+}, {
+    "countryName": "New Caledonia",
+    "countryCode": "NCL",
+    "areaCode": "687"
+}, {
+    "countryName": "New Zealand",
+    "countryCode": "NZL",
+    "areaCode": "64"
+}, {
+    "countryName": "Nicaragua",
+    "countryCode": "NIC",
+    "areaCode": "505"
+}, {
+    "countryName": "Niger",
+    "countryCode": "NER",
+    "areaCode": "227"
+}, {
+    "countryName": "Nigeria",
+    "countryCode": "NGA",
+    "areaCode": "227"
+}, {
+    "countryName": "Niue",
+    "countryCode": "NIU",
+    "areaCode": "683"
+}, {
+    "countryName": "Norfolk Island",
+    "countryCode": "NFK",
+    "areaCode": "6723"
+}, {
+    "countryName": "Northern Mariana Islands",
+    "countryCode": "MNP",
+    "areaCode": "1670"
+}, {
+    "countryName": "Norway",
+    "countryCode": "NOR",
+    "areaCode": "47"
+}, {
+    "countryName": "Occupied Palestinian Territory",
+    "countryCode": "PSE",
+    "areaCode": "970"
+}, {
+    "countryName": "Oman",
+    "countryCode": "OMN",
+    "areaCode": "968"
+}, {
+    "countryName": "Pakistan",
+    "countryCode": "PAK",
+    "areaCode": "92"
+}, {
+    "countryName": "Palau",
+    "countryCode": "PLW",
+    "areaCode": "680"
+}, {
+    "countryName": "Panama",
+    "countryCode": "PAN",
+    "areaCode": "507"
+}, {
+    "countryName": "Papua New Guinea",
+    "countryCode": "PNG",
+    "areaCode": "224"
+}, {
+    "countryName": "Paraguay",
+    "countryCode": "PRY",
+    "areaCode": "595"
+}, {
+    "countryName": "Peru",
+    "countryCode": "PER",
+    "areaCode": "51"
+}, {
+    "countryName": "Philippines",
+    "countryCode": "PHL",
+    "areaCode": "63"
+}, {
+    "countryName": "Pitcairn",
+    "countryCode": "PCN",
+    "areaCode": "870"
+}, {
+    "countryName": "Poland",
+    "countryCode": "POL",
+    "areaCode": "48"
+}, {
+    "countryName": "Portugal",
+    "countryCode": "PRT",
+    "areaCode": "351"
+}, {
+    "countryName": "Puerto Rico",
+    "countryCode": "PRI",
+    "areaCode": "1"
+}, {
+    "countryName": "Qatar",
+    "countryCode": "QAT",
+    "areaCode": "974"
+}, {
+    "countryName": "Republic of Korea",
+    "countryCode": "KOR",
+    "areaCode": "82"
+}, {
+    "countryName": "Republic of Moldova",
+    "countryCode": "MDA",
+    "areaCode": "373"
+}, {
+    "countryName": "Reunion",
+    "countryCode": "REU",
+    "areaCode": "262"
+}, {
+    "countryName": "Romania",
+    "countryCode": "ROU",
+    "areaCode": "40"
+}, {
+    "countryName": "Russian Federation",
+    "countryCode": "RUS",
+    "areaCode": "7"
+}, {
+    "countryName": "Rwanda",
+    "countryCode": "RWA",
+    "areaCode": "250"
+}, {
+    "countryName": "Saint Helena",
+    "countryCode": "SHN",
+    "areaCode": "290"
+}, {
+    "countryName": "Saint Kitts and Nevis",
+    "countryCode": "KNA",
+    "areaCode": "1869"
+}, {
+    "countryName": "Saint Lucia",
+    "countryCode": "LCA",
+    "areaCode": "1758"
+}, {
+    "countryName": "Saint Pierre and Miquelon",
+    "countryCode": "SPM",
+    "areaCode": "508"
+}, {
+    "countryName": "Saint Vincent and the Grenadines",
+    "countryCode": "VCT",
+    "areaCode": "1784"
+}, {
+    "countryName": "Samoa",
+    "countryCode": "WSM",
+    "areaCode": "684"
+}, {
+    "countryName": "San Marino",
+    "countryCode": "SMR",
+    "areaCode": "378"
+}, {
+    "countryName": "Sao Tome and Principe",
+    "countryCode": "STP",
+    "areaCode": "239"
+}, {
+    "countryName": "Saudi Arabia",
+    "countryCode": "SAU",
+    "areaCode": "966"
+}, {
+    "countryName": "Senegal",
+    "countryCode": "SEN",
+    "areaCode": "221"
+}, {
+    "countryName": "Serbia",
+    "countryCode": "SRB",
+    "areaCode": "381"
+}, {
+    "countryName": "Seychelles",
+    "countryCode": "SYC",
+    "areaCode": "248"
+}, {
+    "countryName": "Sierra Leone",
+    "countryCode": "SLE",
+    "areaCode": "232"
+}, {
+    "countryName": "Singapore",
+    "countryCode": "SGP",
+    "areaCode": "65"
+}, {
+    "countryName": "Slovakia",
+    "countryCode": "SVK",
+    "areaCode": "421"
+}, {
+    "countryName": "Slovenia",
+    "countryCode": "SVN",
+    "areaCode": "386"
+}, {
+    "countryName": "Solomon Islands",
+    "countryCode": "SLB",
+    "areaCode": "677"
+}, {
+    "countryName": "Somalia",
+    "countryCode": "SOM",
+    "areaCode": "252"
+}, {
+    "countryName": "South Africa",
+    "countryCode": "ZAF",
+    "areaCode": "27"
+}, {
+    "countryName": "South Sudan",
+    "countryCode": "SSD",
+    "areaCode": "211"
+}, {
+    "countryName": "Spain",
+    "countryCode": "ESP",
+    "areaCode": "34"
+}, {
+    "countryName": "Sri Lanka",
+    "countryCode": "LKA",
+    "areaCode": "94"
+}, {
+    "countryName": "Sudan",
+    "countryCode": "SDN",
+    "areaCode": "211"
+}, {
+    "countryName": "Suriname",
+    "countryCode": "SUR",
+    "areaCode": "597"
+}, {
+    "countryName": "Svalbard and Jan Mayen Islands",
+    "countryCode": "SJM",
+    "areaCode": "47"
+}, {
+    "countryName": "Swaziland",
+    "countryCode": "SWZ",
+    "areaCode": "268"
+}, {
+    "countryName": "Sweden",
+    "countryCode": "SWE",
+    "areaCode": "46"
+}, {
+    "countryName": "Switzerland",
+    "countryCode": "CHE",
+    "areaCode": "41"
+}, {
+    "countryName": "Syrian Arab Republic",
+    "countryCode": "SYR",
+    "areaCode": "963"
+}, {
+    "countryName": "Taiwan (Republic of China)",
+    "countryCode": "TWN",
+    "areaCode": "86"
+}, {
+    "countryName": "Tajikistan",
+    "countryCode": "TJK",
+    "areaCode": "992"
+}, {
+    "countryName": "Thailand",
+    "countryCode": "THA",
+    "areaCode": "66"
+}, {
+    "countryName": "The former Yugoslav Republic of Macedonia",
+    "countryCode": "MKD",
+    "areaCode": "389"
+}, {
+    "countryName": "Togo",
+    "countryCode": "TGO",
+    "areaCode": "228"
+}, {
+    "countryName": "Tokelau",
+    "countryCode": "TKL",
+    "areaCode": "690"
+}, {
+    "countryName": "Tonga",
+    "countryCode": "TON",
+    "areaCode": "676"
+}, {
+    "countryName": "Trinidad and Tobago",
+    "countryCode": "TTO",
+    "areaCode": "1868"
+}, {
+    "countryName": "Tunisia",
+    "countryCode": "TUN",
+    "areaCode": "216"
+}, {
+    "countryName": "Turkey",
+    "countryCode": "TUR",
+    "areaCode": "90"
+}, {
+    "countryName": "Turkmenistan",
+    "countryCode": "TKM",
+    "areaCode": "993"
+}, {
+    "countryName": "Turks and Caicos Islands",
+    "countryCode": "TCA",
+    "areaCode": "1649"
+}, {
+    "countryName": "Tuvalu",
+    "countryCode": "TUV",
+    "areaCode": "688"
+}, {
+    "countryName": "Uganda",
+    "countryCode": "UGA",
+    "areaCode": "256"
+}, {
+    "countryName": "Ukraine",
+    "countryCode": "UKR",
+    "areaCode": "380"
+}, {
+    "countryName": "United Arab Emirates",
+    "countryCode": "ARE",
+    "areaCode": "971"
+}, {
+    "countryName": "United Republic of Tanzania",
+    "countryCode": "TZA",
+    "areaCode": "255"
+}, {
+    "countryName": "United States Virgin Islands",
+    "countryCode": "VIR",
+    "areaCode": "1"
+}, {
+    "countryName": "Uruguay",
+    "countryCode": "URY",
+    "areaCode": "598"
+}, {
+    "countryName": "Uzbekistan",
+    "countryCode": "UZB",
+    "areaCode": "998"
+}, {
+    "countryName": "Vanuatu",
+    "countryCode": "VUT",
+    "areaCode": "678"
+}, {
+    "countryName": "Venezuela",
+    "countryCode": "VEN",
+    "areaCode": "58"
+}, {
+    "countryName": "Viet Nam",
+    "countryCode": "VNM",
+    "areaCode": "84"
+}, {
+    "countryName": "Wallis and Futuna Islands",
+    "countryCode": "WLF",
+    "areaCode": "681"
+}, {
+    "countryName": "Western Sahara",
+    "countryCode": "ESH",
+    "areaCode": "212"
+}, {
+    "countryName": "Yemen",
+    "countryCode": "YEM",
+    "areaCode": "967"
+}, {
+    "countryName": "Yugoslavia",
+    "countryCode": "YUG",
+    "areaCode": "338"
+}, {
+    "countryName": "Zambia",
+    "countryCode": "ZMB",
+    "areaCode": "260"
+}, {
+    "countryName": "Zimbabwe",
+    "countryCode": "ZWE",
+    "areaCode": "263"
+}]
+
+
+function groupHandle(data, field) {
+    let group = {}
+    for(let i =0; i< data.length;i++) {
+        let letter = data[i][field].substring(0,1)
+        if (group[letter]) {
+            group[letter].push(data[i])
+        } else {
+            group[letter] = [data[i]]
+        }
+    }
+    return group
+}
+let cc = groupHandle(data, 'countryName')
+console.log(cc)
+// {A: [], B: []}
