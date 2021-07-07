@@ -1,15 +1,14 @@
-let one = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(1)
-    }, 1000)
-})
-// 这种就是 x === promise2的情况，应该直接报错
-let cc = one.then((val)=> {
-    console.log(val)
-    return cc
-})
-console.log(cc)
+// let one = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve(1)
+//     }, 1000)
+// })
 
+// setInterval(() => {
+//     one.then((res) => {
+//         console.log(res)
+//     })
+// }, 1000);
 
 // let  two = new Promise((resolve, reject) => {
 //     setTimeout(() => {
@@ -54,3 +53,35 @@ console.log(cc)
 // Promise.all([one, two, three, four]).then(res => {
 //     console.log('res =>', res)
 // })
+
+
+
+// https://www.cnblogs.com/xiangzhong/p/11355252.html
+
+
+// let one = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve(1)
+//     }, 1000)
+// })
+// let cc = one.then((val)=> {
+//     console.log(val)
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(cc)
+//         }, 1000)
+//     })
+// })
+// console.log(cc)
+// setTimeout(() => {
+//     // 一直处于pending,并没有报死循环的错误
+//     console.log(cc)
+// }, 5000)
+
+function aa () {
+    console.log('aa')
+}
+var aa = 0
+
+
+console.log(typeof aa)
