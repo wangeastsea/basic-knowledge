@@ -174,5 +174,9 @@ let aa = new WPromise((resolve, reject) => {
 }).then((res) => {
     console.log('then2')
     console.log(res)
+    return 3
+}).then((res) => {
+    console.log('then3')
+    console.log(res)
 })
 ```

@@ -29,6 +29,7 @@ class WPromise {
             }
         }
     }
+    // 闭包的使用
     then(onFuifilled, onRejected) {
         let promise2 = new WPromise((resolve, reject) => {
             if (this.status === 'resolved') {
@@ -55,20 +56,3 @@ class WPromise {
     }
 }
 
-
-
-let aa = new WPromise((resolve, reject) => {
-    setTimeout(() => {
-        reject(new Error('报错啦'))
-    }, 1000)
-}).then((res) => {
-    console.log('then1')
-    return res 
-
-}, (reason) => {
-    console.log('resaon', reason)
-    return 2
-}).then((res) => {
-    console.log('then2')
-    console.log(res)
-})
