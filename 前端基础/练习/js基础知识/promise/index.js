@@ -53,6 +53,6 @@ class WPromise {
             }
         })
         return promise2
-    }
+    }   
 }
 
