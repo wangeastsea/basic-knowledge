@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3 反复入门</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script> 
+</head>
+<body>
+    <script>
+        let svg = d3.select('body').append('svg').attr('height', 400).attr('width', 400)
+        let xscale = d3.scaleLinear().domain([0, 20]).range([0, 300])
+        let yscale = d3.scaleLinear().domain([0, 40.5]).range([270, 0])
+
+        let xAixs = d3.axisBottom(xscale)
+        let yAixs = d3.axisRight(yscale) 
+
+        // svg.append('g').attr('class', 'xAxis').call(xAixs).attr('transform', 'translate(50, 270)')
+        // svg.append('g').attr('class', 'yAixs').call(yAixs).attr('transform', 'translate(50, 0)')
+        svg.append('g').attr('class', 'xAxis').call(xAixs)
+        svg.append('g').attr('class', 'yAixs').call(yAixs)
+
+        // 添加矩形坐标轴
+        svg.append('g').attr('class', 'rect').selectAll('rect').data(data).enter().append('rect')
+    </script>
+</body>
+</html>

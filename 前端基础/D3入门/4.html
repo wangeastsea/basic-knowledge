@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3 反复入门</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script> 
+</head>
+<body>
+    <script>
+        const data = [2,4,6,8,10]
+        const height = 400
+        const width = 400
+        const margin = {
+            top: 30,
+            left: 30,
+            bottom: 30,
+            right: 30
+        }
+        let barPadding =  10
+        let barWidth = (width - margin.right- margin.left) / data.length
+        let svg = d3.select('body').append('svg').attr('height', height).attr('width', width)
+        let xscale = d3.scaleLinear().domain([0, data.length]).range([margin.left, width - margin.right])
+        let yscale = d3.scaleLinear().domain([0, d3.max(data)]).range([height - margin.bottom, margin.top])
+
+        let xAixs = d3.axisBottom(xscale).ticks(data.length)
+        let yAixs = d3.axisRight(yscale) 
+
+        svg.append('g').attr('class', 'xAxis').call(xAixs).attr('transform', `translate(0, ${height - margin.bottom})`)
+        svg.append('g').attr('class', 'yAixs').call(yAixs).attr('transform', `translate(${margin.left}, 0)`)
+
+        // 添加矩形坐标轴
+        svg.append('g')
+        .attr('class', 'rect')
+        .selectAll('rect')
+        .data(data)
+        .enter()
+        .append('rect')
+        .attr('height', d => height - margin.bottom - yscale(d))
+        .attr('width', barWidth - barPadding)
+        .attr('x', (d,i) => xscale(i + 0.5))
+        .attr('y', d => yscale(d))
+        .attr('fill', '#1890ff')
+    </script>
+</body>
+</html>
