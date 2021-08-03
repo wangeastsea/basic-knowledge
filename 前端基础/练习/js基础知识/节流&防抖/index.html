@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>截流与防抖</title></title>
+    <script src="./debounce.js"></script>
+    <script src="./throttle.js"></script>
+    <style>
+        .test {
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text"> 请输入
+    </div>
+    <div class="test">
+        一个左右两列布局的查看文章页面，左侧为文章大纲结构，右侧为文章内容。现在需要添加一个功能，就是当用户滚动阅读右侧文章内容时，左侧大纲相对应部分高亮显示，提示用户当前阅读位置。这个功能的实现思路比较简单，滚动前先记录大纲中各个章节的垂直距离，然后监听 scroll 事件的滚动距离，根据距离的比较来判断需要高亮的章节。 
+    </div>
+    <script>
+        const inputEle = document.querySelector('input')
+        async function search (e) {
+            console.log(this)
+            console.log('input==>', e.target.value)
+        }
+        inputEle.addEventListener('input', debounce(search, 200))
+        const ele = document.querySelector('.test')
+        function scrollFn (e) {
+            console.log('this==>', this)
+            console.log('top', e.target.scrollTop)
+        }
+        ele.addEventListener('scroll', throttle5(scrollFn, 500))
+    </script>
+</body>
+</html>

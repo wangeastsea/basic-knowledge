@@ -23,7 +23,7 @@ let cat = new aninmal('cat', ['eat', 'cat-walk'])
     - 如果构造函数显式返回的是对象，如 {name: 1}, 则返回这个对象{name: 1}
 
 通过以上分析，我们来实现一个MNew来模拟以上实现
-
+    
 ```js   
     function isObject (obj) {
         return (typeof obj === 'object' && typeof obj !== null) || typeof obj === 'function'
