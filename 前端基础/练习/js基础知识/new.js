@@ -12,14 +12,14 @@
  *   - 如果构造函数显式返回的是对象，如 {name: 1}, 则返回这个对象{name: 1}
  *  */
 
-function aninmal (name, actions) {
-    this.name = name
-    this.actions = actions
-    this.sayName = function () {
-        console.log('myname :>> ', this.name) 
-    }
-    return null
-}
+// function aninmal (name, actions) {
+//     this.name = name
+//     this.actions = actions
+//     this.sayName = function () {
+//         console.log('myname :>> ', this.name) 
+//     }
+//     return null
+// }
 
 // let cat = new aninmal('cat', ['eat', 'cat-walk'])
 // console.log(cat)
@@ -53,32 +53,22 @@ function aninmal (name, actions) {
 
 // let cat = newAction(aninmal, 'cat', 'eat')
 // console.log(cat)
-
-
-function aa () {
-    this.aa = 5 
-    // return function () {
-    //     console.log('aa')
-    // }
-    // return null
-}
-
 // let cc = new aa()
 // console.log(cc.constructor === aa, cc)
 
 
-function _new(ctor, ...args) {
-    if (typeof ctor !== 'function') {
-        throw 'ctor must be a function'
-    }
-    let obj = new Object()
-    // obj.__proto__.__proto__ === ctor.prototype 
-    obj.__proto__ = Object.create(ctor.prototype)
-    let res = ctor.apply(obj, [...args])
-    let isObject = typeof res === 'object' && res !== null
-    let isFunction = typeof res === 'function'
-    return isObject || isFunction ? res : obj
-}
+// function _new(ctor, ...args) {
+//     if (typeof ctor !== 'function') {
+//         throw 'ctor must be a function'
+//     }
+//     let obj = new Object()
+//     // obj.__proto__.__proto__ === ctor.prototype 
+//     obj.__proto__ = Object.create(ctor.prototype)
+//     let res = ctor.apply(obj, [...args])
+//     let isObject = typeof res === 'object' && res !== null
+//     let isFunction = typeof res === 'function'
+//     return isObject || isFunction ? res : obj
+// }
 
 // let cc = _new(aa)
 // console.log(cc.constructor === aa, cc)
@@ -98,14 +88,14 @@ function _new(ctor, ...args) {
 // // obj.fn = function () {this.bb = 123 }
 // console.log(cc)
 
-Function.prototype.call = function (context, ...args) {
-    var context = context || window
-    // 当前需要被调用的函数
-    context.fn = this
-    var result = context.fn(...args)
-    delete context.fn
-    return result
-}
+// Function.prototype.call = function (context, ...args) {
+//     var context = context || window
+//     // 当前需要被调用的函数
+//     context.fn = this
+//     var result = context.fn(...args)
+//     delete context.fn
+//     return result
+// }
 // function bb(bbb) {
 //     this.bb = 123
 //     console.log(bbb)
@@ -117,19 +107,19 @@ Function.prototype.call = function (context, ...args) {
 // obj.fn = function () {this.bb = 123 }
 // console.log(cc)
 
-Function.prototype.apply = function (context, args) {
-    var context = context || window
-    // 当前需要被调用的函数
-    context.fn = this
-    var result = context.fn(...args)
-    delete context.fn
-    return result
-}
-function bb(a,b,c) {
-    this.bb = 123
-    console.log('params==>', a,b,c) // 456
-    return this
-}
+// Function.prototype.apply = function (context, args) {
+//     var context = context || window
+//     // 当前需要被调用的函数
+//     context.fn = this
+//     var result = context.fn(...args)
+//     delete context.fn
+//     return result
+// }
+// function bb(a,b,c) {
+//     this.bb = 123
+//     console.log('params==>', a,b,c) // 456
+//     return this
+// }
 // let obj = {aa: 456}
 // let cc = bb.apply(obj, [3,4,5]) 
 // console.log(cc)
@@ -158,14 +148,53 @@ function bb(a,b,c) {
 // }
 
 
-function rose (name, gender, hobby) {
-    this.name = name
+
+
+
+// let name = 'jack'
+// function getPerson (gender) {
+//     console.log(this.name)
+//     console.log('gender===>', gender)
+// }
+// let obj = {
+//     name: 'rose'
+// }
+// let sayName = getPerson.bind(obj, 'male')
+// sayName()
+
+
+Function.prototype.bind = function (context, ...bindArgs) {
+    // 不是函数绑定直接报错
+    if (typeof this !== 'function') {
+        throw new Error('this must be a function')
+    }
+    // 调用函数
+    let fn = this
+    let fbound = function(...args) {
+        args = [...bindArgs, ...args]
+        // 看下面的关键点，来理解这一句代码
+        return fn.apply(this instanceof fn ? this : context, args)
+    }
+    // this 是当前被绑定的函数
+    // 关键点：this 有原型对象，返回的函数不能丢失this原型链对象上的属性
+    if (this.prototype) {
+        fbound.prototype = Object.create(this.prototype)
+    }
+    return fbound
+}
+
+
+function rose (gender, hobby) {
     this.gender = gender
     this.hobby = hobby
+    console.log('name==>', this.name)
+    console.log('this==>', this)
+    return this
 }
 let jack = {
-    name : 'jack'
+    name:'jack'
 }
-let extendRose = rose.bind(jack, 'jack', 'female',  ['swimming', 'football'])
-let person = new extendRose()  
-console.log(person)
+let extendRose = rose.bind(jack, 'female',  ['swimming', 'football'])
+// let person = new extendRose()  
+console.log(extendRose())
+// console.log(person)

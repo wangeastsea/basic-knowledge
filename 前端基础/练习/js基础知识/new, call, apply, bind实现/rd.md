@@ -1,6 +1,6 @@
-#### 
+## new, call, apply, bind模拟实现
 
-### 模拟new的实现
+#### 一： 模拟new的实现
 我们首先看一下new的使用
 
 ```js
@@ -15,7 +15,7 @@ let cat = new aninmal('cat', ['eat', 'cat-walk'])
 ```
 我们分析一下，new 一个对象之后，返回的是什么，以及它的内部做了哪些操作？
 - 一个继承aninmal的对象cat被创建
-- cat.__proto__ === aninmal.prototype
+- `cat.__proto__ === aninmal.prototype`
 - 需要执行构造函数aninmal，并将this 指向新创建的对象实例cat
 - 返回被一个新对象
     - 如果构造函数没有显示返回，怎返回this
@@ -60,7 +60,7 @@ let cc = new parent('jack', 'male')
 console.log(cc) 
 ```
 
-### 模拟call实现
+#### 二：模拟call实现
 
 > call() 方法使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数。 -MDN
 
@@ -108,7 +108,7 @@ function bb(params) {
 let obj = {aa: 456}
 let cc = bb.call(obj, 456) // {aa: 345, bb: 123}
 ```
-### apply 模拟的实现
+#### 三： apply 模拟的实现
 我们既然实现了call的实现，那么 apply实现起来就简单多了
 > apply() 方法调用一个具有给定this值的函数，以及以一个数组（或类数组对象）的形式提供的参数。- MDN 
 
@@ -142,38 +142,75 @@ let obj = {aa: 456}
 let cc = bb.apply(obj, [3,4,5]) // {aa: 345, bb: 123}
 ```
 
-### 接下来，我们来实现bind
+#### 四：接下来，我们来实现bind
 > bind() 方法创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被指定为 bind() 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。 -MDN
 
 先来2个简单的例子
 
 ```js
-function rose (name, gender, hobby) {
-    this.name = name
+function rose (gender, hobby) {
     this.gender = gender
     this.hobby = hobby
+    console.log('name==>', this.name)
+    return this
 }
 let jack = {
     name : 'jack'
 }
-let extendRose = rose.bind(jack, 'jack', 'female',  ['swimming', 'football'])
+
+let extendRose = rose.bind(jack, 'female',  ['swimming', 'football'])
+console.log(extendRose())  
+// { name: 'jack', gender: 'female', hobby: [ 'swimming', 'football' ] }
+
+
+let extendRose = rose.bind(jack, 'female',  ['swimming', 'football'])
 let person = new extendRose()  
 console.log(person)
-// rose {
-//   name: 'jack',
-//   gender: 'female',
-//   hobby: [ 'swimming', 'football' ]
-// }
+// 值得注意的是： 通过构造函数返回，this仍然是rose的实例
+// name==> undefined： rose 当前 name没有赋值
+// rose { gender: 'female', hobby: [ 'swimming', 'football' ] }
 ```
 
 ```js
 let name = 'jack'
-function getPerson () {
+function getPerson (gender) {
     console.log(this.name)
+    console.log('gender===>', gender)
 }
 let obj = {
     name: 'rose'
 }
-let sayName = getName.bind(obj, 'male')
+let person = getPerson.bind(obj, 'male')
+person()
+// 输出: 参数被带入了被bind的新函数
+// rose 成功被绑定为obj
+// gender===> male
+```
+通过以上的例子，我们来分析一下如何模拟一个bind，我们结合rose,jack例子来说明
+- rose.bind(jack, b, c)  返回一个新的函数extendRose，函数的this指向 jack, 内置参数是 b, c
+- extendRose 如果是通过new来调用的，则实例对象仍是rose的实例， this指向rose的实例。
+
+接下来，我们来实现一个bind
+
+```js
+Function.prototype.bind = function (context, ...bindArgs) {
+    // 不是函数绑定直接报错
+    if (typeof this !== 'function') {
+        throw new Error('this must be a function')
+    }
+    // 调用函数
+    let fn = this
+    let fbound = function(...args) {
+        args = [...bindArgs, ...args]
+        // 看下面的关键点，来理解这一句代码
+        return fn.apply(this instanceof fn ? this : context, args)
+    }
+    // this 是当前被绑定的函数
+    // 关键点：this 有原型对象，返回的函数不能丢失this原型链对象上的属性
+    if (this.prototype) {
+        fbound.prototype = Object.create(this.prototype)
+    }
+    return fbound
+}
 ```
 
