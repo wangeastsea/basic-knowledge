@@ -254,7 +254,7 @@ function throttle5(fn, interval) {
 <body>
     <div class="test">
         一个左右两列布局的查看文章页面，左侧为文章大纲结构，右侧为文章内容。现在需要添加一个功能，就是当用户滚动阅读右侧文章内容时，左侧大纲相对应部分高亮显示，提示用户当前阅读位置。这个功能的实现思路比较简单，滚动前先记录大纲中各个章节的垂直距离，然后监听 scroll 事件的滚动距离，根据距离的比较来判断需要高亮的章节。 
-    </div>
+    </div>  
     <script>
         const ele = document.querySelector('.test')
         function scrollFn (e) {
