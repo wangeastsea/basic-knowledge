@@ -334,7 +334,9 @@ cc.then().then().then().then((res) => {
 Promise.resolve().then(() => {
     //a
     console.log(0)
-    return 4
+    // return 4
+    //http://live.vhall.com/144707526 视频解析
+    return Promise.resolve(4)
 }).then((res) => {
     //c 
     console.log(res)

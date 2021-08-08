@@ -1,10 +1,11 @@
 Promise.resolve().then(() => {
     //a
     console.log(0)
-    // c
+    // 
     return Promise.resolve(4)
+    // return 4
 }).then((res) => {
-    // e
+    // c
     console.log(res)
 })
 
@@ -21,6 +22,10 @@ Promise.resolve().then(() => {
 }).then(() => {
     console.log(6)
 })
+
+
+// [a, b, c, d,]
+// 0, 1, 4, 2, 3,4,5
 
 // 0, 1,2,3,4,5,6
 
