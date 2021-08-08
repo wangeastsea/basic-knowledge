@@ -16,6 +16,7 @@ Promise.resolve().then(() => {
     // d
     console.log(2)
 }).then(() => {
+    // e 
     console.log(3)
 }).then(() => {
     console.log(5)
@@ -27,6 +28,8 @@ Promise.resolve().then(() => {
 // [a, b, c, d,]
 // 0, 1, 4, 2, 3,4,5
 
+
+// [a,b, d, ]
 // 0, 1,2,3,4,5,6
 
 /**
