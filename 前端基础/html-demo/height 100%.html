@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body {
+            margin: 0px;
+            height: 100%;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            height: 100%;
+            overflow: auto;
+            background-color: green;
+        }
+        .main {
+            overflow: auto;
+            /* flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ] 默认值为0 1 auto  * /
+            /* flex: 1 1 0px; */
+            /* flex: 1 1 0%; */
+            flex: 1 1 auto;
+            /* flex: 1; */
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            sadfasdf
+        </div>
+        <div class="main"></div>
+        <div class="bottom">
+            asdfasdf
+        </div>
+    </div>
+</body>
+</html>

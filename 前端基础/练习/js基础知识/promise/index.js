@@ -124,3 +124,5 @@ p1.then(() => {}, (reason) => {
 // cc.then().then().then().then((res) => {
 //     console.log(res);
 // })
+// promise 测试例
+// https://github.com/promises-aplus/promises-tests/blob/master/lib/tests/2.3.3.js  
