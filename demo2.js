@@ -1,10 +1,20 @@
-var f = fun()
-function handle(res){
-    if (res.done) return 
-    res.value.then(function (data) {
-        // 递归调用
-        handle(f.next(data))
-    })
-}
+// var fs = require("fs");
 
-handle(f.next())
+// fs.access('./test1.js', fs.constants.F_OK, err => {
+//     console.log(err)
+//     console.log(`test.js ${err ? 'does not exist' : 'exists'}`);
+// })
+
+let date = new Date()
+let year = date.getFullYear()
+let month = date.getMonth()+1
+let day = date.getDate()
+let 
+console.log(
+    str.getFullYear(),
+    str.getMonth()+1, 
+    str.getDate(),
+    str.getHours(), 
+    str.getMinutes(),
+    str.getSeconds()
+    )
