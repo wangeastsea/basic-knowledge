@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>auto 水平垂直居中</title>
+</head>
+<style>
+  .container {
+    position: relative;
+    height: 300px;
+    border: 1px solid red;
+  }
+
+  /*让绝对定位的div居中*/
+  .item {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: red;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="item">
+
+    </div>
+  </div>
+</body>
+
+</html>

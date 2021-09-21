@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body{
+            margin: 0;
+        }   
+        /* 默认是content-box */
+        * {
+            box-sizing: border-box;
+        }
+        #ch {
+            height: 200px;
+            padding: 10px;
+            background-color: red;
+            width: 200px;
+            overflow: scroll;
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div id="ch">
+            akdsjfkjfaksdjfkasjdfk;adsfkajsd;fjaskd;fjaksdfjaksdjfkasjdfkajsdfkajsdkfjaskdfjaksdfjkasdjfk
+    </div>
+    <script>
+        // console.log(document.body)
+        // console.log(document)
+        // console.log(document.documentElement)
+        // 当前元素的高度，不包含滚动条
+        console.log('clientHeight', document.querySelector('#ch').clientHeight)
+        // 当前元素的高度，包括border和滚动条
+        console.log('offsetHeight', document.querySelector('#ch').offsetHeight)
+        //包含被滚动隐藏的所有区域，不包括滚动条
+        console.log('scrollHeight' ,document.querySelector('#ch').scrollHeight)
+        console.log('scrollWidth' ,document.querySelector('#ch').scrollWidth)
+
+        // 当前元素border的厚度，不包括顶部外边距或内边距
+        console.log('clientTop' ,document.querySelector('#ch').clientTop)
+        // Element.scrollTop 属性可以获取或设置一个元素的内容垂直滚动的像素数。 var  intElemScrollTop = someElement.scrollTop;
+        console.log('scrollTop' ,document.querySelector('#ch').scrollTop)
+    </script>
+</body>
+</html>

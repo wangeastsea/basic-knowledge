@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*document 输出的是#document对象*/
+        /*document.documentElement 输出的是html对象*/
+        /*document.body 输出的是body对象*/
+        /*因此：documentElement 与 body是父子级的关系*/
+        div {
+            height: 400px;
+            border: 1px solid red;
+            /* position: relative; */
+        }
+        #center {
+            position: relative;		/* 相对定位或绝对定位均可 */
+            width:500px;
+            height:300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: pink;	 	/* 方便看效果 */
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="center"></div>
+</div>
+</body>
+</html>
