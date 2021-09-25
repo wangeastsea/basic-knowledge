@@ -47,3 +47,10 @@ function promiseChain2(promiseCreatorList) {
 }
 
 promiseChain2(promiseCreatorList)
+
+// 通过async await 的方式
+async function promiseChain3(promiseCreatorList) {
+    for(const createPromise of promiseCreatorList) {
+        await createPromise()
+    }
+}

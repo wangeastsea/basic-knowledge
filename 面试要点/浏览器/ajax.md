@@ -77,7 +77,7 @@ XMLHttpRequest 的回调函数主要有下面几种：
 结合此图来看：
 ![image.png](https://upload-images.jianshu.io/upload_images/5016475-b3ba17520fd096f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/840)
 
-渲染进程会将请求发送给网络进程，然后网络进程负责资源的下载，等网络进程接收到数据之后，就会利用 IPC 来通知渲染进程；渲染进程接收到消息之后，会将 xhr 的回调函数封装成任务并添加到消息队列中，等主线程循环系统执行到该任务的时候，就会根据相关的状态来调用对应的回调函数
+渲染进程会将请求发送给网络进程，然后网络进程负责资源的下载，等网络进程接收到数据之后，就会利用 IPC（Inter-Process Communication）来通知渲染进程；渲染进程接收到消息之后，会将 xhr 的回调函数封装成任务并添加到消息队列中，等主线程循环系统执行到该任务的时候，就会根据相关的状态来调用对应的回调函数
 
 #### ajax的跨域问题：
 CORS http://www.ruanyifeng.com/blog/2016/04/cors.html
