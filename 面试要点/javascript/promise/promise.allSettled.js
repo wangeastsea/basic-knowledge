@@ -12,7 +12,7 @@ Promise.allSettled = function (promises) {
                  return {
                      status: 'rejected',
                      reason: e
-                 }
+                 } 
              }
         )
     ))

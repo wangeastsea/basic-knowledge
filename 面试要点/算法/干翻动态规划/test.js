@@ -1,8 +1,16 @@
-function Knapsack(n, c, wt, values) {
-    let dp = createTwoArray(n,c)
-    // console.log(dp);
-    for(let i = 1 ; i <= n; i++ ) {
-        for(let w = 1; w <= c; w++) {
+/**
+ * 0-1背包问题
+ * @param {Number} N 物品总数
+ * @param {Number} W 背包容量
+ * @param {Array} wt 物品重量数组
+ * @param {Array} values 物品价值数组
+ * @returns Number 背包能装的最大价值
+ */
+function Knapsack(N, W, wt, values) {
+    let dp = Array.from(new Array(N+1), () => new Array(W+1).fill(0))
+    console.log(dp);
+    for(let i = 1 ; i <= N; i++ ) {
+        for(let w = 1; w <= W; w++) {
             if(w - wt[i-1]< 0) {
                 // 不放入背包
                 dp[i][w] = dp[i-1][w]
@@ -17,25 +25,8 @@ function Knapsack(n, c, wt, values) {
             }
         }
     }
-    return dp[n][c]
+    return dp[N][W]
 }
-
-function createTwoArray (n, c) {
-    let arr = []
-    for(let i = 0 ; i<=n; i++) {
-        arr[i] = []
-        for(let j = 0 ; j<= c; j++) {
-            if( i ===0 || j ===0)
-            arr[i][j] = 0
-        }   
-    }
-    return arr
-}
-
-
-
-
-
 
 function Knapsack2(n, c, w, value) {
     // dp是动态规划的状态保存数组
@@ -56,57 +47,12 @@ function Knapsack2(n, c, w, value) {
 }
 
 
-function main(v,w,W){
-    var n = v.length;
-    var c = [];
-    var use = [];
-    for(var i = 0; i <= n ; i++){
-        c[i] = [];
-        use[i] = 0;
-        for(var j = 0; j <= W ; j++){
-            if(i == 0 || j == 0){
-                c[i][j] = 0;
-            }
-        }
-    }
-     
-    v.unshift(0); //第0件物品，价值为0
-    w.unshift(0); //第0件物品，重量为0
-    for(var i = 1; i <= n; i++){
-        for(var j = 1; j <= W; j++ ){
-            if(j < w[i]){
-                c[i][j] = c[i-1][j];
-            }else{
-                c[i][j] = Math.max(c[i-1][j],c[i-1][j-w[i]]+v[i]);
-            }
-             
-        }
-    }
-     
-    //逆向获取加入的物品
-    var j = W;
-    for(var i = n; i > 0; i--){
-        if(c[i][j] > c[i-1][j]){
-            use[i] = 1;
-            j=j-w[i];
-        }
-    }
-     
-    console.log(use);
-     
-    return c[n][W];
-}
-
-// console.log(Knapsack2(8,1000, 
-//     [20,40,60,200,400,40,30,90], 
-//     [100,900,300, 40, 50, 100, 200, 20]))
+console.log(Knapsack(7, 12, 
+    [2,4,6,2,8,3,9], 
+    [100,900,300, 40, 50, 100, 200, 20]))
 
 
-// console.log(main(
-//     [100,900,300, 40, 50, 100, 200, 20],
-//     [20,40,60,200,400,40,30,90],
-//     1000
-//      ));
+
 
 
 
@@ -134,4 +80,4 @@ const lengthOfLIS = function(nums) {
     return maxLen
 }
 
-console.log(lengthOfLIS([1,3,2,4,6,7,4]));
+// console.log(lengthOfLIS([1,3,2,4,6,7,4]));
