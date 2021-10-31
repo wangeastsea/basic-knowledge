@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九宫格布局</title>
+    <style>
+        html * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul, li {
+            list-style: none;
+        }
+        .wrap {
+            margin: 20px;
+            width: 600px;
+            /* height: 600px; */
+            background-color: blanchedalmond;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .wrap > li {
+            width:200px;
+            height: 200px;
+            background-color: burlywood;
+            border: 4px solid black;
+            text-align: center;
+            line-height: 200px;
+            margin-left: -4px;
+            margin-top: -4px;
+        }
+        .wrap li:nth-child(3n+1) {
+            margin-left: 0px;
+        }
+        .wrap li:nth-child(1){
+            margin-top: 0px; 
+        }
+        .wrap li:nth-child(2){
+            margin-top: 0px; 
+        }
+        .wrap li:nth-child(3){
+            margin-top: 0px; 
+        }
+        .wrap li:hover {
+            border-color: red;
+            /* 提高显示层级 */
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <ul class="wrap">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li> 
+        <li>9</li>
+    </ul>
+    <script>
+    </script>
+</body>
+</html>
+
+<!-- 考点： 
+- flex布局
+- box-sizing 
+- css3 选择器
+- z-index  
+- 负边距 -->

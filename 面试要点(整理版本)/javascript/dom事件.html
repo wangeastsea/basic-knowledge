@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="ev">
+        <style>
+            #ev {
+                width: 300px;
+                height: 100px;
+                background-color: red;
+                color: #fff;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+        target
+    </div>
+    <script>
+        let ev = document.getElementById('ev')
+        window.addEventListener("click", () => {
+            console.log('window')
+        }, true)
+        document.addEventListener("click", () => {
+            console.log('document')
+        }, true)
+        document.documentElement.addEventListener("click", () => {
+            console.log('html')
+        }, true)
+        document.body.addEventListener("click", () => {
+            console.log('body')
+        }, true)
+        ev.addEventListener("click", () => {
+            console.log('ev')
+        }, true)
+
+        let eve = new Event('test')
+        ev.addEventListener('test' , () => {
+            console.log("test")
+        })
+        ev.dispatchEvent(eve)
+    </script>
+</body>
+</html>
+
+<!-- dom事件类 -->
+
+<!-- - dom事件的级别：
+    DOM0: element.onclick = function () {}
+    DOM2: element.addEventListener("click", function() {}, false)
+    DOM3:  增加了一些事件类型 element.addEventListener("keyup", function() {}, false)
+- dom事件模型： 
+   捕获或者冒泡
+- dom事件流
+    捕获 -> target -> 冒泡
+- dom 捕获的流程
+    window -> document -> html -> body -> .... -> 目标阶段
+- event 对象的常见应用
+    event.preventDefault() 阻止默认行为  例如a标签的默认跳转
+    event.stopPropagation() 阻止冒泡
+    event.stopImmediatePropagation() 阻止同一个dom绑定了2个事件的时候，可以阻止后面事件的发生
+    event.currnetTarget 绑定事件的元素， 事件委托的场景，一般是父级元素
+    event.target    触发事件的元素
+- 自定义事件
+    let eve = new Event('custome')
+    ev.addEventListener('customer', function () {
+    })
+    ev.dispatchEvent(eve)
+
+    注意 CustomEvent可以指定参数 -->

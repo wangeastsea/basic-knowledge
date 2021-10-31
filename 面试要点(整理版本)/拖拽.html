@@ -1,0 +1,48 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+        }
+        #drag {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="drag"></div>
+    <script>
+        let drag = document.querySelector('#drag')
+        console.log(drag)
+        // 保存鼠标点击的一瞬间，点击位置
+        let position = {x: 0, y: 0}
+        drag.onmousedown = function (e) {
+            position.x = e.clientX - drag.offsetLeft
+            position.y = e.clientY - drag.offsetTop
+            console.log(position)
+            document.onmousemove = function (e) {
+                let X = e.clientX - position.x 
+                let Y = e.clientY - position.y
+                drag.style.left = X + 'px'
+                drag.style.top = Y + 'px'
+            }
+            document.onmouseup = function (e) {
+                position.x = 0
+                position.y = 0
+                document.onmousemove = null
+                document.onmouseup = null
+            }
+        }
+    </script>
+</body>
+</html>
+```

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <style>
+        html * {
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        #drag {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="drag">
+    </div>
+    <script>
+        let drag = document.querySelector('#drag')
+        let position  = {x: 0, y: 0}
+        drag.onmousedown = function (e) {
+            position.x = e.clientX - drag.offsetLeft
+            position.y = e.clientY - drag.offsetTop
+            document.onmousemove = function (e) {
+                drag.style.left = (e.clientX - position.x) + 'px'
+                drag.style.top = (e.clientY - position.y) + 'px'
+            } 
+            document.onmouseup = function (e) {
+                position.x = 0
+                position.y = 0
+                document.onmousemove = null
+                document.onmouseup = null
+            }
+        }
+    </script>
+</body>
+</html>
